@@ -1,8 +1,3 @@
-Easy-Bootstrap-Shortcode
-========================
-
-Easy Bootstrap Shortcode enable you to add bootstrap styles in your pages, post and custom post in simpliest manner
-
 # Wordpress Easy Bootstrap Shortcode Plugin
 
 **Wordpress Easy Bootstrap Shortcode Plugin** is bootstrap 3.0 compatible plugin which add icons to **wordpress editor (tinyMCE Shortcode Buttons)** and one can add bootstrap style to their website just by clicking on tinyMCE  editor icon.
