@@ -2,6 +2,8 @@
 
 **Wordpress Easy Bootstrap Shortcode Plugin** is bootstrap 3.0 compatible plugin which add icons to **wordpress editor (tinyMCE Shortcode Buttons)** and one can add bootstrap style to their website just by clicking on tinyMCE  editor icon.
 
+![Wordpress Bootstrap Shortcode](https://lh5.googleusercontent.com/-5TLnO1hTjrE/UjHfsI_34SI/AAAAAAAAAto/MYPgF9nW2aA/w668-h540-no/easy.png)
+
 Features:  
 1. simpliest bootstrap style plugin ever
 2. Bootstrap 3.0 compatible
