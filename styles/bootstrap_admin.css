@@ -1,0 +1,38 @@
+.form-table {
+    border: 1px solid #9E9EA0;
+}
+.form-table th{
+    font-weight: bold;
+}
+
+
+.form-table tr:nth-child(odd){
+    background: #D6D6D6;
+}
+.form-table tr:nth-child(even){
+    background: #F0F0F0;
+}
+.form-table td {
+    border-left: 1px solid #AAAAAE;
+    min-width: 150px;
+}
+
+.tb_multiple_column {
+    border: 1px solid #C1BCC4 !important;
+}
+
+.tb_multiple_column thead tr {
+    background: none repeat scroll 0 0 #C2C2C2 !important;
+}
+
+.tb_multiple_column tbody tr:nth-child(even) {
+    background: none repeat scroll 0 0 #D7D7D7 !important;
+}
+
+.tb_multiple_column tbody tr:nth-child(odd) {
+    background: none repeat scroll 0 0 #ECECEC !important;
+}
+
+.tb_multiple_column td {
+    border: 0 none;
+}
