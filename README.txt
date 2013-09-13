@@ -20,18 +20,17 @@ Features:
 5. Shortcode added to editor by clicking on icon
 6. Customize grid size on small, extra-small and medium sized screens
 
-Easy Bootstrap Press provides following styles
+Easy Bootstrap Shortcode provides following styles
 
 Typography
 
 	1. Buttons 
 	2. Icon Heading
-	3. Horizontal rule
-	4. Tables
-	5. Table Header and Body 
-	6. Table Cells
-	7. Different table styles
-	8. Responsive
+	3. Tables
+	4. Table Header and Body 
+	5. Table Cells
+	6. Different table styles
+	7. Responsive
 
 Grid
 	1. Add multiple volumns in a row

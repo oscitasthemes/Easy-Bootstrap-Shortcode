@@ -1,26 +1,5 @@
 <?php
 
-function get_current_post_type() {
-    global $post, $typenow, $current_screen;
-
-//we have a post so we can just get the post type from that
-    if ($post && $post->post_type)
-        return $post->post_type;
-//check the global $typenow - set in admin.php
-    elseif ($typenow)
-        return $typenow;
-//check the global $current_screen object - set in sceen.php
-    elseif ($current_screen && $current_screen->post_type)
-        return $current_screen->post_type;
-//lastly check the post_type querystring
-    elseif (isset($_REQUEST['post_type']))
-        return sanitize_key($_REQUEST['post_type']);
-//we do not know the post type!
-    elseif (isset($_REQUEST['post']))
-        return get_post_type($_REQUEST['post']);
-    return null;
-}
-
 // Add Shortcode buttons in TinyMCE
 $elements = array(
     'toggles',
@@ -37,22 +16,12 @@ $elements = array(
     'popover'
 );
 
-
-
-
-
 foreach ($elements as $element) {
     include( $element . '/plugin_shortcode.php');
 }
 
-include('widgets-shortcodes.php');
 
 // --------------------------------------------------------------------------------------------------------------
-
-function my_refresh_mce($ver) {
-    $ver += 3;
-    return $ver;
-}
 
 add_action('init', 'add_custom_button');
 

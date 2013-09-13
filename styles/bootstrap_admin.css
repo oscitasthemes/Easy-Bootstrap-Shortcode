@@ -4,6 +4,7 @@
 .form-table th{
     font-weight: bold;
 }
+#oscitas-form-iconhead .form-table th{ width:120px }
 
 
 .form-table tr:nth-child(odd){

@@ -11,7 +11,6 @@ function osc_theme_toggles( $params, $content = null) {
     ), $params ) );
     $_oscitas_accordion[$id] = array();
 	$scontent = do_shortcode($content);
-    //print_r($_oscitas_accordion);
 	if(trim($scontent) != ""){
 		$output = '<div class="panel-group" id="oscitas-accordion-'.$id.'">'.implode('', $_oscitas_accordion[$id]['details']);
 		$output .= '</div>';

@@ -117,10 +117,7 @@ jQuery(function() {
         shortcode += ' style="' + table.find('#oscitas-tooltip-style').val();
 
         shortcode += '" ';
-        //shortcode += ' btntag="'+table.find('#oscitas-button-type').val()+'" ';
-
-
-
+      
         shortcode += ']';
         shortcode+= table.find('#oscitas-tooltip-link-text').val();
         shortcode+='[/tooltip]';

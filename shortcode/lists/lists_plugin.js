@@ -42,17 +42,17 @@ jQuery(function(){
 			<tr>\
 				<th><label for="oscitas-type">Lists style</label></th>\
 				<td><select name="type" id="oscitas-type">\
-					<option value="arrow-list">Arrow</option>\
-					<option value="check-list">Check</option>\
-                    <option value="x-list">x-Style</option>\
-					<option value="plus-list">Plus</option>\
-                    <option value="minus-list">Minus</option>\
+                                        <option value="">None</option>\
+					<option value="glyphicon-arrow-right">Arrow</option>\
+					<option value="glyphicon-ok">Check</option>\
+					<option value="glyphicon-plus">Plus</option>\
+                    <option value="glyphicon-minus">Minus</option>\
 				</select><br />\
 				</td>\
 			</tr>\
 			<tr>\
 				<th><label for="oscitas-line">No of List Item</label></th>\
-				<td><input type="oscitas-list-item" name="line" id="oscitas-list-item"/><br /><small>Enter a numeric value</small>\
+				<td><input type="oscitas-list-item" name="line" id="oscitas-list-item" value="3"/><br /><small>Enter a numeric value</small>\
 				</td>\
 			</tr>\
 		</table>\
@@ -71,7 +71,7 @@ jQuery(function(){
         // but well, this gets the job done nonetheless
         var options = { 
             'type'       : 'arrow'
-        },list=0;
+        },list=0,list_type;
         var shortcode = '[list';
         var list_item=jQuery('#oscitas-list-item').val();
         if(isNaN(list_item)==false){
@@ -79,17 +79,17 @@ jQuery(function(){
         } else{
             list=3;
         }	
-        for( var index in options) {
-            var value = table.find('#oscitas-' + index).val();
-				
-            // attaches the attribute to the shortcode only if it's different from the default value
-            //if ( value !== options[index] )
-            shortcode += ' ' + index + '="' + value + '"';
-        }
+     
 
         shortcode += ']<br/>';
+        if(table.find('#oscitas-type').val()!=''){
+            list_type=' type="'+table.find('#oscitas-type').val()+'"';
+        }
+        else{
+            list_type='';
+        }
         for(var i=1;i<=list;i++){
-            shortcode +='[li]your list content[/li]<br/>' 
+            shortcode +='[li'+list_type+']your list content[/li]<br/>' 
         }
         shortcode +='[/list]';
 			

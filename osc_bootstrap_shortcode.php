@@ -3,7 +3,7 @@
 /*
   Plugin Name: Easy Bootstrap Shortcode
   Plugin URI: http://www.oscitasthemes.com
-  Description: Add bootstrap 3.0 styles to your theme by wordpress editor shortcode buttons
+  Description: Add bootstrap 3.0 styles to your theme by wordpress editor shortcode buttons.
   Version: 1.0
   Author: Oscitas Themes
   Author URI: http://www.oscitasthemes.com
@@ -17,7 +17,6 @@ function osc_add_admin_shortcode_scripts() {
     if ('post-new.php' == $pagenow || 'post.php' == $pagenow) {
         wp_enqueue_script('jquery');
         wp_enqueue_script('colorpickerjs', plugins_url('/js/colorpicker.js', __FILE__));
-        wp_enqueue_script('bootstrap', plugins_url('/js/bootstrap.js', __FILE__));
         wp_enqueue_script('jquery.fancybox', plugins_url('/js/jquery.fancybox.js', __FILE__));
         wp_enqueue_style('fancyboxcss', plugins_url('/styles/jquery.fancybox.css', __FILE__));
         wp_enqueue_style('colorpickercss', plugins_url('/styles/colorpicker.css', __FILE__));

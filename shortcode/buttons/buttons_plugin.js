@@ -163,7 +163,7 @@ jQuery(function(){
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 			
-        // closes Thickbox
+        // closes fancybox
         jQuery.fancybox.close();
     });
 });
