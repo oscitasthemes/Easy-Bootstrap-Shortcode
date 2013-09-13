@@ -8,7 +8,6 @@ $elements = array(
     'buttons',
     'notifications',
     'wpcolumns',
-    //'rule',
     'tables',
     'tooltip',
     'iconhead',
