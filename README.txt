@@ -5,6 +5,8 @@ Tags: Wordpress Shortcodes, Wordpress Bootstrap, Wordpress Bootstrap Shortcode, 
 Requires at least: 3.0
 Tested up to: 3.6
 Stable tag: 3.4
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Easy Bootstrap Shortcode enable you to add bootstrap styles in your pages, post and custom post in 	    simpliest manner
 
@@ -13,7 +15,7 @@ Easy Bootstrap Shortcode enable you to add bootstrap styles in your pages, post 
 Easy Bootstrap Shortcode is bootstrap 3.0 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add bootstrap style to their website just by clicking on tinyMCE  editor icon.
 
 Features:  
-1. simpliest bootstrap style plugin ever
+1. simplest bootstrap style plugin ever
 2. Bootstrap 3.0 compatible
 3. No need to paste shortcode in editor
 4. Add icons to editor
@@ -33,7 +35,7 @@ Typography
 	7. Responsive
 
 Grid
-	1. Add multiple volumns in a row
+	1. Add multiple columns in a row
 	2. Choose desired column width
 	3. Add offset to columns
 	4. Provide facility to customize a column according to medium, small and extra-small sized screens.
@@ -59,5 +61,6 @@ In the admin panel, find Plugins->Plugins,click it, active Easy Bootstrap Shortc
 3.Use:
 Now you can see the few new buttons in the TinyMCE Editor in post and pages, use these buttons to create great responsive pages/posts content.
 
-Thats all so easy as name apply.
+That's all so easy as name apply.
+
 
