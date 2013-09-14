@@ -5,7 +5,7 @@
 ![Wordpress Bootstrap Shortcode](https://lh5.googleusercontent.com/-5TLnO1hTjrE/UjHfsI_34SI/AAAAAAAAAto/MYPgF9nW2aA/w668-h540-no/easy.png)
 
 Features:  
-1. simpliest bootstrap style plugin ever
+1. simplest bootstrap style plugin ever
 2. Bootstrap 3.0 compatible
 3. No need to paste shortcode in editor
 4. Add icons to editor
@@ -25,7 +25,7 @@ Easy Bootstrap Press provides following styles
 * Responsive
 
 ## Grid
-* Add multiple volumns in a row
+* Add multiple columns in a row
 * Choose desired column width
 * Add offset to columns
 * Provide facility to customize a column according to medium, small and extra-small sized screens.
