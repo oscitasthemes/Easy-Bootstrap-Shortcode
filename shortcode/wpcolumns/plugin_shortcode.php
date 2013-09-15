@@ -8,6 +8,7 @@ function osc_theme_row($params, $content = null) {
     $result = '<div class="row">';
     //echo '<textarea>'.$content.'</textarea>';
     $content = str_replace("]<br />", ']', $content);
+    $content = str_replace("<br />\n[", '[', $content);
     $result .= do_shortcode($content);
     $result .= '</div>';
 

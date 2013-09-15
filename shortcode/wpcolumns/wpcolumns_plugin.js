@@ -60,7 +60,7 @@ jQuery(function(){
                     <option value="two_third$one_third_last">2/3-1/3</option>\
                     <option value="one_fourth$three_fourth_last">1/4-3/4</option>\
                     <option value="three_fourth$one_fourth_last">3/4-1/4</option>\
-				</select><br />\
+				</select> For Large Screen<br />\
 				</td>\
 			</tr>\
 			<tr id="wpthree" style="display:none;">\
@@ -70,7 +70,7 @@ jQuery(function(){
 					<option value="one_fourth$one_fourth_second$one_half_last">1/4-1/4-2/4</option>\
                     <option value="one_half$one_fourth_second$one_fourth_last">2/4-1/4-1/4</option>\
                     <option value="one_third$one_third_second$one_third_last">1/3-1/3-1/3</option>\
-				</select><br />\
+				</select> For Large Screen<br />\
 			</tr>\
                         <tr id="">\
                         <th><label for="append_column_table">Column Specification</label></th>\
@@ -88,7 +88,8 @@ jQuery(function(){
         
         var ele='',e=0,sm,md,off,xs,sel;
         var col= jQuery('#oscitas-no-of-wpcolumns').val();
-        ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Column</th><th>Medium</th><th>Small</th><th>X-Small</th><th>Offset</th></tr></thead>';
+        ele = '<i>You can select different column style for different screens such as medium, small(e.g 480px), x-small(e.g 320px)</i><br/>';
+        ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Column</th><th>Medium Screen</th><th>Small Screen</th><th>x-small Screen</th><th>Large Screen Offset</th></tr></thead>';
         for(var i=1;i<=col;i++){
             sm='<select name="sm['+i+']" id="sm'+i+'">';
             for( e=1;e<=12;e++){
@@ -129,8 +130,8 @@ jQuery(function(){
         ele +='</table>';
         table.find('#append_column_table').html(ele);
         
-        jQuery('table tr:visible:even').css('background', '#F0F0F0');
-        jQuery('table tr:visible:odd').css('background', '#DADADD');
+        jQuery('#oscitas-form-wpcolumns table tr:visible:even').css('background', '#F0F0F0');
+        jQuery('#oscitas-form-wpcolumns table tr:visible:odd').css('background', '#DADADD');
     }
     
     show_table();
