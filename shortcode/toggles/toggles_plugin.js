@@ -2,10 +2,10 @@
     tinymce.create('tinymce.plugins.oscitasToggles', {
         init : function(ed, url) {
             ed.addButton('oscitastoggles', {
-                title : 'Toggles Shortcodes',
+                title : 'Toggle Shortcode',
                 image : url+'/icon.png',
                 onclick : function() {
-                    ed.selection.setContent('[toggles]<br/>[toggle title="Accordion number 1"]Toggle 1 content goes here.[/toggle]<br/>[toggle title="Accordion number 2"]Toggle 2 content goes here.[/toggle]<br/>[toggle title="Accordion number 3"]Toggle 3 content goes here.[/toggle]<br/>[toggle title="Accordion number 4"]Toggle 4 content goes here.[/toggle]<br/>[/toggles]');					        
+                    ed.selection.setContent('[toggles class="yourcustomclass"]<br/>[toggle title="Accordion number 1"]Toggle 1 content goes here.[/toggle]<br/>[toggle title="Accordion number 2"]Toggle 2 content goes here.[/toggle]<br/>[toggle title="Accordion number 3"]Toggle 3 content goes here.[/toggle]<br/>[toggle title="Accordion number 4"]Toggle 4 content goes here.[/toggle]<br/>[/toggles]');					        
                 }
             });
         },
@@ -14,11 +14,11 @@
         },
         getInfo : function() {
             return {
-                longname : "Toggles Shortcode",
+                longname : "Toggle Shortcode",
                 author : 'Oscitas Themes',
                 authorurl : 'http://www.oscitasthemes.com/',
                 infourl : 'http://www.oscitasthemes.com/',
-                version : "1.0"
+                version : "2.0.0"
             };
         }
     });

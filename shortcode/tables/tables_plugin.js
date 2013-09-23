@@ -2,12 +2,13 @@
     tinymce.create('tinymce.plugins.oscitasTables', {
         init : function(ed, url) {
             ed.addButton('oscitastables', {
-                title : 'Create Tables',
+                title : 'Table Shortcode',
                 image : url+'/icon.png',
                 onclick : function() {
+                    create_oscitas_table();
                     jQuery.fancybox({
                         'type' : 'inline',
-                        'title' : 'Tables Shortcode',
+                        'title' : 'Table Shortcode',
                         'href' : '#oscitas-form-table',
                         
                         helpers:  {
@@ -25,18 +26,21 @@
         },
         getInfo : function() {
             return {
-                longname : "Tables Shortcode",
+                longname : "Table Shortcode",
                 author : 'Oscitas Themes',
                 authorurl : 'http://www.oscitasthemes.com/',
                 infourl : 'http://www.oscitasthemes.com/',
-                version : "1.0"
+                version : "2.0.0"
             };
         }
     });
     tinymce.PluginManager.add('oscitastables', tinymce.plugins.oscitasTables);
 })();
 
-jQuery(function(){
+function create_oscitas_table(){
+    if(jQuery('#oscitas-form-table').length){
+        jQuery('#oscitas-form-table').remove();
+    }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
     var form = jQuery('<div id="oscitas-form-table"><table id="oscitas-table" class="form-table">\
@@ -81,6 +85,11 @@ jQuery(function(){
                     <br />\
 				</td>\
 			</tr>\
+                        <tr>\
+				<th><label for="oscitas-table-class">Custom Class:</label></th>\
+				<td><input type="text" name="line" id="oscitas-table-class" value=""/><br />\
+				</td>\
+			</tr>\
 		</table>\
 		<p class="submit">\
 			<input type="button" id="oscitas-submit" class="button-primary" value="Insert Table" name="submit" />\
@@ -95,7 +104,10 @@ jQuery(function(){
         // defines the options and their default values
         // again, this is not the most elegant way to do this
         // but well, this gets the job done nonetheless
-        
+        var cusclass='';
+        if(table.find('#oscitas-table-class').val()!=''){
+            cusclass= ' class="'+table.find('#oscitas-table-class').val()+'"';
+        }
         var columns = table.find('#oscitas-table-columns').val();
         var rows = table.find('#oscitas-table-rows').val();
         var value = table.find('#oscitas-table-width').val();
@@ -106,8 +118,8 @@ jQuery(function(){
         //creating table
         var shortcode = '[table ';
         shortcode += 'width ="' + value + '"';
-        shortcode += ' class ="' + osStyle +osHover+ '"';
-        shortcode += ' responsive ="' +osScroll+ '"';
+        shortcode += ' style ="' + osStyle +osHover+ '"';
+        shortcode += ' responsive ="' +osScroll+ '"'+cusclass;
 
         shortcode += ']<br/>[table_head]<br/>';
         for (var i=1;i<=columns;i++)
@@ -135,5 +147,5 @@ jQuery(function(){
         // closes fancybox
         jQuery.fancybox.close();
     });
-});
+}
 

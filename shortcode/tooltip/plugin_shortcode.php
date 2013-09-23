@@ -9,14 +9,15 @@ function osc_theme_tooltip($params, $content = 'Tooltip') {
                 'type' => '',
                 'link' => '',
                 'tooltip' => '',
-                'style' => ''
+                'style' => '',
+                'class' => ''
                     ), $params));
     $out = '';
     if ($type == 'link') {
-        $out = '<a  href="' . $link . '" data-placement="' . $style . '" title="' . $tooltip . '"  class="osc_tooltip">' . $content . '</a>
+        $out = '<a  href="' . $link . '" data-placement="' . $style . '" title="' . $tooltip . '"  class="osc_tooltip ' . $class . '">' . do_shortcode($content) . '</a>
 ';
     } elseif ($type == 'button') {
-        $out = '<button type="button"  data-toggle="tooltip" data-placement="' . $style . '" title="' . $tooltip . '" class="osc_tooltip">' . $content . '</button>';
+        $out = '<button type="button"  data-toggle="tooltip" data-placement="' . $style . '" title="' . $tooltip . '" class="btn osc_tooltip ' . $class . '">' . do_shortcode($content) . '</button>';
     }
 
 

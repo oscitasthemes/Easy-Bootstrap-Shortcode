@@ -17,12 +17,19 @@
     border-left: 1px solid #AAAAAE;
     min-width: 150px;
 }
+#oscitas-form-dropdown .form-table td {
+    min-width: 184px;
 
-.tb_multiple_column {
+}
+.tb_multiple_column th{
+    min-width: 150px;
+    border: 0 none;
+}
+.tb_multiple_column,.tb_multiple_column_upper {
     border: 1px solid #C1BCC4 !important;
 }
 
-.tb_multiple_column thead tr {
+.tb_multiple_column thead tr, .tb_multiple_column_upper thead tr{
     background: none repeat scroll 0 0 #C2C2C2 !important;
 }
 
@@ -37,3 +44,61 @@
 .tb_multiple_column td {
     border: 0 none;
 }
+.tb_multiple_column_upper tbody tr:nth-child(even) {
+    background: none repeat scroll 0 0 #D7D7D7 !important;
+}
+
+.tb_multiple_column_upper tbody tr:nth-child(odd) {
+    background: none repeat scroll 0 0 #ECECEC !important;
+}
+
+.tb_multiple_column_upper td {
+    border: 0 none;
+}
+#osc_thumbnail_upload img, #osc_image_upload img{
+    float: right;
+    height: 70px;
+    width: 70px;
+}
+.tb_multiple_column #oscitas-append-dropdownitem {
+    display: block;
+    float: left;
+    height: 146px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+}
+#oscitas-form-dropdown .tb_multiple_column thead tr {
+    display: block;
+}
+#oscitas-form-dropdown .tb_multiple_column thead tr {
+    position: relative;
+    background: none repeat scroll 0 0 #D6D6D6 !important;
+}
+#oscitas-form-dropdown .tb_multiple_column thead tr th {
+    background: none repeat scroll 0 0 #C2C2C2 !important;
+}
+
+
+.head_division  {
+
+    float: left;
+    font-size: 10px;
+
+
+    text-align: left;
+    width: 45%;
+
+}
+.head_division.right{
+    text-align: right;
+}
+
+
+/*#oscitas-form-wpcolumns .tb_multiple_column thead th{
+    text-align: center;
+    padding: 10px 0 0 0;
+}*/
+/*#oscitas-form-wpcolumns .tb_multiple_column tbody td{
+    padding: 10px 0;
+}*/

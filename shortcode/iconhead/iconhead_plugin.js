@@ -5,6 +5,7 @@
                 title: 'Icon Heading Shortcode',
                 image: url + '/icon.png',
                 onclick: function() {
+                    create_oscitas_iconhead();
                     jQuery.fancybox({
                         'autoSize':false,
                         'autoWidth':false,
@@ -41,14 +42,18 @@
     tinymce.PluginManager.add('oscitasiconhead', tinymce.plugins.oscitasIconhead);
 })();
 
-jQuery(function() {
+function create_oscitas_iconhead(){
+    if(jQuery('#oscitas-form-iconhead').length){
+        jQuery('#oscitas-form-iconhead').remove();
+    }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
     var form = jQuery('<div id="oscitas-form-iconhead"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-heading-icon">Select Icon:</label></th>\
-				<td><div id="click_icon_list"><span id="osc_show_icon"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val" value="">\
-                    <div id="osc_show_iconlist" style="display:none;width:100%"><ul name="oscitas-heading-icon" id="oscitas-heading-icon">\
+				<td><div id="click_icon_list" class="oscitas-icon-div"><span id="osc_show_icon"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val" value="">\
+                    <div id="osc_show_iconlist" class="oscitas-icon" style="display:none;width:100%"><ul name="oscitas-heading-icon" id="oscitas-heading-icon" class="oscitas-icon-ul">\
+                    <li class="glyphicon" data-value="">null</li>\
                     <li data-value="glyphicon-adjust" class="glyphicon glyphicon-adjust"> </li>\
                     <li data-value="glyphicon-align-center" class="glyphicon glyphicon-align-center"> </li>\
                     <li data-value="glyphicon-align-justify" class="glyphicon glyphicon-align-justify"> </li>\
@@ -252,9 +257,26 @@ jQuery(function() {
         </ul></div>\
 				</td>\
 			</tr>\
+                        <tr>\
+				<th><label for="oscitas-iconhead-headingtype">Heading Type:</label></th>\
+				<td><select name="oscitas-iconhead-headingtype" id="oscitas-iconhead-headingtype">\
+                                <option value="h1">H1</option>\
+                                <option value="h2">H2</option>\
+                                <option value="h3">H3</option>\
+                                <option value="h4">H4</option>\
+                                <option value="h5">H5</option>\
+                                <option value="h6">H6</option>\
+                                </select><br />\
+				</td>\
+			</tr>\
 	        <tr>\
 				<th><label for="oscitas-iconhead-heading">Heading:</label></th>\
 				<td><input type="text" name="oscitas-iconhead-heading" id="oscitas-iconhead-heading" value="Heading"/><br />\
+				</td>\
+			</tr>\
+                        <tr>\
+				<th><label for="oscitas-iconhead-class">Custom Class:</label></th>\
+				<td><input type="text" name="line" id="oscitas-iconhead-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
@@ -288,12 +310,17 @@ jQuery(function() {
         // defines the options and their default values
         // again, this is not the most elegant way to do this
         // but well, this gets the job done nonetheless
-
-        var shortcode = '[iconheading';
-
-        shortcode += ' class="' + table.find('#osc_icon_class_val').val();
-
-        shortcode += '" ';
+        var type=jQuery('#oscitas-iconhead-headingtype').val();
+        var cusclass='',style='';
+        if(table.find('#osc_icon_class_val').val()!=''){
+            style=' style="' + table.find('#osc_icon_class_val').val()+'"' ;
+        }
+        if(table.find('#oscitas-iconhead-class').val()!=''){
+            cusclass= ' class="'+table.find('#oscitas-iconhead-class').val()+'"';
+        }
+        var shortcode = '[iconheading type="'+type+'"';
+        
+        shortcode += style+cusclass ;
         
         shortcode += ']'+table.find('#oscitas-iconhead-heading').val()+'[/iconheading]' ;
 
@@ -302,5 +329,5 @@ jQuery(function() {
 
         jQuery.fancybox.close();
     });
-});
+}
 

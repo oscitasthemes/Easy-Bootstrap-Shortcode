@@ -12,7 +12,14 @@ $elements = array(
     'tooltip',
     'iconhead',
     'panel',
-    'popover'
+    'popover',
+    'dropdown',
+    'labels',
+    'well',
+    'thumbnail',
+    'icon',
+    'image',
+    'progressbar'
 );
 
 foreach ($elements as $element) {

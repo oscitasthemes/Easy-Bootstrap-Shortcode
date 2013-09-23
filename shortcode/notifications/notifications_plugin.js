@@ -2,9 +2,10 @@
     tinymce.create('tinymce.plugins.oscitasNotifications', {
         init : function(ed, url) {
             ed.addButton('oscitasnotifications', {
-                title : 'Notifications Shortcodes',
+                title : 'Notifications Shortcode',
                 image : url+'/icon.png',
                 onclick : function() {
+                    create_oscitas_notification();
                     jQuery.fancybox({
                         'type' : 'inline',
                         'title' : 'Notifications Shortcode',
@@ -28,14 +29,17 @@
                 author : 'Oscitas Themes',
                 authorurl : 'http://www.oscitasthemes.com/',
                 infourl : 'http://www.oscitasthemes.com/',
-                version : "1.0"
+                version : "2.0.0"
             };
         }
     });
     tinymce.PluginManager.add('oscitasnotifications', tinymce.plugins.oscitasNotifications);
 })();
 
-jQuery(function(){
+function create_oscitas_notification(){
+    if(jQuery('#oscitas-form-notifications').length){
+        jQuery('#oscitas-form-notifications').remove();
+    }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
     var form = jQuery('<div id="oscitas-form-notifications"><table id="oscitas-table" class="form-table">\
@@ -52,6 +56,11 @@ jQuery(function(){
 			<tr>\
 				<th><label for="oscitas-line">Close link</label></th>\
 				<td><input type="checkbox" id="oscitas-close"/><br />\
+				</td>\
+			</tr>\
+                        <tr>\
+				<th><label for="oscitas-note-class">Custom Class:</label></th>\
+				<td><input type="text" name="line" id="oscitas-note-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
@@ -71,6 +80,10 @@ jQuery(function(){
         var options = { 
             'type'       : 'error'
         };
+        var cusclass='';
+        if(table.find('#oscitas-note-class').val()!=''){
+            cusclass= ' class="'+table.find('#oscitas-note-class').val()+'"';
+        }
         var shortcode = '[notification';
 			
         for( var index in options) {
@@ -82,12 +95,12 @@ jQuery(function(){
         }
         shortcode += ' close="'+(table.find('#oscitas-close').prop('checked')? 'true': 'false')+ '" ';
 			
-        shortcode += ']Title: Lorem ipsum dolor sit amet...[/notification]';
+        shortcode += cusclass+']Title: Lorem ipsum dolor sit amet...[/notification]';
 			
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 			
         jQuery.fancybox.close();
     });
-});
+}
 

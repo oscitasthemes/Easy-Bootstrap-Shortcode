@@ -5,6 +5,7 @@
                 title: 'Tooltip Shortcode',
                 image: url + '/icon.png',
                 onclick: function() {
+                    create_oscitas_tooltip();
                     jQuery.fancybox({
                         'type' : 'inline',
                         'title' : 'Tooltip Shortcode',
@@ -28,14 +29,17 @@
                 author : 'Oscitas Themes',
                 authorurl : 'http://www.oscitasthemes.com/',
                 infourl : 'http://www.oscitasthemes.com/',
-                version : "1.0"
+                version : "2.0.0"
             };
         }
     });
     tinymce.PluginManager.add('oscitastooltip', tinymce.plugins.oscitasTooltip);
 })();
 
-jQuery(function() {
+function create_oscitas_tooltip(){
+    if(jQuery('#oscitas-form-tooltip').length){
+        jQuery('#oscitas-form-tooltip').remove();
+    }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
     var form = jQuery('<div id="oscitas-form-tooltip"><table id="oscitas-table" class="form-table">\
@@ -65,12 +69,17 @@ jQuery(function() {
 			</tr >\
   <tr id="oscitas-tooltip-link-tr">\
 				<th><label for="oscitas-tooltip-link">Link:</label></th>\
-				<td><input type="text" name="tooltip-link" id="oscitas-tooltip-link" value="http://www.yoursite.com"/><br />\
+				<td><input type="text" name="tooltip-link" id="oscitas-tooltip-link" value="#"/><br />\
 				</td>\
 			</tr>\
 <tr>\
 				<th><label for="oscitas-tooltip-link-text">Value:</label></th>\
 				<td><input type="text" name="link-text" id="oscitas-tooltip-link-text" value="Hover Me"/><br />\
+				</td>\
+			</tr>\
+                        <tr>\
+				<th><label for="oscitas-tooltip-class">Custom Class:</label></th>\
+				<td><input type="text" name="line" id="oscitas-tooltip-class" value=""/><br />\
 				</td>\
 			</tr>\
 </table>\
@@ -82,19 +91,18 @@ jQuery(function() {
     var table = form.find('table');
     form.appendTo('body').hide();
     var colors = ['color', 'bgcolor'];
-    jQuery('table tr:visible:even').css('background', '#F0F0F0');
-    jQuery('table tr:visible:odd').css('background', '#DADADD');
+
     form.find('#oscitas-tooltip-type').change(function(){
         if(jQuery(this).val()=='link'){
             table.find('#oscitas-tooltip-link-tr').show();
-            table.find('#oscitas-tooltip-link').val('http://www.yoursite.com');
+            table.find('#oscitas-tooltip-link').val('#');
         } else{
             table.find('#oscitas-tooltip-link-tr').hide();
             table.find('#oscitas-tooltip-link').val('');
            
         }
-        jQuery('table tr:visible:even').css('background', '#F0F0F0');
-        jQuery('table tr:visible:odd').css('background', '#DADADD');
+        jQuery('#oscitas-table tr:visible:even').css('background', '#F0F0F0');
+        jQuery('#oscitas-table tr:visible:odd').css('background', '#DADADD');
     })
 
     // handles the click event of the submit button
@@ -102,7 +110,10 @@ jQuery(function() {
         // defines the options and their default values
         // again, this is not the most elegant way to do this
         // but well, this gets the job done nonetheless
-
+        var cusclass='';
+        if(table.find('#oscitas-tooltip-class').val()!=''){
+            cusclass= ' class="'+table.find('#oscitas-tooltip-class').val()+'"';
+        }
         var shortcode = '[tooltip';
         shortcode += ' type="' + table.find('#oscitas-tooltip-type').val();
 
@@ -116,7 +127,7 @@ jQuery(function() {
         shortcode += '" ';
         shortcode += ' style="' + table.find('#oscitas-tooltip-style').val();
 
-        shortcode += '" ';
+        shortcode += cusclass;
       
         shortcode += ']';
         shortcode+= table.find('#oscitas-tooltip-link-text').val();
@@ -128,5 +139,5 @@ jQuery(function() {
         // closes fancybox
         jQuery.fancybox.close();
     });
-});
+}
 

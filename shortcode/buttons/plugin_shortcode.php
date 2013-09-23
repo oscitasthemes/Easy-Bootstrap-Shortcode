@@ -1,23 +1,37 @@
 <?php
-/* **********************************************************
- * BUTTONS
- * **********************************************************/
-function osc_theme_button( $params, $content = null) {
-    extract( shortcode_atts( array(
-        'title' => 'osCitas',
-        'link' => '',
-        'btntag' => 'a',
-        'class' => '',
-        'target' => '',
-    ), $params ) );
-    $out = '';
 
-    if ($btntag == 'a') {
-        $out = '<a class="btn '.$class.'" href="'.$link.'" target="'.($target).'">'.$title.'</a>';
-    } elseif ($btntag == 'button' || $btntag == 'submit') {
-        $out = '<input class="btn '.$class.'" type="'.$btntag.'" value="'.$title.'">';
+/* * *********************************************************
+ * BUTTONS
+ * ********************************************************* */
+
+function osc_theme_button($params, $content = null) {
+    extract(shortcode_atts(array(
+                'title' => 'osCitas',
+                'link' => '',
+                'type' => 'link',
+                'style' => '',
+                'align' => '',
+                'target' => '',
+                'icon' => '',
+                'class' => ''
+                    ), $params));
+    $out = '';
+    if($icon!=''){
+        if($align=='right'){
+            $value=$title.' <i class="glyphicon '.$icon.'"></i>';
+        } else{
+            $value='<i class="glyphicon '.$icon.'"></i> '.$title;
+        }
+    }else{
+        $value=$title;
+    }
+    if ($type == 'link') {
+        $out = '<a class="btn ' . $style . ' ' . $class . '" href="' . $link . '" target="' . ($target) . '">' . $value . '</a>';
+    } elseif ($type == 'button') {
+        $out = '<button class="btn ' . $style . ' ' . $class . '" >' . $value . '</button>';
     }
     return $out;
 }
-add_shortcode( 'button', 'osc_theme_button' );
+
+add_shortcode('button', 'osc_theme_button');
 

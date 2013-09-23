@@ -2,12 +2,13 @@
     tinymce.create('tinymce.plugins.oscitasLists', {
         init : function(ed, url) {
             ed.addButton('oscitaslists', {
-                title : 'Create lists',
+                title : 'List Group Shortcode',
                 image : url+'/icon.png',
                 onclick : function() {
+                    create_oscitas_lists();
                     jQuery.fancybox({
                         'type' : 'inline',
-                        'title' : 'List Shortcode',
+                        'title' : 'List Group Shortcode',
                         'href' : '#oscitas-form-lists',
                         helpers:  {
                             title : {
@@ -24,18 +25,21 @@
         },
         getInfo : function() {
             return {
-                longname : "List Shortcode",
+                longname : "List Group Shortcode",
                 author : 'Oscitas Themes',
                 authorurl : 'http://www.oscitasthemes.com/',
                 infourl : 'http://www.oscitasthemes.com/',
-                version : "1.0"
+                version : "2.0.0"
             };
         }
     });
     tinymce.PluginManager.add('oscitaslists', tinymce.plugins.oscitasLists);
 })();
 
-jQuery(function(){
+function create_oscitas_lists(){
+    if(jQuery('#oscitas-form-lists').length){
+        jQuery('#oscitas-form-lists').remove();
+    }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
     var form = jQuery('<div id="oscitas-form-lists"><table id="oscitas-table" class="form-table">\
@@ -52,7 +56,12 @@ jQuery(function(){
 			</tr>\
 			<tr>\
 				<th><label for="oscitas-line">No of List Item</label></th>\
-				<td><input type="oscitas-list-item" name="line" id="oscitas-list-item" value="3"/><br /><small>Enter a numeric value</small>\
+				<td><input type="text" name="line" id="oscitas-list-item" value="3"/><br /><small>Enter a numeric value</small>\
+				</td>\
+			</tr>\
+                        <tr>\
+				<th><label for="oscitas-list-class">Custom Class:</label></th>\
+				<td><input type="text" name="line" id="oscitas-list-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
@@ -72,7 +81,11 @@ jQuery(function(){
         var options = { 
             'type'       : 'arrow'
         },list=0,list_type;
-        var shortcode = '[list';
+        var cusclass='';
+        if(table.find('#oscitas-list-class').val()!=''){
+            cusclass= ' class="'+table.find('#oscitas-list-class').val()+'"';
+        }
+        var shortcode = '[list'+cusclass;
         var list_item=jQuery('#oscitas-list-item').val();
         if(isNaN(list_item)==false){
             list=list_item;
@@ -98,5 +111,5 @@ jQuery(function(){
 			
         jQuery.fancybox.close();
     });
-});
+}
 

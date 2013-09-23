@@ -5,6 +5,7 @@
                 title: 'Popover Shortcode',
                 image: url + '/icon.png',
                 onclick: function() {
+                    create_oscitas_popover();
                     jQuery.fancybox({
                         'type' : 'inline',
                         'title' : 'Popover Shortcode',
@@ -28,14 +29,17 @@
                 author : 'Oscitas Themes',
                 authorurl : 'http://www.oscitasthemes.com/',
                 infourl : 'http://www.oscitasthemes.com/',
-                version : "1.0"
+                version : "2.0.0"
             };
         }
     });
     tinymce.PluginManager.add('oscitaspopover', tinymce.plugins.oscitasPopover);
 })();
 
-jQuery(function() {
+function create_oscitas_popover(){
+    if(jQuery('#oscitas-form-popover').length){
+        jQuery('#oscitas-form-popover').remove();
+    }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
     var form = jQuery('<div id="oscitas-form-popover"><table id="oscitas-table" class="form-table">\
@@ -87,7 +91,7 @@ jQuery(function() {
                                         <option value="btn-success">Success</option>\
                                         <option value="btn-info">Info</option>\
                                         <option value="btn-warning">Warning</option>\
-                                        <option value="btn-danger">Danger</option>\\n\
+                                        <option value="btn-danger">Danger</option>\
                                         <option value="btn-link">Link</option>\
 					</select><br />\
 				</td>\
@@ -95,6 +99,11 @@ jQuery(function() {
 <tr>\
 				<th><label for="oscitas-popover-button-text">Button Text:</label></th>\
 				<td><input type="text" name="link-text" id="oscitas-popover-button-text" value="Popover"/><br />\
+				</td>\
+			</tr>\
+                        <tr>\
+				<th><label for="oscitas-popover-class">Custom Class:</label></th>\
+				<td><input type="text" name="line" id="oscitas-popover-class" value=""/><br />\
 				</td>\
 			</tr>\
 </table>\
@@ -106,8 +115,8 @@ jQuery(function() {
     var table = form.find('table');
     form.appendTo('body').hide();
     var colors = ['color', 'bgcolor'];
-    jQuery('table tr:visible:even').css('background', '#F0F0F0');
-    jQuery('table tr:visible:odd').css('background', '#DADADD');
+    jQuery('#oscitas-table tr:visible:even').css('background', '#F0F0F0');
+    jQuery('#oscitas-table tr:visible:odd').css('background', '#DADADD');
     
 
     // handles the click event of the submit button
@@ -115,8 +124,11 @@ jQuery(function() {
         // defines the options and their default values
         // again, this is not the most elegant way to do this
         // but well, this gets the job done nonetheless
-
-        var shortcode = '[popover';
+        var cusclass='';
+        if(table.find('#oscitas-popover-class').val()!=''){
+            cusclass= ' class="'+table.find('#oscitas-popover-class').val()+'"';
+        }
+        var shortcode = '[popover'+cusclass;
         shortcode += ' title="' + table.find('#oscitas-popover-title').val();
 
         shortcode += '" ';
@@ -150,5 +162,5 @@ jQuery(function() {
         // closes fancybox
         jQuery.fancybox.close();
     });
-});
+}
 

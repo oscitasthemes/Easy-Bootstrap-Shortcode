@@ -2,13 +2,18 @@
     tinymce.create('tinymce.plugins.oscitasWpcolumns', {
         init : function(ed, url) {
             ed.addButton('oscitaswpcolumns', {
-                title : 'Columns Shortcodes',
+                title : 'Grid Columns Shortcode',
                 image : url+'/icon.png',
                 onclick : function() {
+                    create_oscitas_wpcolumns();
                     jQuery.fancybox({
+                        'autoSize':false,
+                        'autoWidth':false,
+                        'fitToView':false,
+                        'width':1094,
                         'type' : 'inline',
-                        'title' : 'Columns Shortcode',
-                        'minHeight': 410,
+                        'title' : 'Grid Columns Shortcode',
+                        'height': 'auto',
                         'href' : '#oscitas-form-wpcolumns',
                         helpers:  {
                             title : {
@@ -26,18 +31,21 @@
         },
         getInfo : function() {
             return {
-                longname : "Columns Shortcode",
+                longname : "Grid Columns Shortcode",
                 author : 'Oscitas Themes',
                 authorurl : 'http://www.oscitasthemes.com/',
                 infourl : 'http://www.oscitasthemes.com/',
-                version : "1.0"
+                version : "2.0.0"
             };
         }
     });
     tinymce.PluginManager.add('oscitaswpcolumns', tinymce.plugins.oscitasWpcolumns);
 })();
 
-jQuery(function(){
+function create_oscitas_wpcolumns(){
+    if(jQuery('#oscitas-form-wpcolumns').length){
+        jQuery('#oscitas-form-wpcolumns').remove();
+    }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
     var form = jQuery('<div id="oscitas-form-wpcolumns">\
@@ -52,33 +60,38 @@ jQuery(function(){
 				</select><br />\
 				</td>\
 			</tr>\
-			<tr id="wptwo" style="display:none;">\
+                        	<tr id="wptwo" style="display:none;">\
 				<th><label for="oscitas-two-columns">2 column division</label></th>\
-				<td><select name="type" id="oscitas-two-columns">\
-					<option value="one_half$one_half_last">1/2-1/2</option>\
-					<option value="one_third$two_third_last">1/3-2/3</option>\
-                    <option value="two_third$one_third_last">2/3-1/3</option>\
-                    <option value="one_fourth$three_fourth_last">1/4-3/4</option>\
-                    <option value="three_fourth$one_fourth_last">3/4-1/4</option>\
+				<td><select name="type" id="oscitas-two-columns" class="osc-change-col">\
+					<option value="6$6">1/2-1/2</option>\
+					<option value="4$8">1/3-2/3</option>\
+                                        <option value="8$3">2/3-1/3</option>\
+                                        <option value="3$9">1/4-3/4</option>\
+                                        <option value="9$3">3/4-1/4</option>\
 				</select> For Large Screen<br />\
 				</td>\
 			</tr>\
 			<tr id="wpthree" style="display:none;">\
 				<th><label for="oscitas-three-columns">3 column division</label></th>\
-				<td><select name="type" id="oscitas-three-columns">\
-					<option value="one_fourth$one_half_second$one_fourth_last">1/4-2/4-1/4</option>\
-					<option value="one_fourth$one_fourth_second$one_half_last">1/4-1/4-2/4</option>\
-                    <option value="one_half$one_fourth_second$one_fourth_last">2/4-1/4-1/4</option>\
-                    <option value="one_third$one_third_second$one_third_last">1/3-1/3-1/3</option>\
+				<td><select name="type" id="oscitas-three-columns" class="osc-change-col">\
+                                        <option value="4$4$4">1/3-1/3-1/3</option>\
+					<option value="3$6$3">1/4-2/4-1/4</option>\
+					<option value="3$3$6">1/4-1/4-2/4</option>\
+                                        <option value="6$3$3">2/4-1/4-1/4</option>\
 				</select> For Large Screen<br />\
 			</tr>\
                         <tr id="">\
                         <th><label for="append_column_table">Column Specification</label></th>\
                         <td id="append_column_table"></td>\
                         </tr>\
+                        <tr>\
+				<th><label for="oscitas-column-class">Custom Class:</label></th>\
+				<td><input type="text" name="line" id="oscitas-column-class" value=""/>\
+				</td>\
+			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-submit-wp_column" class="button-primary" value="Insert Columns" name="submit" /><small><br/>if you select four column it will 1/4 each</small>\
+			<input type="button" id="oscitas-submit-wp_column" class="button-primary" value="Insert Columns" name="submit" />\
 		</p>\
 		</div>');
     var table = form.find('table');
@@ -86,59 +99,87 @@ jQuery(function(){
   
     function show_table(){
         
-        var ele='',e=0,sm,md,off,xs,sel;
-        var col= jQuery('#oscitas-no-of-wpcolumns').val();
-        ele = '<i>You can select different column style for different screens such as medium, small(e.g 480px), x-small(e.g 320px)</i><br/>';
-        ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Column</th><th>Medium Screen</th><th>Small Screen</th><th>x-small Screen</th><th>Large Screen Offset</th></tr></thead>';
-        for(var i=1;i<=col;i++){
-            sm='<select name="sm['+i+']" id="sm'+i+'">';
-            for( e=1;e<=12;e++){
-                if(e==12){
-                    sel='selected=selected'
-                }
-                sm+='<option value="'+e+'" '+sel+'>'+e+'</option>';
-            }
-            sm+='</select>';
-        
-        
-            md='<select name="md['+i+']" id="md'+i+'">';
-            for( e=1;e<=12;e++){
-                if(e==12){
-                    sel='selected=selected'
-                }
-                md+='<option value="'+e+'" '+sel+'>'+e+'</option>';
-            }
-            md+='</select>';
-        
-            xs='<select name="xs['+i+']" id="xs'+i+'">';
-            for( e=1;e<=12;e++){
-                if(e==12){
-                    sel='selected=selected'
-                }
-                xs+='<option value="'+e+'" '+sel+'>'+e+'</option>';
-            }
-            xs+='</select>';
-        
-            off='<select name="off['+i+']" id="off'+i+'">';
-            for( e=0;e<=12;e++){
-                
-                off+='<option value="'+e+'">'+e+'</option>';
-            }
-            off+='</select>';
-            ele+='<tr><td>'+i+'</td><td>'+md+'</td><td>'+sm+'</td><td>'+xs+'</td><td>'+off+'</td></tr>';
+        var ele='',e=0,sm,smoff,md,mdoff,lg,lgoff,xs,xsoff,sel,val=0,selcol;
+        var col= form.find('#oscitas-no-of-wpcolumns').val();
+        ele = '<i>You can select different column style for different screens such as medium (), small(e.g < 768px), x-small(e.g < 480px)</i><br/>';
+     
+        var option={
+            'lg':'Large Screen',
+            'md': 'Medium Screen',
+            'sm': 'Small Screen',
+            'xs':'X-small Screen'
         }
-        ele +='</table>';
-        table.find('#append_column_table').html(ele);
+        ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Screen</th>';
+     
+        for(i=1;i<=col;i++){
+            ele+='<th><div class="head_division">Column</div><div class="head_division right">Offset</div></th>';
+        }
+        ele+= '</tr></thead><tbody class="column_tbody">';
+        jQuery.each(option,function(index,val){
+            ele+='<tr><th class="column_td_first">'+val+'</th>';
+            for(var i=1;i<=col;i++){
+                sm='<select name="'+index+'['+i+']" id="'+index+i+'">';
+                for( e=1;e<=12;e++){
+                    if(index=='lg'){
+                     
+                        selcol=12/col;
+                        if(e==selcol){
+                            sel='selected=selected'
+                        }
+                        else{
+                            sel='';
+                        }
+                    } else{
+                        if(e==12){
+                            sel='selected=selected'
+                        }
+                        else{
+                            sel='';
+                        }
+                    }
+                    sm+='<option value="'+e+'" '+sel+'>'+e+'</option>';
+                }
+                sm+='</select>';
+                smoff='<select name="'+index+'off['+i+']" id="'+index+'off'+i+'">';
+                for( e=0;e<12;e++){
+               
+                    smoff+='<option value="'+e+'">'+e+'</option>';
+                }
+                smoff+='</select>';
         
-        jQuery('#oscitas-form-wpcolumns table tr:visible:even').css('background', '#F0F0F0');
-        jQuery('#oscitas-form-wpcolumns table tr:visible:odd').css('background', '#DADADD');
+            
+                ele+='<td><div class="head_division">'+sm+'</div><div class="head_division right">'+smoff+'</div></td>';
+            }
+            ele+='</tr>';
+        });
+        ele +='</tbody></table>';
+        table.find('#append_column_table').html(ele);
+
+        jQuery("#oscitas-table tr:not(#appended tr):visible:even").css('background-color', '#DADADD');
+        jQuery("#oscitas-table tr:not(#appended tr):visible:odd").css('background-color', '#F0F0F0');
+    }
+    function chnage_col_value(){
+
+        var col= form.find('#oscitas-no-of-wpcolumns').val(),str,arr=[],i=0;
+        if(col==2 || col==3){
+            if(col==2){
+                str=form.find('#oscitas-two-columns').val();
+            } else if(col==3){
+                str=form.find('#oscitas-three-columns').val();
+            }
+            arr=str.split('$');
+            jQuery.each(arr,function(index,val){
+                i=parseInt(index)+1;
+                jQuery('#lg'+i).val(val);
+            })
+      
+        }
     }
     
     show_table();
+    
     jQuery('#oscitas-no-of-wpcolumns').change(function(){
-      
         var noOfColumns = jQuery(this).val();
-      
         if(2 == noOfColumns){
        
             jQuery("#wpthree").hide();
@@ -154,58 +195,130 @@ jQuery(function(){
 
         }
         show_table();
-       
+        chnage_col_value();
         
     
     });
+    form.find('.osc-change-col').change(function(){
+        chnage_col_value();
+    })  
+    var arr={
+        1:'lg', 
+        2: 'md',
+        3:'sm',
+        4:'xs'
+    };
+   
+   
 
-
+    var value1 =0,valueoff=0,lastSel,previous;
+    jQuery.each(arr,function(i,valuenum){
+        jQuery.each(arr,function(tt,index){
+  
+            jQuery('#'+index+i).live('focus',function(){
+                previous = this.value;
+            }).live('change',function(){
+                value1= parseInt(jQuery(this).val());
+                valueoff =parseInt(jQuery('#'+index+'off'+i).val());
+                value1=value1+valueoff;
+                if(value1<=12){
+                    previous = this.value;
+                }
+                else{
+                    jQuery('#'+index+i).val(previous);
+                    alert('Can\'t Change, exceeds the limit');
+                }
+            });
+           
+            jQuery('#'+index+'off'+i).live('focus',function(){
+                previous = this.value;
+            }).live('change',function(){
+                value1= parseInt(jQuery(this).val());
+                valueoff = parseInt(jQuery('#'+index+i).val());
+                value1=value1+valueoff;
+                if(value1<=12){
+                    previous = this.value;
+                }
+                else{
+                    jQuery('#'+index+'off'+i).val(previous);
+                    alert('Can\'t Change, exceeds the limit');
+                }
+            })
+        })
+    });
+  
     // handles the click event of the submit button
     form.find('#oscitas-submit-wp_column').click(function(){
         // defines the options and their default values
         // again, this is not the most elegant way to do this
         // but well, this gets the job done nonetheless
-        var a_md=[],a_sm=[],a_xs=[],a_off=[],j=0;
-        var options = {
-            'title'       : 'Insert Columns',
-            'link'        : '',
-            'description' : '100%',
-            'width'       : '180px',
-            'height'      : '350px',
-            'version'     : '',
-            'position'    : '',
-            'bgcolor'     : '',
-            'color'       : ''
-        };
+        var a_md=[],a_sm=[],a_xs=[],a_lg=[],j=0,a_md_off=[],a_sm_off=[],a_xs_off=[],a_lg_off=[],sm='',md='',xs='',smoff='',mdoff='',xsoff='',lgoff='';
+     
         var noOfColumns = jQuery('#oscitas-no-of-wpcolumns').val();
+        var shortcode = '';
+        var cusclass='';
+        if(table.find('#oscitas-column-class').val()!=''){
+            cusclass= ' class="'+table.find('#oscitas-column-class').val()+'"';
+        }
+        shortcode ='[row'+cusclass+']';
         for(var i=1;i<=parseInt(noOfColumns);i++){
-            j=i-1;
-            a_md[j] = jQuery('#md'+i).val();
-            a_sm[j] = jQuery('#sm'+i).val();
-            a_xs[j] = jQuery('#xs'+i).val();
-            a_off[j] = jQuery('#off'+i).val();
+     
+            a_md[i] = jQuery('#md'+i).val();
+            a_sm[i] = jQuery('#sm'+i).val();
+            a_xs[i] = jQuery('#xs'+i).val();
+            a_lg[i] = jQuery('#lg'+i).val();
+            a_md_off[i] = jQuery('#mdoff'+i).val();
+            a_sm_off[i] = jQuery('#smoff'+i).val();
+            a_xs_off[i] = jQuery('#xsoff'+i).val();
+            a_lg_off[i] = jQuery('#lgoff'+i).val();
+       
+            if(a_md[i]!=12){
+                md=' md="'+a_md[i]+'"';
+            } else{
+                md='';
+            }
+            if(a_sm[i]!=12){
+                sm=' sm="'+a_sm[i]+'"';
+            } else{
+                sm='';
+            }
+            if(a_xs[i]!=12){
+                xs=' xs="'+a_xs[i]+'"';
+            } else{
+                xs='';
+            }
+            if(a_md_off[i]!=0){
+                mdoff=' mdoff="'+a_md_off[i]+'"';
+            }
+            else{
+                mdoff='';
+            }
+            if(a_sm_off[i]!=0){
+                smoff=' smoff="'+a_sm_off[i]+'"';
+            }
+            else{
+                smoff='';
+            }
+            if(a_xs_off[i]!=0){
+                xsoff=' xsoff="'+a_xs_off[i]+'"';
+            }
+            else{
+                xsoff='';
+            }
+            if(a_lg_off[i]!=0){
+                lgoff=' lgoff="'+a_lg_off[i]+'"';
+            }
+            else{
+                lgoff='';
+            }
+            shortcode += '<br/>[column lg="'+a_lg[i]+'"'+md+sm+xs+mdoff+smoff+xsoff+lgoff+' ]<br/>text<br/>[/column]';
         }
        
-        var shortcode = '';
-
-        if(1==noOfColumns){
-            shortcode ='[row]<br/>[one_column md="'+a_md[0]+'" sm="'+a_sm[0]+'" xs="'+a_xs[0]+'" off="'+a_off[0]+'"]<br/>text<br/>[/one_column]<br/>[/row]';
-        }else if(2==noOfColumns){
-            var value = jQuery('#oscitas-two-columns').val();
-            var selected = value.split("$");
-            shortcode ='[row]<br/>['+selected[0]+' md="'+a_md[0]+'" sm="'+a_sm[0]+'" xs="'+a_xs[0]+'" off="'+a_off[0]+'"]<br/>text<br/>[/'+selected[0]+']<br/>['+selected[1]+' md="'+a_md[1]+'" sm="'+a_sm[1]+'" xs="'+a_xs[1]+'" off="'+a_off[1]+'"]<br/>text<br/>[/'+selected[1]+']<br/>[/row]';
-        }else if(3==noOfColumns){
-            var value = jQuery('#oscitas-three-columns').val();
-            var selected = value.split("$");
-            shortcode = '[row]<br/>['+selected[0]+' md="'+a_md[0]+'" sm="'+a_sm[0]+'" xs="'+a_xs[0]+'" off="'+a_off[0]+'"]<br/>text<br/>[/'+selected[0]+']<br/>['+selected[1]+' md="'+a_md[1]+'" sm="'+a_sm[1]+'" xs="'+a_xs[1]+'" off="'+a_off[1]+'"]<br/>text<br/>[/'+selected[1]+']<br/>['+selected[2]+' md="'+a_md[2]+'" sm="'+a_sm[2]+'" xs="'+a_xs[2]+'" off="'+a_off[2]+'"]<br/>text<br/>[/'+selected[2]+']<br/>[/row]';
-        }else if(4==noOfColumns){
-            shortcode = '[row]<br/>[one_fourth md="'+a_md[0]+'" sm="'+a_sm[0]+'" xs="'+a_xs[0]+'" off="'+a_off[0]+'"]<br/>text<br/>[/one_fourth]<br/>[one_fourth_second md="'+a_md[1]+'" sm="'+a_sm[1]+'" xs="'+a_xs[1]+'" off="'+a_off[1]+'"]<br/>text<br/>[/one_fourth_second]<br/>[one_fourth_third md="'+a_md[1]+'" sm="'+a_sm[1]+'" xs="'+a_xs[1]+'" off="'+a_off[1]+'"]<br/>text<br/>[/one_fourth_third]<br/>[one_fourth_last md="'+a_md[1]+'" sm="'+a_sm[1]+'" xs="'+a_xs[1]+'" off="'+a_off[1]+'"]<br/>text<br/>[/one_fourth_last]<br/>[/row]';
-
-        }
+        shortcode += '<br/>[/row]';
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
         // closes Thickbox
         jQuery.fancybox.close();
     });
-});
+}
 
