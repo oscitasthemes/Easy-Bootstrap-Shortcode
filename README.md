@@ -4,40 +4,48 @@
 
 ![Wordpress Bootstrap Shortcode](https://lh5.googleusercontent.com/-5TLnO1hTjrE/UjHfsI_34SI/AAAAAAAAAto/MYPgF9nW2aA/w668-h540-no/easy.png)
 
-Features:  
-* simplest bootstrap style plugin ever
-* Bootstrap 3.0 compatible
-* No need to paste shortcode in editor
-* Add icons to editor
-* Shortcode added to editor by clicking on icon
-* Customize grid size on small, extra-small and medium sized screens
 
-Easy Bootstrap Press provides following styles
+= Features: =
 
-## Typography
-* Buttons 
-* Icon Heading
-* Horizontal rule
-* Tables
-* Table Header and Body 
-* Table Cells
-* Different table styles
-* Responsive
+* simplest bootstrap style plugin ever.
+* Bootstrap 3.0 compatible.
+* No need to paste shortcode in editor.
+* Add icons to editor.
+* Shortcode added to editor by clicking on icon.
+* Customize grid size on small, extra-small and medium sized screens.
+* More control over the css, you can add your own custom class to shortcodes.
+* Now you can use js file from CDN or disable the plugin js.
+* You can use your own css file by disabling the plugin css, which gives you more flexibility over styling.
 
-## Grid
-* Add multiple columns in a row
-* Choose desired column width
-* Add offset to columns
-* Provide facility to customize a column according to medium, small and extra-small sized screens.
 
-## Components
-* Accordion (Collapsible Menus)
-* Tabs
-* List
-* Notification
-* Popover
-* Tooltip
-* Panel
+Easy Bootstrap Shortcode provides following styles
+
+## Grid Columns
+1. Add multiple columns in a row
+2. Choose desired column width
+3. Add offset to columns
+4. Provide facility to customize a column according to medium, small and extra-small sized screens.
+5. Responsive columns
+
+## Shortcodes for
+
+1. Accordion (Collapsible Menus)
+2. Tabs
+3. List
+4. Notification
+5. Popover
+6. Tooltip
+7. Panel
+8. Progress Bars
+9. Icons
+10. Labels
+11. Buttons
+12. Icon Heading
+13. Tables
+14. Responsive Image
+15. Image Effects (Round, Thumbnail, Square)
+16. Well
+17. Button Dropdown
 
 ## License
 The WordPress Plugin Easy Bootstrap Shortcodes is licensed under the GPL v2 or later.
