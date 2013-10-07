@@ -53,7 +53,6 @@ function create_oscitas_iconhead(){
 				<th><label for="oscitas-heading-icon">Select Icon:</label></th>\
 				<td><div id="click_icon_list" class="oscitas-icon-div"><span id="osc_show_icon"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val" value="">\
                     <div id="osc_show_iconlist" class="oscitas-icon" style="display:none;width:100%"><ul name="oscitas-heading-icon" id="oscitas-heading-icon" class="oscitas-icon-ul">\
-                    <li class="glyphicon" data-value="">null</li>\
                     <li data-value="glyphicon-adjust" class="glyphicon glyphicon-adjust"> </li>\
                     <li data-value="glyphicon-align-center" class="glyphicon glyphicon-align-center"> </li>\
                     <li data-value="glyphicon-align-justify" class="glyphicon glyphicon-align-justify"> </li>\

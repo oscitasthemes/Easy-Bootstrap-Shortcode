@@ -83,7 +83,6 @@ function create_oscitas_button(){
                         <th><label for="oscitas-heading-icon">Select Icon:</label></th>\
 				<td><div id="click_icon_list_button" class="oscitas-icon-div"><span id="osc_show_icon_button"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val_button" value="">\
                     <div id="osc_show_iconlist_button" class="oscitas-icon" style="display:none;width:100%"><ul name="oscitas-heading-icon_button" id="oscitas-heading-icon_button" class="oscitas-icon-ul">\
-                     <li data-value="" class="glyphicon">N</li>\
                     <li data-value="glyphicon-adjust" class="glyphicon glyphicon-adjust"> </li>\
                     <li data-value="glyphicon-align-center" class="glyphicon glyphicon-align-center"> </li>\
                     <li data-value="glyphicon-align-justify" class="glyphicon glyphicon-align-justify"> </li>\
@@ -309,7 +308,7 @@ function create_oscitas_button(){
 			</tr>\
 			<tr id="tr-button-link">\
 				<th><label for="oscitas-button-link">Link</label></th>\
-				<td><input type="text" name="link" id="oscitas-button-link" value="http://www.yoursitename.com" /><br />\
+				<td><input type="text" name="link" id="oscitas-button-link" value="#" /><br />\
 				</td>\
 			</tr>\
 			<tr id="tr-button-newwindow">\

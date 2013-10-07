@@ -24,7 +24,6 @@ function osc_theme_tabs($params, $content = null) {
         return "";
     }
 }
-
 add_shortcode('tabs', 'osc_theme_tabs');
 
 function osc_theme_tab($params, $content = null) {
@@ -35,7 +34,10 @@ function osc_theme_tab($params, $content = null) {
                     ), $params));
 
     $index = count($_oscitas_tabs) - 1;
-    $pane_id = 'pane-' . $index . '-' . count($_oscitas_tabs[$index]['tabs']);
+    if (!isset($_oscitas_tabs[$index]['tabs'])) {
+        $_oscitas_tabs[$index]['tabs'] = array();
+    }
+    $pane_id = 'pane-' . $index . '-' .  count($_oscitas_tabs[$index]['tabs']);
     $_oscitas_tabs[$index]['tabs'][] = '<li class="' . $active . '"><a href="#' . $pane_id . '" data-toggle="tab">' . $title
             . '</a></li>';
     $_oscitas_tabs[$index]['panes'][] = '<div class="tab-pane ' . $active . '" id="'
@@ -43,5 +45,4 @@ function osc_theme_tab($params, $content = null) {
             . do_shortcode
                     (trim($content)) . '</div>';
 }
-
 add_shortcode('tab', 'osc_theme_tab');

@@ -25,8 +25,9 @@ function osc_theme_button($params, $content = null) {
     }else{
         $value=$title;
     }
+    $target = ' target="'.($target != 'false' ? '_blank':'_self').'"';
     if ($type == 'link') {
-        $out = '<a class="btn ' . $style . ' ' . $class . '" href="' . $link . '" target="' . ($target) . '">' . $value . '</a>';
+        $out = '<a class="btn ' . $style . ' ' . $class . '" href="' . $link . '" ' . ($target) . '>' . $value . '</a>';
     } elseif ($type == 'button') {
         $out = '<button class="btn ' . $style . ' ' . $class . '" >' . $value . '</button>';
     }
