@@ -6,8 +6,8 @@
 
 function osc_theme_row($params, $content = null) {
     extract(shortcode_atts(array(
-                'class' => ''
-                    ), $params));
+        'class' => ''
+    ), $params));
     $result = '<div class="row ' . $class . '">';
     //echo '<textarea>'.$content.'</textarea>';
     $content = str_replace("]<br />", ']', $content);
@@ -25,21 +25,26 @@ add_shortcode('row', 'osc_theme_row');
 
 function osc_theme_column_shortcode($params, $content = null) {
     extract(shortcode_atts(array(
-                'md' => '',
-                'sm' => '',
-                'xs' => '',
-                'lg' => '',
-                'mdoff' => '',
-                'smoff' => '',
-                'xsoff' => '',
-                'lgoff' => '',
-                'off'=>''
-                    ), $params));
+        'md' => '',
+        'sm' => '',
+        'xs' => '',
+        'lg' => '',
+        'mdoff' => '',
+        'smoff' => '',
+        'xsoff' => '',
+        'lgoff' => '',
+        'mdhide' => '',
+        'smhide' => '',
+        'xshide' => '',
+        'lghide' => '',
+        'off'=>''
+    ), $params));
+
+
     $arr = array('md', 'xs', 'sm');
     $classes = array();
     foreach ($arr as $k => $aa) {
         if (${$aa} == 12 || ${$aa} == '') {
-            $classes[] = '';
         } else {
             $classes[] = 'col-' . $aa . '-' . ${$aa};
         }
@@ -48,9 +53,16 @@ function osc_theme_column_shortcode($params, $content = null) {
     foreach ($arr2 as $k => $aa) {
         $nn = str_replace('off', '', $aa);
         if (${$aa} == 0 || ${$aa} == '') {
-            $classes[] = '';
+            //$classes[] = '';
         } else {
             $classes[] = 'col-' . $nn . '-offset-' . ${$aa};
+        }
+    }
+    $arr2 = array('mdhide', 'smhide', 'xshide', 'lghide');
+    foreach ($arr2 as $k => $aa) {
+        $nn = str_replace('hide', '', $aa);
+        if (${$aa} == 'yes') {
+            $classes[] = 'hidden-' . $nn;
         }
     }
     if ($off != '') {

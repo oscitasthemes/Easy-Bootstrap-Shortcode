@@ -2,7 +2,7 @@
     tinymce.create('tinymce.plugins.oscitasWpcolumns', {
         init : function(ed, url) {
             ed.addButton('oscitaswpcolumns', {
-                title : 'Grid Columns Shortcode',
+                title : 'Columns Shortcodes',
                 image : url+'/icon.png',
                 onclick : function() {
                     create_oscitas_wpcolumns();
@@ -12,7 +12,7 @@
                         'fitToView':false,
                         'width':1094,
                         'type' : 'inline',
-                        'title' : 'Grid Columns Shortcode',
+                        'title' : 'Columns Shortcode',
                         'height': 'auto',
                         'href' : '#oscitas-form-wpcolumns',
                         helpers:  {
@@ -21,7 +21,7 @@
                                 position:'top'
                             }
                         }
-                        
+
                     });
                 }
             });
@@ -31,7 +31,7 @@
         },
         getInfo : function() {
             return {
-                longname : "Grid Columns Shortcode",
+                longname : "Columns Shortcode",
                 author : 'Oscitas Themes',
                 authorurl : 'http://www.oscitasthemes.com/',
                 infourl : 'http://www.oscitasthemes.com/',
@@ -99,9 +99,9 @@ function create_oscitas_wpcolumns(){
   
     function show_table(){
         
-        var ele='',e=0,sm,smoff,md,mdoff,lg,lgoff,xs,xsoff,sel,val=0,selcol;
+        var ele='',e=0,sm,smoff,md,mdoff,lg,lgoff,xs,xsoff,sel,val=0,selcol,hidecol;
         var col= form.find('#oscitas-no-of-wpcolumns').val();
-        ele = '<i>You can select different column style for different screens such as medium (), small(e.g < 768px), x-small(e.g < 480px)</i><br/>';
+        ele = '<i>You can select different column style for different screens such as medium, small(e.g < 992px), x-small(e.g < 768px)</i><br/>';
      
         var option={
             'lg':'Large Screen',
@@ -109,14 +109,14 @@ function create_oscitas_wpcolumns(){
             'sm': 'Small Screen',
             'xs':'X-small Screen'
         }
-        ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Screen</th>';
+        ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Screen</th><th style="min-width:50px;max-width:50px">Hide Row</th>';
      
         for(i=1;i<=col;i++){
-            ele+='<th><div class="head_division">Column</div><div class="head_division right">Offset</div></th>';
+            ele+='<th><div class="head_division">Column</div><div class="head_division">Offset</div><div class="head_division head_division_check right">Hide</div></th>';
         }
         ele+= '</tr></thead><tbody class="column_tbody">';
         jQuery.each(option,function(index,val){
-            ele+='<tr><th class="column_td_first">'+val+'</th>';
+            ele+='<tr><th class="column_td_first">'+val+'</th><td style="min-width:50px;max-width:50px"><input type="checkbox"  name="'+index+'rowhide" id="'+index+'rowhide" value="yes"></td>';
             for(var i=1;i<=col;i++){
                 sm='<select name="'+index+'['+i+']" id="'+index+i+'">';
                 for( e=1;e<=12;e++){
@@ -147,16 +147,18 @@ function create_oscitas_wpcolumns(){
                 }
                 smoff+='</select>';
         
-            
-                ele+='<td><div class="head_division">'+sm+'</div><div class="head_division right">'+smoff+'</div></td>';
+                hidecol='<input type="checkbox"  name="'+index+'hide['+i+']" id="'+index+'hide'+i+'" value="yes">';
+
+
+                ele+='<td><div class="head_division">'+sm+'</div><div class="head_division">'+smoff+'</div><div class="head_division head_division_check right">'+hidecol+'</div></td>';
             }
             ele+='</tr>';
         });
         ele +='</tbody></table>';
         table.find('#append_column_table').html(ele);
-
-        jQuery("#oscitas-table tr:not(#appended tr):visible:even").css('background-color', '#DADADD');
-        jQuery("#oscitas-table tr:not(#appended tr):visible:odd").css('background-color', '#F0F0F0');
+        jQuery('#oscitas-form-wpcolumns table>tr:visible:even').css('background', '#F0F0F0');
+        jQuery('#oscitas-form-wpcolumns table>tr:visible:odd').css('background', '#DADADD');
+      
     }
     function chnage_col_value(){
 
@@ -174,6 +176,8 @@ function create_oscitas_wpcolumns(){
             })
       
         }
+        jQuery('#oscitas-form-wpcolumns table tr:visible:even').css('background', '#F0F0F0');
+        jQuery('#oscitas-form-wpcolumns table tr:visible:odd').css('background', '#DADADD');
     }
     
     show_table();
@@ -208,8 +212,7 @@ function create_oscitas_wpcolumns(){
         3:'sm',
         4:'xs'
     };
-   
-   
+
 
     var value1 =0,valueoff=0,lastSel,previous;
     jQuery.each(arr,function(i,valuenum){
@@ -252,7 +255,7 @@ function create_oscitas_wpcolumns(){
         // defines the options and their default values
         // again, this is not the most elegant way to do this
         // but well, this gets the job done nonetheless
-        var a_md=[],a_sm=[],a_xs=[],a_lg=[],j=0,a_md_off=[],a_sm_off=[],a_xs_off=[],a_lg_off=[],sm='',md='',xs='',smoff='',mdoff='',xsoff='',lgoff='';
+        var a_md=[],a_sm=[],a_xs=[],a_lg=[],j=0,a_md_off=[],a_sm_off=[],a_xs_off=[],a_lg_off=[],a_md_hide=[],a_sm_hide=[],a_xs_hide=[],a_lg_hide=[],sm='',md='',xs='',smoff='',mdoff='',xsoff='',lgoff='',smhide='',mdhide='',xshide='',lghide='';
      
         var noOfColumns = jQuery('#oscitas-no-of-wpcolumns').val();
         var shortcode = '';
@@ -271,7 +274,7 @@ function create_oscitas_wpcolumns(){
             a_sm_off[i] = jQuery('#smoff'+i).val();
             a_xs_off[i] = jQuery('#xsoff'+i).val();
             a_lg_off[i] = jQuery('#lgoff'+i).val();
-       
+
             if(a_md[i]!=12){
                 md=' md="'+a_md[i]+'"';
             } else{
@@ -311,7 +314,32 @@ function create_oscitas_wpcolumns(){
             else{
                 lgoff='';
             }
-            shortcode += '<br/>[column lg="'+a_lg[i]+'"'+md+sm+xs+mdoff+smoff+xsoff+lgoff+' ]<br/>text<br/>[/column]';
+
+            if(jQuery('#mdrowhide').is(':checked') || jQuery('#mdhide'+i).is(':checked')){
+                mdhide=' mdhide="yes"';
+            }
+            else{
+                mdhide='';
+            }
+            if(jQuery('#smrowhide').is(':checked') ||jQuery('#smhide'+i).is(':checked')){
+                smhide=' smhide="yes"';
+            }
+            else{
+                smhide='';
+            }
+            if(jQuery('#xsrowhide').is(':checked') ||jQuery('#xshide'+i).is(':checked')){
+                xshide=' xshide="yes"';
+            }
+            else{
+                xshide='';
+            }
+            if(jQuery('#lgrowhide').is(':checked') ||jQuery('#lghide'+i).is(':checked')){
+                lghide=' lghide="yes"';
+            }
+            else{
+                lghide='';
+            }
+            shortcode += '<br/>[column lg="'+a_lg[i]+'"'+md+sm+xs+mdoff+smoff+xsoff+lgoff+mdhide+smhide+xshide+lghide+' ]<br/>text<br/>[/column]';
         }
        
         shortcode += '<br/>[/row]';
