@@ -1,0 +1,56 @@
+#ebs_setting{
+    margin: 20px 0 0 0;
+}
+.ebs_page_settings {
+    margin-top: 20px;
+}
+.ebs_page_settings h1 {
+    background: none repeat scroll 0 0 #D5D5D7;
+    color: #555555;
+    padding: 10px;
+    text-align: center;
+    text-decoration: underline;
+    width: 88.5%;
+}
+.ebs_details {
+    border: 1px solid #CCCCCC;
+    float: left;
+    width: 90%;
+    margin:8px 0;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -ms-border-radius:3px;
+
+}
+.ebs_details label {
+    line-height: 30px;
+    margin: 0 10px 0 0;
+    padding: 5px 10px;
+    text-align: right;
+    width: 170px;
+}
+.ebs_details > p {
+    float: left;
+    margin: 5px 0;
+}
+.ebs_details.show_cdn > #cdn_path {
+    margin: 8px 0 0 10px;
+    width: 462px;
+}
+.ebs_setting_label {
+    border-right: 1px solid #CCCCCC;
+    display: block;
+    float: left;
+}
+.ebs_page_settings .ebs_btn {
+    float: left;
+    width: 90%;
+}
+
+.ebs_page_settings .ebs_btn > input {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 7px;
+    width: 19%;
+}
