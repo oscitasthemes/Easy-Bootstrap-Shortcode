@@ -52,6 +52,82 @@ Easy Bootstrap Shortcode provides following styles
 16. Well
 17. Button Dropdown
 
+## Plugin Filters
+The following filters are available to alter plugin functionality.
+
+###Preventing CSS/JS Enqueue for Admin/Frontend
+The filters described below will help you prevent enqueuing default CSS and JS for both admin as well as front-end area.
+
+####oscitas_check_theme
+If returned true then the following components are completely disabled:
+* The Admin Menu (EBS Settings)
+* Scripts and Styles used in the Shortcode Generator buttons within WP Editor (TinyMCE Buttons). Most likely the generator will break, if you do not include necessary CSS and JS files yourself.
+* Frontend enqueue. No CSS and/or JS will be included on the front-end.
+
+Example:
+```
+function ebs_theme_check( $prevent ) {
+	return true;
+}
+add_filters( 'oscitas_check_theme', 'ebs_theme_check' );
+```
+> If you want to just disable enqueue on the front-end, then do not use this filter. Use the following one instead.
+
+####ebs_custom_option
+If returned true, then the following components will be disabled:
+* The Admin Menu (EBS Settings).
+* Frontend enqueue. No CSS and/or JS will be included on the front-end.
+The Shortcode Generator will continue to work as expected and admin enqueues will still be performed on New/Edit posts screen.
+
+Example:
+```
+function apply_ebs_custom_option( $prevent ) {
+	return true;
+}
+add_filters( 'ebs_custom_option', 'apply_ebs_custom_option' );
+```
+
+*Note for Developers:* If you are developing a theme and want to enqueue CSS and JS files from your theme only (on the front-end area) then using just the filter above will suffice.
+
+####ebs_custom_bootstrap_icon_css
+If returned true then bootstrap icon CSS will not be enqueued on the New/Edit posts screen.
+
+####ebs_custom_bootstrap_admin_css
+If returned true then bootstrap admin CSS will not be enqueued on the New/Edit posts screen and EBS settings page.
+
+###Altering CSS/JS for frontend enqueue
+
+Use the following filters to alter the URL of the CSS/JS enqueue on the frontend.
+
+####ebs_bootstrap_js_url
+The URL to the bootstrap.min.js file.
+This is used, if user has opted for the JS file from the plugin itself (From EBS Settings).
+
+####ebs_bootstrap_js_cdn
+The URL to the bootstrap.min.js CDN.
+This is used, if user has opted for the JS file from the CDN and it will override any custom URL user had entered.
+
+####ebs_bootstrap_css_url
+The URL to the bootstrap.min.css file.
+This is used, if user has opted for the CSS file from the plugin itself (From EBS Settings).
+
+####ebs_bootstrap_icon_url
+The URL to the glyphicon CSS file. It is loaded only if user has selected to load bootstrap CSS file from plugins or themes.
+
+Examples:
+
+```
+/**
+ * Alter the JS CDN from cdnjs.com
+ *
+ * This forces to use cdnjs only no matter what the user has entered
+ */
+function ebs_alter_js_cdn( $url ) {
+	return '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js';
+}
+apply_filters( 'ebs_bootstrap_js_cdn', 'ebs_alter_js_cdn' );
+```
+
 ## License
 The WordPress Plugin Easy Bootstrap Shortcodes is licensed under the GPL v2 or later.
 
