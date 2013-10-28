@@ -29,7 +29,8 @@ add_shortcode('toggles', 'osc_theme_toggles');
 function osc_theme_toggle($params, $content = null) {
     global $_oscitas_accordion;
     extract(shortcode_atts(array(
-                'title' => 'title'
+                'title' => 'title',
+                'class' => '',
                     ), $params));
     $con = do_shortcode($content);
     $index = count($_oscitas_accordion) - 1;
@@ -45,7 +46,7 @@ function osc_theme_toggle($params, $content = null) {
                 </a>
               </h4>
             </div>
-            <div id="{$id}" class="panel-collapse collapse">
+            <div id="{$id}" class="panel-collapse collapse {$class}">
               <div class="panel-body">{$con}</div>
             </div>
         </div>

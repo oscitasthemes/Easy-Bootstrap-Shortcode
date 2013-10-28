@@ -12,7 +12,7 @@ $elements = array(
     'tooltip',
     'iconhead',
     'panel',
-    'popover',
+    'oscpopover',
     'dropdown',
     'labels',
     'well',

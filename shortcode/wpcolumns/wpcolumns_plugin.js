@@ -96,13 +96,13 @@ function create_oscitas_wpcolumns(){
 		</div>');
     var table = form.find('table');
     form.appendTo('body').hide();
-  
+
     function show_table(){
-        
+
         var ele='',e=0,sm,smoff,md,mdoff,lg,lgoff,xs,xsoff,sel,val=0,selcol,hidecol;
         var col= form.find('#oscitas-no-of-wpcolumns').val();
         ele = '<i>You can select different column style for different screens such as medium, small(e.g < 992px), x-small(e.g < 768px)</i><br/>';
-     
+
         var option={
             'lg':'Large Screen',
             'md': 'Medium Screen',
@@ -110,7 +110,7 @@ function create_oscitas_wpcolumns(){
             'xs':'X-small Screen'
         }
         ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Screen</th><th style="min-width:50px;max-width:50px">Hide Row</th>';
-     
+
         for(i=1;i<=col;i++){
             ele+='<th><div class="head_division">Column</div><div class="head_division">Offset</div><div class="head_division head_division_check right">Hide</div></th>';
         }
@@ -121,7 +121,7 @@ function create_oscitas_wpcolumns(){
                 sm='<select name="'+index+'['+i+']" id="'+index+i+'">';
                 for( e=1;e<=12;e++){
                     if(index=='lg'){
-                     
+
                         selcol=12/col;
                         if(e==selcol){
                             sel='selected=selected'
@@ -142,11 +142,11 @@ function create_oscitas_wpcolumns(){
                 sm+='</select>';
                 smoff='<select name="'+index+'off['+i+']" id="'+index+'off'+i+'">';
                 for( e=0;e<12;e++){
-               
+
                     smoff+='<option value="'+e+'">'+e+'</option>';
                 }
                 smoff+='</select>';
-        
+
                 hidecol='<input type="checkbox"  name="'+index+'hide['+i+']" id="'+index+'hide'+i+'" value="yes">';
 
 
@@ -158,7 +158,7 @@ function create_oscitas_wpcolumns(){
         table.find('#append_column_table').html(ele);
         jQuery('#oscitas-form-wpcolumns table>tr:visible:even').css('background', '#F0F0F0');
         jQuery('#oscitas-form-wpcolumns table>tr:visible:odd').css('background', '#DADADD');
-      
+
     }
     function chnage_col_value(){
 
@@ -174,18 +174,18 @@ function create_oscitas_wpcolumns(){
                 i=parseInt(index)+1;
                 jQuery('#lg'+i).val(val);
             })
-      
+
         }
         jQuery('#oscitas-form-wpcolumns table tr:visible:even').css('background', '#F0F0F0');
         jQuery('#oscitas-form-wpcolumns table tr:visible:odd').css('background', '#DADADD');
     }
-    
+
     show_table();
-    
+
     jQuery('#oscitas-no-of-wpcolumns').change(function(){
         var noOfColumns = jQuery(this).val();
         if(2 == noOfColumns){
-       
+
             jQuery("#wpthree").hide();
             jQuery("#wptwo").show();
         }
@@ -200,14 +200,14 @@ function create_oscitas_wpcolumns(){
         }
         show_table();
         chnage_col_value();
-        
-    
+
+
     });
     form.find('.osc-change-col').change(function(){
         chnage_col_value();
-    })  
+    })
     var arr={
-        1:'lg', 
+        1:'lg',
         2: 'md',
         3:'sm',
         4:'xs'
@@ -217,46 +217,46 @@ function create_oscitas_wpcolumns(){
     var value1 =0,valueoff=0,lastSel,previous;
     jQuery.each(arr,function(i,valuenum){
         jQuery.each(arr,function(tt,index){
-  
+
             jQuery('#'+index+i).live('focus',function(){
                 previous = this.value;
             }).live('change',function(){
-                value1= parseInt(jQuery(this).val());
-                valueoff =parseInt(jQuery('#'+index+'off'+i).val());
-                value1=value1+valueoff;
-                if(value1<=12){
-                    previous = this.value;
-                }
-                else{
-                    jQuery('#'+index+i).val(previous);
-                    alert('Can\'t Change, exceeds the limit');
-                }
-            });
-           
+                    value1= parseInt(jQuery(this).val());
+                    valueoff =parseInt(jQuery('#'+index+'off'+i).val());
+                    value1=value1+valueoff;
+                    if(value1<=12){
+                        previous = this.value;
+                    }
+                    else{
+                        jQuery('#'+index+i).val(previous);
+                        alert('Can\'t Change, exceeds the limit');
+                    }
+                });
+
             jQuery('#'+index+'off'+i).live('focus',function(){
                 previous = this.value;
             }).live('change',function(){
-                value1= parseInt(jQuery(this).val());
-                valueoff = parseInt(jQuery('#'+index+i).val());
-                value1=value1+valueoff;
-                if(value1<=12){
-                    previous = this.value;
-                }
-                else{
-                    jQuery('#'+index+'off'+i).val(previous);
-                    alert('Can\'t Change, exceeds the limit');
-                }
-            })
+                    value1= parseInt(jQuery(this).val());
+                    valueoff = parseInt(jQuery('#'+index+i).val());
+                    value1=value1+valueoff;
+                    if(value1<=12){
+                        previous = this.value;
+                    }
+                    else{
+                        jQuery('#'+index+'off'+i).val(previous);
+                        alert('Can\'t Change, exceeds the limit');
+                    }
+                })
         })
     });
-  
+
     // handles the click event of the submit button
     form.find('#oscitas-submit-wp_column').click(function(){
         // defines the options and their default values
         // again, this is not the most elegant way to do this
         // but well, this gets the job done nonetheless
         var a_md=[],a_sm=[],a_xs=[],a_lg=[],j=0,a_md_off=[],a_sm_off=[],a_xs_off=[],a_lg_off=[],a_md_hide=[],a_sm_hide=[],a_xs_hide=[],a_lg_hide=[],sm='',md='',xs='',smoff='',mdoff='',xsoff='',lgoff='',smhide='',mdhide='',xshide='',lghide='';
-     
+
         var noOfColumns = jQuery('#oscitas-no-of-wpcolumns').val();
         var shortcode = '';
         var cusclass='';
@@ -265,7 +265,7 @@ function create_oscitas_wpcolumns(){
         }
         shortcode ='[row'+cusclass+']';
         for(var i=1;i<=parseInt(noOfColumns);i++){
-     
+
             a_md[i] = jQuery('#md'+i).val();
             a_sm[i] = jQuery('#sm'+i).val();
             a_xs[i] = jQuery('#xs'+i).val();
@@ -275,21 +275,21 @@ function create_oscitas_wpcolumns(){
             a_xs_off[i] = jQuery('#xsoff'+i).val();
             a_lg_off[i] = jQuery('#lgoff'+i).val();
 
-            if(a_md[i]!=12){
-                md=' md="'+a_md[i]+'"';
-            } else{
-                md='';
-            }
-            if(a_sm[i]!=12){
-                sm=' sm="'+a_sm[i]+'"';
-            } else{
-                sm='';
-            }
-            if(a_xs[i]!=12){
-                xs=' xs="'+a_xs[i]+'"';
-            } else{
-                xs='';
-            }
+            //if(a_md[i]!=12){
+            md=' md="'+a_md[i]+'"';
+            //} else{
+            //    md='';
+            //}
+            //if(a_sm[i]!=12){
+            sm=' sm="'+a_sm[i]+'"';
+            //} else{
+            //    sm='';
+            //}
+            //if(a_xs[i]!=12){
+            xs=' xs="'+a_xs[i]+'"';
+            //} else{
+            //    xs='';
+            //}
             if(a_md_off[i]!=0){
                 mdoff=' mdoff="'+a_md_off[i]+'"';
             }
@@ -341,7 +341,7 @@ function create_oscitas_wpcolumns(){
             }
             shortcode += '<br/>[column lg="'+a_lg[i]+'"'+md+sm+xs+mdoff+smoff+xsoff+lgoff+mdhide+smhide+xshide+lghide+' ]<br/>text<br/>[/column]';
         }
-       
+
         shortcode += '<br/>[/row]';
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);

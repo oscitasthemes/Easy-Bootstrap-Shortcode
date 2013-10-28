@@ -16,7 +16,6 @@ function osc_theme_oscitasthumbnail($params, $content = 'Label') {
     $imageBorderClass = 'img-responsive';
     if ($border != '') {
         $borderClass = 'img-thumbnail ';
-        $imageBorderClass = '';
     }
 
     $out = ' <div class="' . $borderClass.$class . '">';

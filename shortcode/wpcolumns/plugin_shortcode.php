@@ -23,7 +23,7 @@ add_shortcode('row', 'osc_theme_row');
  * TWO
  * ********************************************************* */
 
-function osc_theme_column_shortcode($params, $content = null) {
+function osc_theme_column($params, $content = null) {
     extract(shortcode_atts(array(
         'md' => '',
         'sm' => '',
@@ -45,6 +45,7 @@ function osc_theme_column_shortcode($params, $content = null) {
     $classes = array();
     foreach ($arr as $k => $aa) {
         if (${$aa} == 12 || ${$aa} == '') {
+            $classes[] = 'col-' . $aa . '-12';
         } else {
             $classes[] = 'col-' . $aa . '-' . ${$aa};
         }
@@ -75,7 +76,7 @@ function osc_theme_column_shortcode($params, $content = null) {
     return force_balance_tags($result);
 }
 
-add_shortcode('column', 'osc_theme_column_shortcode');
+add_shortcode('column', 'osc_theme_column');
 
 
 function osc_theme_one_half($params, $content = null) {
