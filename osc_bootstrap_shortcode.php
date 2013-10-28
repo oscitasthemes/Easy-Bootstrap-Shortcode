@@ -12,12 +12,8 @@
 
 add_action('init','is_oscitas_theme_exists');
 function is_oscitas_theme_exists(){
-	// Add a filter for the oscitaschecktheme
-	// There is no need to have global scope as we are going to filter it anyway
-	// Return true for this filter
-	// If you do not want the settings panel and other admin/frontend scripts/css to be added
-	$oscitaschecktheme = apply_filters( 'oscitas_check_theme', false );
-    if ( $oscitaschecktheme == false ) {
+    global $oscitaschecktheme;
+    if(!apply_filters('plugin_oscitas_theme_check',false)){
         add_action('admin_enqueue_scripts', 'osc_add_admin_ebs_scripts');
         add_action('wp_enqueue_scripts', 'osc_add_frontend_ebs_scripts');
         add_action('admin_menu', 'osc_ebs_add_admin_menu');
@@ -79,7 +75,8 @@ function osc_ebs_setting_page() {
         $js = $_POST['b_js'];
         $cdn = $_POST['cdn_path'];
         $css = $_POST['b_css'];
-    } else {
+    }
+    else {
         $js = get_option( 'EBS_BOOTSTRAP_JS_LOCATION', 1 );
         $cdn = get_option( 'EBS_BOOTSTRAP_JS_CDN_PATH', 'http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js' );
         $css = get_option( 'EBS_BOOTSTRAP_CSS_LOCATION', 1 );
@@ -114,7 +111,7 @@ function osc_add_admin_ebs_scripts() {
 
 function osc_add_frontend_ebs_scripts() {
     wp_enqueue_script('jquery');
-    $isSet = get_option('EBS_CUSTOM_OPTION', '');
+    $isSet=apply_filters('ebs_custom_option',false);
     if (!$isSet) {
         $js = get_option( 'EBS_BOOTSTRAP_JS_LOCATION', 1 );
         $cdn = get_option( 'EBS_BOOTSTRAP_JS_CDN_PATH', 'http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js' );
