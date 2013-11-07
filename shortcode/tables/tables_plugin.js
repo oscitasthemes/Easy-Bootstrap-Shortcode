@@ -43,7 +43,7 @@ function create_oscitas_table(){
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-table"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="oscitas-form-table" class="oscitas-container"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-table-width">Table Width</label></th>\
 				<td><input type="text" name="icontag" id="oscitas-table-width" value="100%" /><br />\
