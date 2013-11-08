@@ -37,6 +37,10 @@ function osc_theme_column($params, $content = null) {
         'smhide' => '',
         'xshide' => '',
         'lghide' => '',
+        'mdclear' => '',
+        'smclear' => '',
+        'xsclear' => '',
+        'lgclear' => '',
         'off'=>''
     ), $params));
 
@@ -66,6 +70,17 @@ function osc_theme_column($params, $content = null) {
             $classes[] = 'hidden-' . $nn;
         }
     }
+    $arr2 = array('mdclear', 'smclear', 'xsclear', 'lgclear');
+    foreach ($arr2 as $k => $aa) {
+        $nn = str_replace('clear', '', $aa);
+        if (${$aa} == 'yes') {
+            $classes[] = 'clear-' . $nn;
+        }
+    }
+    if ($off != '') {
+        $classes[] = 'col-lg-offset-'.$off;
+    }
+
     if ($off != '') {
         $classes[] = 'col-lg-offset-'.$off;
     }
@@ -552,4 +567,3 @@ function osc_theme_one_column($params, $content = null) {
 }
 
 add_shortcode('one_column', 'osc_theme_one_column');
-

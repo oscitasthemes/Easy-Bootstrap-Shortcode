@@ -112,7 +112,8 @@ function create_oscitas_wpcolumns(){
         ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Screen</th><th style="min-width:50px;max-width:50px">Hide Row</th>';
 
         for(i=1;i<=col;i++){
-            ele+='<th><div class="head_division">Column</div><div class="head_division">Offset</div><div class="head_division head_division_check right">Hide</div></th>';
+            ele+='<th><div class="head_division head_division_check">Clear Left</div><div class="head_division">Column</div><div class="head_division">Offset</div><div class="head_division head_division_check right">Hide</div></th>';
+
         }
         ele+= '</tr></thead><tbody class="column_tbody">';
         jQuery.each(option,function(index,val){
@@ -147,10 +148,15 @@ function create_oscitas_wpcolumns(){
                 }
                 smoff+='</select>';
 
+                clearleft='<input type="checkbox"  name="'+index+'clear['+i+']" id="'+index+'clear'+i+'" value="yes">';
+
                 hidecol='<input type="checkbox"  name="'+index+'hide['+i+']" id="'+index+'hide'+i+'" value="yes">';
 
+                
+                ele+='<td><div class="head_division head_division_check">'+clearleft+'</div><div class="head_division">'+sm+'</div><div class="head_division">'+smoff+'</div><div class="head_division head_division_check right">'+hidecol+'</div></td>';
 
-                ele+='<td><div class="head_division">'+sm+'</div><div class="head_division">'+smoff+'</div><div class="head_division head_division_check right">'+hidecol+'</div></td>';
+
+                
             }
             ele+='</tr>';
         });
@@ -255,7 +261,8 @@ function create_oscitas_wpcolumns(){
         // defines the options and their default values
         // again, this is not the most elegant way to do this
         // but well, this gets the job done nonetheless
-        var a_md=[],a_sm=[],a_xs=[],a_lg=[],j=0,a_md_off=[],a_sm_off=[],a_xs_off=[],a_lg_off=[],a_md_hide=[],a_sm_hide=[],a_xs_hide=[],a_lg_hide=[],sm='',md='',xs='',smoff='',mdoff='',xsoff='',lgoff='',smhide='',mdhide='',xshide='',lghide='';
+        var a_md=[],a_sm=[],a_xs=[],a_lg=[],j=0,a_md_off=[],a_sm_off=[],a_xs_off=[],a_lg_off=[],a_md_hide=[],a_sm_hide=[],a_xs_hide=[],a_lg_hide=[],sm='',md='',xs='',smoff='',mdoff='',xsoff='',lgoff='',smhide='',mdhide='',xshide='',lghide='',smclear='',mdclear='',xsclear='',lgclear='';
+
 
         var noOfColumns = jQuery('#oscitas-no-of-wpcolumns').val();
         var shortcode = '';
@@ -339,7 +346,33 @@ function create_oscitas_wpcolumns(){
             else{
                 lghide='';
             }
-            shortcode += '<br/>[column lg="'+a_lg[i]+'"'+md+sm+xs+mdoff+smoff+xsoff+lgoff+mdhide+smhide+xshide+lghide+' ]<br/>text<br/>[/column]';
+            
+            if(jQuery('#mdclear'+i).is(':checked')){
+                mdclear=' mdclear="yes"';
+            }
+            else{
+                mdclear='';
+            }
+            if(jQuery('#smclear'+i).is(':checked')){
+                smclear=' smclear="yes"';
+            }
+            else{
+                smclear='';
+            }
+            if(jQuery('#xsclear'+i).is(':checked')){
+                xsclear=' xsclear="yes"';
+            }
+            else{
+                xsclear='';
+            }
+            if(jQuery('#lgclear'+i).is(':checked')){
+                lgclear=' lgclear="yes"';
+            }
+            else{
+                lgclear='';
+            }
+
+            shortcode += '<br/>[column lg="'+a_lg[i]+'"'+md+sm+xs+mdoff+smoff+xsoff+lgoff+mdhide+smhide+xshide+lghide+mdclear+smclear+xsclear+lgclear+' ]<br/>text<br/>[/column]';
         }
 
         shortcode += '<br/>[/row]';
@@ -349,4 +382,3 @@ function create_oscitas_wpcolumns(){
         jQuery.fancybox.close();
     });
 }
-
