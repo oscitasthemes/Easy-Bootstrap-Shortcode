@@ -48,5 +48,4 @@
             show_cdn();
         })
     })
-
 </script>

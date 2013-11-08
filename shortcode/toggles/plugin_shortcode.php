@@ -30,7 +30,7 @@ function osc_theme_toggle($params, $content = null) {
     global $_oscitas_accordion;
     extract(shortcode_atts(array(
                 'title' => 'title',
-                'class' => '',
+                'class' => ''
                     ), $params));
     $con = do_shortcode($content);
     $index = count($_oscitas_accordion) - 1;
