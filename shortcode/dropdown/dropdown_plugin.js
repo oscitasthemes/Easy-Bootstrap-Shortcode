@@ -43,7 +43,7 @@ function create_oscitas_dropdown(){
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-dropdown"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="oscitas-form-dropdown" class="oscitas-container"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th class="main_dp_th"><label for="oscitas-dropdown-heading" >Dropdown Button Features</label></th>\
 				<td><table class="tb_multiple_column_upper">\

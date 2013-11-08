@@ -69,7 +69,7 @@ Example:
 function ebs_theme_check( $prevent ) {
 	return true;
 }
-add_filters( 'oscitas_check_theme', 'ebs_theme_check' );
+add_filter( 'oscitas_check_theme', 'ebs_theme_check' );
 ```
 > If you want to just disable enqueue on the front-end, then do not use this filter. Use the following one instead.
 
@@ -84,7 +84,7 @@ Example:
 function apply_ebs_custom_option( $prevent ) {
 	return true;
 }
-add_filters( 'ebs_custom_option', 'apply_ebs_custom_option' );
+add_filter( 'ebs_custom_option', 'apply_ebs_custom_option' );
 ```
 
 *Note for Developers:* If you are developing a theme and want to enqueue CSS and JS files from your theme only (on the front-end area) then using just the filter above will suffice.

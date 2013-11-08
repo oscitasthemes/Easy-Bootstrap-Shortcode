@@ -48,7 +48,7 @@ function create_oscitas_icon(){
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-icon"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="oscitas-form-icon" class="oscitas-container"><table id="oscitas-table" class="form-table">\
                         <tr>\
                         <th><label for="oscitas-heading-icon">Select Icon:</label></th>\
 				<td><div id="click_icon_list_icon" class="oscitas-icon-div"><span id="osc_show_icon_icon"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val_icon" value="glyphicon-adjust">\

@@ -42,7 +42,7 @@ function create_oscitas_tooltip(){
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-tooltip"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="oscitas-form-tooltip" class="oscitas-container"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-tooltip-style">Tooltip Style:</label></th>\
 				<td><select name="type" id="oscitas-tooltip-style">\

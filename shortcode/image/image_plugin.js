@@ -43,7 +43,7 @@ function create_oscitas_image(){
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-image"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="oscitas-form-image" class="oscitas-container"><table id="oscitas-table" class="form-table">\
 				<th><label for="oscitas-label-content">Upload Image:</label></th>\
 				<td id="osc_image_upload"><input id="oscitas-image-src" type="hidden" name="oscitas-thumbnail-src"  value="" />\
                                 <input id="_btn" class="upload_image_button" type="button" value="Upload Image" />\
