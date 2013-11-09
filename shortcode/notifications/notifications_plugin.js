@@ -44,7 +44,7 @@ function create_oscitas_notification(){
     // you should achieve this using AJAX instead of direct html code like this
     var form = jQuery('<div id="oscitas-form-notifications" class="oscitas-container"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th><label for="oscitas-type">VideoServer</label></th>\
+				<th><label for="oscitas-type">Style :</label></th>\
 				<td><select name="type" id="oscitas-type">\
 					<option value="alert-warning">Warning</option>\
 					<option value="alert-success">Success</option>\
