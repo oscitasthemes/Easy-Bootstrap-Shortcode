@@ -1459,7 +1459,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 }(window.jQuery);
 
 /* ========================================================================
- * Bootstrap: popover.js v3.0.0
+ * Bootstrap: oscpopover.js v3.0.0
  * http://twbs.github.com/bootstrap/javascript.html#popovers
  * ========================================================================
  * Copyright 2012 Twitter, Inc.
@@ -1484,7 +1484,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   // ===============================
 
   var Popover = function (element, options) {
-    this.init('popover', element, options)
+    this.init('oscpopover', element, options)
   }
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
@@ -1493,7 +1493,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     placement: 'right'
   , trigger: 'click'
   , content: ''
-  , template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+  , template: '<div class="oscpopover"><div class="arrow"></div><h3 class="oscpopover-title"></h3><div class="oscpopover-content"></div></div>'
   })
 
 
@@ -1513,14 +1513,14 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     var title   = this.getTitle()
     var content = this.getContent()
 
-    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-    $tip.find('.popover-content')[this.options.html ? 'html' : 'text'](content)
+    $tip.find('.oscpopover-title')[this.options.html ? 'html' : 'text'](title)
+    $tip.find('.oscpopover-content')[this.options.html ? 'html' : 'text'](content)
 
     $tip.removeClass('fade top bottom left right in')
 
     // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
     // this manually by checking the contents.
-    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
+    if (!$tip.find('.oscpopover-title').html()) $tip.find('.oscpopover-title').hide()
   }
 
   Popover.prototype.hasContent = function () {
@@ -1555,10 +1555,10 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   $.fn.popover = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.popover')
+      var data    = $this.data('bs.oscpopover')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
+      if (!data) $this.data('bs.oscpopover', (data = new Popover(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
