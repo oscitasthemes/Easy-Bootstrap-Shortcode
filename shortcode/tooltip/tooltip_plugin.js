@@ -126,6 +126,8 @@ function create_oscitas_tooltip(){
 
         shortcode += '" ';
         shortcode += ' style="' + table.find('#oscitas-tooltip-style').val();
+        
+        shortcode += '" ';
 
         shortcode += cusclass;
       
