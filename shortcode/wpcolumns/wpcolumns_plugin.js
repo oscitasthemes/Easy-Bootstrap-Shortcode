@@ -48,7 +48,7 @@ function create_oscitas_wpcolumns(){
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-wpcolumns">\
+    var form = jQuery('<div id="oscitas-form-wpcolumns" class="oscitas-container">\
                 <table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-no-of-wpcolumns">Number of columns</label></th>\

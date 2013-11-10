@@ -91,7 +91,10 @@ function osc_add_admin_ebs_scripts() {
     if ($screen->id == 'toplevel_page_ebs/ebs-settings') {
         wp_enqueue_style('ebs-setting', plugins_url('/styles/ebs-setting.min.css', __FILE__));
     }
-    if ('post-new.php' == $pagenow || 'post.php' == $pagenow) {
+}
+
+
+function osc_editor_enable_mce(){
         wp_enqueue_script('jquery');
         wp_enqueue_style('thickbox');
         wp_enqueue_script('media-upload');
@@ -106,8 +109,10 @@ function osc_add_admin_ebs_scripts() {
         if (!apply_filters('ebs_custom_bootstrap_admin_css',false)) {
             wp_enqueue_style('bootstrap_admin', plugins_url('/styles/bootstrap_admin.min.css', __FILE__));
         }
-    }
+
 }
+add_filter('mce_external_plugins', 'osc_editor_enable_mce');
+
 
 function osc_add_frontend_ebs_scripts() {
     wp_enqueue_script('jquery');
