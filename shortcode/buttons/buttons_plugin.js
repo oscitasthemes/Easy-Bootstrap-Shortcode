@@ -402,7 +402,7 @@ function create_oscitas_button(){
         shortcode += ' align="'+table.find('#oscitas-button-iconalign').val()+'" ';
         shortcode += ' type="'+type+'" ';
         if(type!='button'){
-            shortcode += ' target="'+(table.find('#oscitas-button-block').prop('checked')? 'true': 'false')+ '" ';
+            shortcode += ' target="'+(table.find('#oscitas-button-target').prop('checked')? 'true': 'false')+ '" ';
         }
         for( var index in options) {
             var value = table.find('#oscitas-button-' + index).val();

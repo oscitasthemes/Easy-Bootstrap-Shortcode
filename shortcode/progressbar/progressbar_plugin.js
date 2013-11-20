@@ -62,6 +62,11 @@ function create_oscitas_progressbar(){
 				</select><br />\
 				</td>\
 			</tr>\
+			 <tr>\
+				<th><label for="oscitas-progressbar-label">Progressbar Label:</label></th>\
+				<td><input type="text" name="title" id="oscitas-progressbar-label" value=""/><br />\
+				</td>\
+			</tr>\
                         <tr>\
 				<th><label for="oscitas-progressbar-progress">Progress Value:</label></th>\
 				<td><input type="text" name="title" id="oscitas-progressbar-progress" value="50"/><br />\
@@ -112,7 +117,7 @@ function create_oscitas_progressbar(){
     // handles the click event of the submit button
     form.find('#oscitas-progressbar-submit').click(function(){
        
-        var cusclass='',type='',value='',stripped='';
+        var cusclass='',type='',value='',stripped='',label='';
         if(jQuery('#oscitas-progressbar-stripped').prop('checked')){
             stripped=' barstyle="progress-striped'; 
             if(jQuery('#oscitas-progressbar-animated').prop('checked')){
@@ -129,7 +134,10 @@ function create_oscitas_progressbar(){
         if(table.find('#oscitas-progressbar-progress').val()!=''){
             value= ' value="'+table.find('#oscitas-progressbar-progress').val()+'"';
         }
-        var shortcode = '[progressbar'+value+cusclass+type+stripped;
+        if(table.find('#oscitas-progressbar-label').val()!=''){
+            label= ' label="'+table.find('#oscitas-progressbar-label').val()+'"';
+        }
+        var shortcode = '[progressbar'+value+cusclass+type+stripped+label;
        
         shortcode += ']';
 			

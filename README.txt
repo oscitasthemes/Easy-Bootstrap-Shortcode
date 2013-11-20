@@ -19,6 +19,8 @@ http://www.youtube.com/watch?v=8T0IC1PsdTw
 New column hide functionality
 http://www.youtube.com/watch?v=eSrFVAro8Nc
 
+[Easy Bootstrap Shortcode Demo](http://demo.oscitasthemes.com/demos/easy-bootstrap-shortcode/)
+
 Looking for parallax slider, check this [Easy Wordpress Parallax Slider](http://wordpress.org/plugins/easy-wp-parallax-slider/)
 
 Want to implement responsive tabs to your pages, check this [Easy Responsive Tabs](http://wordpress.org/plugins/easy-responsive-tabs/)
@@ -190,29 +192,62 @@ It's that simple ... just what the name suggests
 
 == Changelog ==
 
+
+= 2.3.3 =
+
+* [update] Included respond.js to support IE 6,7,8. Of course, you can choose either you want to include it or not from settings page.
+* [update] New Shortcode to create Button Group
+* [update] New Shortcode to create Button Group Tool Bar
+* [update] New Shortcode to create Description List
+* [update] Yes, now Progress Bar shortcode supports Label too.
+
+= 2.3.2 =
+
+
+* [fixed]  Fixed wpcolumns add class issues.
+
+
+= 2.3.1 =
+
+
+* [update] Clear left functionality added in responsive columns. Credit goes to Nikoya.
+* [update] Added class to dialog box. Credit goes to Nikoya.
+* [update] Bootstrap css and js updated to v3.0.2
+* [fixed] Undefined index issue in toggles.
+
+
+
 = 2.3.0 =
 
-[Update] now supports filters, so that you can easily give inbuilt support to this plugin to create responsive themes (Suggested by Swashata).
-[Update] Implemented support of "in" class for toggles
+
+* [Update] now supports filters, so that you can easily give inbuilt support to this plugin to create responsive themes (Suggested by Swashata).
+* [Update] Implemented support of "in" class for toggles
+
 
 = 2.2.5 =
 
-[fixed] bootstrap icon css in frontend issue resolved.
-[fixed] Column col-xx-12 issue resolved, now it will add col-xx-12 to columns
+
+* [fixed] bootstrap icon css in frontend issue resolved.
+* [fixed] Column col-xx-12 issue resolved, now it will add col-xx-12 to columns
+
 
 = 2.2.4 =
 
-[fixed] On plugin activation TinyMCE visual editor disappear issue resolved.
+
+* [fixed] On plugin activation TinyMCE visual editor disappear issue resolved.
+
 
 = 2.2.1 =
 
-[Update] Removed the extra table dependency to save the plugin settings
-[fixed] css file location settings issue.
+
+* [Update] Removed the extra table dependency to save the plugin settings
+* [fixed] css file location settings issue.
 
 
 = 2.2.0 =
 
-[Update] now you can set the visibility of columns or full row for different screen such as large, medium, small, ex-small
+
+* [Update] now you can set the visibility of columns or full row for different screen such as large, medium, small, ex-small
 
 
 = 2.1.1 =
@@ -233,4 +268,5 @@ It's that simple ... just what the name suggests
 
 = 1.1 =
 * fixed columns alternate color issue in admin panel
+
 
