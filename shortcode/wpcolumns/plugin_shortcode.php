@@ -15,7 +15,7 @@ function osc_theme_row($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('row', 'osc_theme_row');
@@ -88,7 +88,7 @@ function osc_theme_column($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('column', 'osc_theme_column');
@@ -120,7 +120,7 @@ function osc_theme_one_half($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_half', 'osc_theme_one_half');
@@ -151,7 +151,7 @@ function osc_theme_one_half_last($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_half_last', 'osc_theme_one_half_last');
@@ -186,7 +186,7 @@ function osc_theme_one_third($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_third', 'osc_theme_one_third');
@@ -217,7 +217,7 @@ function osc_theme_one_third_last($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_third_last', 'osc_theme_one_third_last');
@@ -248,7 +248,7 @@ function osc_theme_two_third($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('two_third', 'osc_theme_two_third');
@@ -279,7 +279,7 @@ function osc_theme_two_third_last($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('two_third_last', 'osc_theme_two_third_last');
@@ -314,7 +314,7 @@ function osc_theme_one_fourth($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_fourth', 'osc_theme_one_fourth');
@@ -345,7 +345,7 @@ function osc_theme_one_fourth_last($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_fourth_last', 'osc_theme_one_fourth_last');
@@ -376,7 +376,7 @@ function osc_theme_three_fourth($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('three_fourth', 'osc_theme_three_fourth');
@@ -407,7 +407,7 @@ function osc_theme_three_fourth_last($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('three_fourth_last', 'osc_theme_three_fourth_last');
@@ -438,7 +438,7 @@ function osc_theme_one_fourth_second($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_fourth_second', 'osc_theme_one_fourth_second');
@@ -470,7 +470,7 @@ function osc_theme_one_fourth_third($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_fourth_third', 'osc_theme_one_fourth_third');
@@ -501,7 +501,7 @@ function osc_theme_one_half_second($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_half_second', 'osc_theme_one_half_second');
@@ -532,7 +532,7 @@ function osc_theme_one_third_second($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_third_second', 'osc_theme_one_third_second');
@@ -563,7 +563,7 @@ function osc_theme_one_column($params, $content = null) {
     $result .= do_shortcode($content);
     $result .= '</div>';
 
-    return force_balance_tags($result);
+    return $result;
 }
 
 add_shortcode('one_column', 'osc_theme_one_column');

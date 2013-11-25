@@ -21,6 +21,8 @@ http://www.youtube.com/watch?v=eSrFVAro8Nc
 
 [Easy Bootstrap Shortcode Demo](http://demo.oscitasthemes.com/demos/easy-bootstrap-shortcode/)
 
+[Easy Bootstrap Shortcode Documentation](http://oscitasthemes.com/documentation/easy-bootstrap-shortcodes/)
+
 Looking for parallax slider, check this [Easy Wordpress Parallax Slider](http://wordpress.org/plugins/easy-wp-parallax-slider/)
 
 Want to implement responsive tabs to your pages, check this [Easy Responsive Tabs](http://wordpress.org/plugins/easy-responsive-tabs/)
@@ -192,6 +194,12 @@ It's that simple ... just what the name suggests
 
 == Changelog ==
 
+
+= 2.3.4 =
+
+* [update] Implemented filter to add buttons to tinyMCE, Credit goes to Nikoya.
+* [Fixed] Added class to Columns shortcode popup.
+* [Fixed] Resolved issue 'Gravity Form not validating within plugin column shortcode'
 
 = 2.3.3 =
 

@@ -4,7 +4,7 @@
   Plugin Name: Easy Bootstrap Shortcode
   Plugin URI: http://www.oscitasthemes.com
   Description: Add bootstrap 3.0 styles to your theme by wordpress editor shortcode buttons.
-  Version: 2.3.1
+  Version: 2.3.4
   Author: oscitas
   Author URI: http://www.oscitasthemes.com
   License: Under the GPL v2 or later
@@ -98,7 +98,7 @@ function osc_ebs_setting_page() {
     include 'ebs_settings.php';
 }
 
-// add_submenu_page('optine
+/* / add_submenu_page('optine
 function osc_add_admin_ebs_scripts() {
     global $pagenow;
     $screen = get_current_screen();
@@ -121,7 +121,35 @@ function osc_add_admin_ebs_scripts() {
             wp_enqueue_style('bootstrap_admin', plugins_url('/styles/bootstrap_admin.min.css', __FILE__));
         }
     }
+}*/
+
+// add_submenu_page('optine
+function osc_add_admin_ebs_scripts() {
+    global $pagenow;
+    $screen = get_current_screen();
+    if ($screen->id == 'toplevel_page_ebs/ebs-settings') {
+        wp_enqueue_style('ebs-setting', plugins_url('/styles/ebs-setting.min.css', __FILE__));
+    }
 }
+
+function osc_editor_enable_mce(){
+    wp_enqueue_script('jquery');
+    wp_enqueue_style('thickbox');
+    wp_enqueue_script('media-upload');
+    wp_enqueue_script('thickbox');
+    wp_enqueue_script('jquery.fancybox', plugins_url('/js/jquery.fancybox.js', __FILE__));
+    wp_enqueue_style('fancyboxcss', plugins_url('/styles/jquery.fancybox.css', __FILE__));
+    if (!apply_filters('ebs_bootstrap_icon_css_url',false)) {
+        wp_enqueue_style('bootstrap-icon', plugins_url('/styles/bootstrap-icon.min.css', __FILE__));
+    } else{
+        wp_enqueue_style('bootstrap-icon', apply_filters('ebs_bootstrap_icon_css_url',false));
+    }
+    if (!apply_filters('ebs_custom_bootstrap_admin_css',false)) {
+        wp_enqueue_style('bootstrap_admin', plugins_url('/styles/bootstrap_admin.min.css', __FILE__));
+    }
+
+}
+add_filter('mce_external_plugins', 'osc_editor_enable_mce');
 
 function osc_add_frontend_ebs_scripts() {
     wp_enqueue_script('jquery');
