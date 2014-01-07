@@ -1,48 +1,19 @@
+var panel={
+    title:"Panel Shortcode",
+    id :'oscitas-form-panel',
+    pluginName: 'panel'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasPanel', {
-        init : function(ed, url) {
-            ed.addButton('oscitaspanel', {
-                title : 'Panel Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_panel();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'Panel Shortcode',
-                        'href' : '#oscitas-form-panel',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Panel Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitaspanel', tinymce.plugins.oscitasPanel);
+    _create_tinyMCE_options(panel);
 })();
 
-function create_oscitas_panel(){
-    if(jQuery('#oscitas-form-panel').length){
-        jQuery('#oscitas-form-panel').remove();
+function create_oscitas_panel(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-panel" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-type">Style</label></th>\
 				<td><select name="type" id="oscitas-panel-type">\
@@ -93,7 +64,7 @@ function create_oscitas_panel(){
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 			
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

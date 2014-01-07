@@ -1,50 +1,20 @@
+var btngrp={
+    title:"Button Group Shortcode",
+    id :'oscitas-form-btngrp',
+    pluginName: 'btngrp'
+};
+
 (function() {
-    tinymce.create('tinymce.plugins.oscitasBtngrp', {
-        init : function(ed, url) {
-            ed.addButton('oscitasbtngrp', {
-                title : 'Button Btngrp Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_btngrp();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'Button Group Shortcode',
-                        'href' : '#oscitas-form-btngrp',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Button Group Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasbtngrp', tinymce.plugins.oscitasBtngrp);
+    _create_tinyMCE_options(btngrp);
 })();
 
-
-function create_oscitas_btngrp(){
-    if(jQuery('#oscitas-form-btngrp').length){
-        jQuery('#oscitas-form-btngrp').remove();
+function create_oscitas_btngrp(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-btngrp">\
-    <table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th class="main_dp_th"><label for="oscitas-btngrp-heading" >Button Group Features</label></th>\
 				<td>\
@@ -224,7 +194,7 @@ function create_oscitas_btngrp(){
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

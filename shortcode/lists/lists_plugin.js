@@ -1,48 +1,19 @@
+var lists={
+    title:"List Group Shortcode",
+    id :'oscitas-form-lists',
+    pluginName: 'lists'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasLists', {
-        init : function(ed, url) {
-            ed.addButton('oscitaslists', {
-                title : 'List Group Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_lists();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'List Group Shortcode',
-                        'href' : '#oscitas-form-lists',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "List Group Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitaslists', tinymce.plugins.oscitasLists);
+    _create_tinyMCE_options(lists);
 })();
 
-function create_oscitas_lists(){
-    if(jQuery('#oscitas-form-lists').length){
-        jQuery('#oscitas-form-lists').remove();
+function create_oscitas_lists(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-lists" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-type">Lists style</label></th>\
 				<td><select name="type" id="oscitas-type">\
@@ -108,8 +79,8 @@ function create_oscitas_lists(){
 			
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-			
-        jQuery.fancybox.close();
+
+        close_dialogue(pluginObj.hashId);
     });
 }
 

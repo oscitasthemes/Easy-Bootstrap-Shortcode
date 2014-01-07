@@ -1,56 +1,20 @@
+var progressbar={
+    title:"Progressbar Shortcode",
+    id :'oscitas-form-progressbar',
+    pluginName: 'progressbar',
+    setRowColors: true
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasProgressbar', {
-        init : function(ed, url) {
-            ed.addButton('oscitasprogressbar', {
-                title : 'Progressbar Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_progressbar();
-                    jQuery.fancybox({
-                        'autoSize':false,
-                        'autoWidth':false,
-                        'fitToView':false,
-                        'height':'auto',
-                        'topRatio':0.1,
-                        'width':800,
-                        'type' : 'inline',
-                        'title' : 'Progressbar Shortcode',
-                        'href' : '#oscitas-form-progressbar',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                    jQuery('#oscitas-form-progressbar table tr:visible:even').css('background', '#F0F0F0');
-                    jQuery('#oscitas-form-progressbar table tr:visible:odd').css('background', '#DADADD');
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Progressbar Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasprogressbar', tinymce.plugins.oscitasProgressbar);
+    _create_tinyMCE_options(progressbar, 800);
 })();
 
-function create_oscitas_progressbar(){
-    if(jQuery('#oscitas-form-progressbar').length){
-        jQuery('#oscitas-form-progressbar').remove();
+function create_oscitas_progressbar(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-progressbar" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-progressbar-style">Progress Bar Type:</label></th>\
 				<td><select name="type" id="oscitas-progressbar-style">\
@@ -145,7 +109,7 @@ function create_oscitas_progressbar(){
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 			
         // closes fancybox
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

@@ -1,54 +1,20 @@
+var buttons={
+    title:"Button Shortcode",
+    id :'oscitas-form-button',
+    pluginName: 'buttons'
+
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasButtons', {
-        init : function(ed, url) {
-            ed.addButton('oscitasbuttons', {
-                title : 'Button Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_button();
-                    jQuery.fancybox({
-                        'autoSize':false,
-                        'autoWidth':false,
-                        'fitToView':false,
-                        'height':'auto',
-                        'topRatio':0.1,
-                        'width':800,
-                        'type' : 'inline',
-                        'title' : 'Button Shortcode',
-                        'href' : '#oscitas-form-button',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Button Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasbuttons', tinymce.plugins.oscitasButtons);
+    _create_tinyMCE_options(buttons, 800);
 })();
 
-function create_oscitas_button(){
-    if(jQuery('#oscitas-form-button').length){
-        jQuery('#oscitas-form-button').remove();
+function create_oscitas_buttons(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-button" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-button-style">Style:</label></th>\
 				<td><select name="type" id="oscitas-button-style">\
@@ -295,6 +261,11 @@ function create_oscitas_button(){
 				</td>\
 			</tr>\
 			<tr>\
+				<th><label for="oscitas-button-iconcolor">Icon Color:</label></th>\
+				<td><input type="text" name="label" id="oscitas-button-iconcolor" class="color" value="" /><br />\
+				</td>\
+			</tr>\
+			<tr>\
 				<th><label for="oscitas-table-rows">Make block</label></th>\
 				<td>\
 				    <input type="checkbox" id="oscitas-button-block">\
@@ -332,6 +303,7 @@ function create_oscitas_button(){
     var table = form.find('table');
     jQuery('.glyphicon').css('display','inline');
     form.appendTo('body').hide();
+    form.find('.color').wpColorPicker();
     table.find('#click_icon_list_button').click(function(){
         if(!jQuery(this).hasClass('osc_icon_showing_button')){
             jQuery(this).addClass('osc_icon_showing_button')
@@ -390,6 +362,10 @@ function create_oscitas_button(){
         }
         if(table.find('#osc_icon_class_val_button').val()!=''){
             icon= ' icon="'+table.find('#osc_icon_class_val_button').val()+'" ';
+            icon += ' align="'+table.find('#oscitas-button-iconalign').val()+'" ';
+            if(table.find('#oscitas-button-iconcolor').val()!=''){
+                icon+= ' iconcolor="'+table.find('#oscitas-button-iconcolor').val()+'" ';
+            }
         }
        
         var shortcode = '[button'+cusclass;
@@ -399,7 +375,6 @@ function create_oscitas_button(){
         shortcode += table.find('#oscitas-button-block').prop('checked')? ' btn-block': '';
         shortcode += '" ';
         shortcode += icon;
-        shortcode += ' align="'+table.find('#oscitas-button-iconalign').val()+'" ';
         shortcode += ' type="'+type+'" ';
         if(type!='button'){
             shortcode += ' target="'+(table.find('#oscitas-button-target').prop('checked')? 'true': 'false')+ '" ';
@@ -416,7 +391,7 @@ function create_oscitas_button(){
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 			
         // closes fancybox
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

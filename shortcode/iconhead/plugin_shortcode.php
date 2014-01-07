@@ -4,11 +4,15 @@ function osc_theme_iconhead($params, $content = null) {
     extract(shortcode_atts(array(
                 'class' => '',
                 'style' => '',
-                'type' => 'h1'
+                'type' => 'h1',
+        'color'=>''
                     ), $params));
     $out = '';
+    if($color!=''){
+        $color='style="color:'.$color.';"';
+    }
     if ($style != '') {
-        $style = ' <span class="glyphicon ' . $style . '"></span> ';
+        $style = ' <span class="glyphicon ' . $style . '" '.$color.'></span> ';
     }
     if ($class != '') {
         $class = ' class="' . $class . '"';

@@ -1,54 +1,19 @@
+var iconhead={
+    title:"Icon Heading Shortcode",
+    id :'oscitas-form-iconhead',
+    pluginName: 'iconhead'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasIconhead', {
-        init: function(ed, url) {
-            ed.addButton('oscitasiconhead', {
-                title: 'Icon Heading Shortcode',
-                image: url + '/icon.png',
-                onclick: function() {
-                    create_oscitas_iconhead();
-                    jQuery.fancybox({
-                        'autoSize':false,
-                        'autoWidth':false,
-                        'fitToView':false,
-                        'height':'auto',
-                        'topRatio':0.2,
-                        'type' : 'inline',
-                        'title' : 'Icon Heading Shortcode',
-                        'href' : '#oscitas-form-iconhead',
-                        'width':600,
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl: function(n, cm) {
-            return null;
-        },
-        getInfo: function() {
-            return {
-                longname: "Icon Heading Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "."
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasiconhead', tinymce.plugins.oscitasIconhead);
+    _create_tinyMCE_options(iconhead, 800);
 })();
 
-function create_oscitas_iconhead(){
-    if(jQuery('#oscitas-form-iconhead').length){
-        jQuery('#oscitas-form-iconhead').remove();
+function create_oscitas_iconhead(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-iconhead" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-heading-icon">Select Icon:</label></th>\
 				<td><div id="click_icon_list" class="oscitas-icon-div"><span id="osc_show_icon"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val" value="">\
@@ -256,6 +221,11 @@ function create_oscitas_iconhead(){
         </ul></div>\
 				</td>\
 			</tr>\
+			<tr>\
+				<th><label for="oscitas-iconhead-iconcolor">Icon Color:</label></th>\
+				<td><input type="text" name="label" id="oscitas-iconhead-iconcolor" class="color" value="" /><br />\
+				</td>\
+			</tr>\
                         <tr>\
 				<th><label for="oscitas-iconhead-headingtype">Heading Type:</label></th>\
 				<td><select name="oscitas-iconhead-headingtype" id="oscitas-iconhead-headingtype">\
@@ -287,6 +257,7 @@ function create_oscitas_iconhead(){
     var table = form.find('table');
     jQuery('.glyphicon').css('display','inline');
     form.appendTo('body').hide();
+    form.find('.color').wpColorPicker();
     table.find('#click_icon_list').click(function(){
         if(!jQuery(this).hasClass('osc_icon_showing')){
             jQuery(this).addClass('osc_icon_showing')
@@ -314,8 +285,11 @@ function create_oscitas_iconhead(){
         if(table.find('#osc_icon_class_val').val()!=''){
             style=' style="' + table.find('#osc_icon_class_val').val()+'"' ;
         }
+        if(table.find('#oscitas-iconhead-iconcolor').val()!=''){
+            cusclass+= ' color="'+table.find('#oscitas-iconhead-iconcolor').val()+'"';
+        }
         if(table.find('#oscitas-iconhead-class').val()!=''){
-            cusclass= ' class="'+table.find('#oscitas-iconhead-class').val()+'"';
+            cusclass+= ' class="'+table.find('#oscitas-iconhead-class').val()+'"';
         }
         var shortcode = '[iconheading type="'+type+'"';
         
@@ -326,7 +300,7 @@ function create_oscitas_iconhead(){
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent',0 , shortcode);
 
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

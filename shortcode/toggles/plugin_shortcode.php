@@ -34,7 +34,7 @@ function osc_theme_toggle($params, $content = null) {
                     ), $params));
     $con = do_shortcode($content);
     $index = count($_oscitas_accordion) - 1;
-    $id = 'details-' . $index . '-' . count($_oscitas_accordion[$index]['details']);
+    $id = isset($_oscitas_accordion[$index]['details'])?'details-' . $index . '-' . count($_oscitas_accordion[$index]['details']):'details-' . $index . '-0';
     $_oscitas_accordion[$index]['details'][] = <<<EOS
         <div class="panel panel-default">
             <div class="panel-heading">

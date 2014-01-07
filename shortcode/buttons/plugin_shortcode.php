@@ -13,14 +13,18 @@ function osc_theme_button($params, $content = null) {
                 'align' => '',
                 'target' => '',
                 'icon' => '',
-                'class' => ''
+                'class' => '',
+        'iconcolor'=>''
                     ), $params));
     $out = '';
     if($icon!=''){
+        if($iconcolor!=''){
+            $iconcolor='style="color:'.$iconcolor.';"';
+        }
         if($align=='right'){
-            $value=$title.' <i class="glyphicon '.$icon.'"></i>';
+            $value=$title.' <i class="glyphicon '.$icon.'" '.$iconcolor.'></i>';
         } else{
-            $value='<i class="glyphicon '.$icon.'"></i> '.$title;
+            $value='<i class="glyphicon '.$icon.'" '.$iconcolor.'></i> '.$title;
         }
     }else{
         $value=$title;

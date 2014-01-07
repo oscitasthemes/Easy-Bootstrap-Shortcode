@@ -3,16 +3,16 @@ Contributors: oscitas
 Link: http://www.osCitasthemes.com
 Tags: Wordpress Shortcodes, Wordpress Bootstrap, Wordpress Bootstrap Shortcode, Bootstrap, Responsive pages, Editor plugin, Bootstrap Shortcode, TinyMCE
 Requires at least: 3.0
-Tested up to: 3.6.1
-Stable tag: 3.7
+Tested up to: 3.8
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easy Bootstrap Shortcode enable you to add bootstrap 3.0 styles in your pages, post and custom post in simplest manner.
+Easy Bootstrap Shortcode enable you to add bootstrap 3.0.3 styles in your pages, post and custom post in simplest manner.
 
 == Description ==
 
-Easy Bootstrap Shortcode is bootstrap 3.0 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add bootstrap style to their website just by clicking on tinyMCE  editor icon.
+Easy Bootstrap Shortcode is bootstrap 3.0.3 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add bootstrap style to their website just by clicking on tinyMCE  editor icon.
 
 http://www.youtube.com/watch?v=8T0IC1PsdTw
 
@@ -21,18 +21,25 @@ http://www.youtube.com/watch?v=eSrFVAro8Nc
 
 [Easy Bootstrap Shortcode Demo](http://demo.oscitasthemes.com/demos/easy-bootstrap-shortcode/)
 
+[Easy Bootstrap Shortcode Documentation](http://oscitasthemes.com/documentation/easy-bootstrap-shortcodes/)
+
+
+
+[PRO VERSION with exciting Premium SHORTCODES, Easy Bootstrap Shortcode Pro](http://oscitasthemes.com/products/easy-bootstrap-shortcodes-pro/)
+
+
+
 Looking for parallax slider, check this [Easy Wordpress Parallax Slider](http://wordpress.org/plugins/easy-wp-parallax-slider/)
 
 Want to implement responsive tabs to your pages, check this [Easy Responsive Tabs](http://wordpress.org/plugins/easy-responsive-tabs/)
 
-
-
-= For best results use with bootstrap 3.0 responsive theme =
+= For best results use with bootstrap 3.0.3 responsive theme =
 
 = Features: =
 
 * simplest bootstrap style plugin ever.
-* Bootstrap 3.0 compatible.
+* IE 6+ compatible
+* Bootstrap 3.0.3 compatible.
 * No need to paste shortcode in editor.
 * Add icons to editor.
 * Shortcode added to editor by clicking on icon.
@@ -40,6 +47,7 @@ Want to implement responsive tabs to your pages, check this [Easy Responsive Tab
 * More control over the css, you can add your own custom class to shortcodes.
 * Now you can use js file from CDN or disable the plugin js.
 * You can use your own css file by disabling the plugin css, which gives you more flexibility over styling.
+
 
 
 Easy Bootstrap Shortcode provides following styles
@@ -60,7 +68,7 @@ Easy Bootstrap Shortcode provides following styles
 5. Popover
 6. Tooltip
 7. Panel
-8. Progress Bars
+8. Progress Bars with labels
 9. Icons
 10. Labels
 11. Buttons
@@ -70,6 +78,9 @@ Easy Bootstrap Shortcode provides following styles
 15. Image Effects (Round, Thumbnail, Square)
 16. Well
 17. Button Dropdown
+18. Button Group
+19. Button Group Toolbar
+20. Description List
 
 
 = How to embed this plugin to your theme =
@@ -158,6 +169,7 @@ And to give use the custom css for admin
 
 If you'd like to contribute to this plugin, you can find it [hosted on GitHub](https://github.com/oscitasthemes/Easy-Bootstrap-Shortcode).
 
+Follow us [@Twitter](https://twitter.com/oscitasthemes), [@facebook](https://www.facebook.com/oscitasthemes), [@google+](https://plus.google.com/109122908951553852347/posts)
 
 
 
@@ -192,6 +204,59 @@ It's that simple ... just what the name suggests
 
 == Changelog ==
 
+= 2.4.7 =
+
+* [Fixed] Image issue resolved for setting page.
+
+= 2.4.6 =
+
+* Add Icons for new Dropdown menu in TinyMCE Editor.
+
+= 2.4.5 =
+
+* Add New Dropdown Menu Option in TinyMCE Editor.
+
+= 2.4.4 =
+
+* [Fixed] css for admin popups.
+
+= 2.4.3 =
+
+* [Fixed] Few js issues.
+* [Fixed] css for admin popups.
+
+= 2.4.2 =
+
+* [Fixed] Resolved the image upload issue in Thumbnail and Image Shortcodes.
+
+= 2.4.1 =
+
+* [Fixed] Removed the Fancybox.
+
+= 2.4.0 =
+
+* [Update] Updated to Twitter Bootstrap 3.0.3.
+* [Update] Choose custom color option for icon in Icons Shortcode.
+* [Update] Choose font size option for icon in Icons Shortcode.
+* [Update] Choose custom color option for icon in Icon Heading Shortcode.
+* [Update] Choose custom color option for icon in Button Shortcode.
+
+
+= 2.3.6 =
+
+* [fixed] Button Group, Button Group Toolbar, Description List icon issues fixed.
+
+
+= 2.3.5 =
+
+* [update] Banner of Easy Bootstrap Shortcodes PRO Version in settings page.
+
+
+= 2.3.4 =
+
+* [update] Implemented filter to add buttons to tinyMCE, Credit goes to Nikoya.
+* [Fixed] Added class to Columns shortcode popup.
+* [Fixed] Resolved issue 'Gravity Form not validating within plugin column shortcode'
 
 = 2.3.3 =
 

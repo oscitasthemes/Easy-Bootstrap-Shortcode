@@ -1,54 +1,19 @@
+var icon={
+    title:"Icon Shortcode",
+    id :'oscitas-form-icon',
+    pluginName: 'icon'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasIcon', {
-        init : function(ed, url) {
-            ed.addButton('oscitasicon', {
-                title : 'Icon Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_icon();
-                    jQuery.fancybox({
-                        'autoSize':false,
-                        'autoWidth':false,
-                        'fitToView':false,
-                        'height':'auto',
-                        'topRatio':0.15,
-                        'width':600,
-                        'type' : 'inline',
-                        'title' : 'Icon Shortcode',
-                        'href' : '#oscitas-form-icon',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Icon Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasicon', tinymce.plugins.oscitasIcon);
+    _create_tinyMCE_options(icon, 800);
 })();
 
-function create_oscitas_icon(){
-    if(jQuery('#oscitas-form-icon').length){
-        jQuery('#oscitas-form-icon').remove();
+function create_oscitas_icon(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-icon" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
                         <tr>\
                         <th><label for="oscitas-heading-icon">Select Icon:</label></th>\
 				<td><div id="click_icon_list_icon" class="oscitas-icon-div"><span id="osc_show_icon_icon"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val_icon" value="glyphicon-adjust">\
@@ -256,6 +221,16 @@ function create_oscitas_icon(){
         </ul></div>\
 				</td>\
 			</tr>\
+			<tr>\
+				<th><label for="oscitas-icon-iconcolor">Icon Color:</label></th>\
+				<td><input type="text" name="label" id="oscitas-icon-iconcolor" class="color" value="" /><br />\
+				</td>\
+			</tr>\
+			 <tr>\
+				<th><label for="oscitas-icon-fontsize">Icon Font Size:</label></th>\
+				<td><input type="text" name="line" id="oscitas-icon-fontsize" value=""/>px\
+				</td>\
+			</tr>\
                          <tr>\
 				<th><label for="oscitas-icon-class">Custom Class:</label></th>\
 				<td><input type="text" name="line" id="oscitas-icon-class" value=""/><br />\
@@ -270,6 +245,7 @@ function create_oscitas_icon(){
     var table = form.find('table');
     jQuery('.glyphicon').css('display','inline');
     form.appendTo('body').hide();
+    form.find('.color').wpColorPicker();
     var t= table.find('#osc_icon_class_val_icon').val();
     table.find('#osc_show_icon_icon').removeClass().addClass('glyphicon').addClass(t);
     table.find('#click_icon_list_icon').click(function(){
@@ -297,12 +273,14 @@ function create_oscitas_icon(){
 		
     // handles the click event of the submit button
     form.find('#oscitas-icon-submit').click(function(){
-        var cusclass;
-        if(table.find('#oscitas-icon-class').val()!=''){
-            cusclass= ' class="'+table.find('#oscitas-icon-class').val()+'"';
+        var cusclass='';
+        if(table.find('#oscitas-icon-iconcolor').val()!=''){
+            cusclass+= ' color="'+table.find('#oscitas-icon-iconcolor').val()+'"';
+        }if(table.find('#oscitas-icon-fontsize').val()!=''){
+            cusclass+= ' fontsize="'+table.find('#oscitas-icon-fontsize').val()+'"';
         }
-        else{
-            cusclass='';
+        if(table.find('#oscitas-icon-class').val()!=''){
+            cusclass+= ' class="'+table.find('#oscitas-icon-class').val()+'"';
         }
         var icon = table.find('#osc_icon_class_val_icon').val();
         var  shortcode='';
@@ -312,7 +290,7 @@ function create_oscitas_icon(){
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 			
         // closes fancybox
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

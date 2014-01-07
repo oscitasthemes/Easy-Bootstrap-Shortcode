@@ -1,48 +1,19 @@
+var notifications={
+    title:"Notifications Shortcode",
+    id :'oscitas-form-notifications',
+    pluginName: 'notifications'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasNotifications', {
-        init : function(ed, url) {
-            ed.addButton('oscitasnotifications', {
-                title : 'Notifications Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_notification();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'Notifications Shortcode',
-                        'href' : '#oscitas-form-notifications',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Notifications Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasnotifications', tinymce.plugins.oscitasNotifications);
+    _create_tinyMCE_options(notifications);
 })();
 
-function create_oscitas_notification(){
-    if(jQuery('#oscitas-form-notifications').length){
-        jQuery('#oscitas-form-notifications').remove();
+function create_oscitas_notifications(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-notifications" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-type">Style :</label></th>\
 				<td><select name="type" id="oscitas-type">\
@@ -93,14 +64,18 @@ function create_oscitas_notification(){
             //if ( value !== options[index] )
             shortcode += ' ' + index + '="' + value + '"';
         }
+
+        var selected_content = tinyMCE.activeEditor.selection.getContent();
+        if(!selected_content)
+            var selected_content = 'Your notification';
         shortcode += ' close="'+(table.find('#oscitas-close').prop('checked')? 'true': 'false')+ '" ';
-			
-        shortcode += cusclass+']Title: Lorem ipsum dolor sit amet...[/notification]';
+
+        shortcode += cusclass+']'+selected_content+'[/notification]';
 			
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-			
-        jQuery.fancybox.close();
+
+        close_dialogue(pluginObj.hashId);
     });
 }
 

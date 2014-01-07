@@ -1,48 +1,19 @@
+var deslist={
+    title:"List Group Shortcode",
+    id :'oscitas-form-deslists',
+    pluginName: 'deslist'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasDeslist', {
-        init : function(ed, url) {
-            ed.addButton('oscitasdeslist', {
-                title : 'List Group Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_deslists();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'Description List Shortcode',
-                        'href' : '#oscitas-form-deslists',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Description List Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasdeslist', tinymce.plugins.oscitasDeslist);
+    _create_tinyMCE_options(deslist);
 })();
 
-function create_oscitas_deslists(){
-    if(jQuery('#oscitas-form-deslists').length){
-        jQuery('#oscitas-form-deslists').remove();
+function create_oscitas_deslist(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-deslists"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-line">No of List Item</label></th>\
 				<td><input type="text" name="line" id="oscitas-deslist-item" value="3"/><br /><small>Enter a numeric value</small>\
@@ -102,8 +73,7 @@ function create_oscitas_deslists(){
 			
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-			
-        jQuery.fancybox.close();
+
+        close_dialogue(pluginObj.hashId);
     });
 }
-

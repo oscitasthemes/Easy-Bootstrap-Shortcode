@@ -1,8 +1,12 @@
+var btngrptool={
+    title:"Button Group Toolbar Shortcode"
+};
+
 (function() {
     tinymce.create('tinymce.plugins.oscitasBtngrptool', {
         init : function(ed, url) {
             ed.addButton('oscitasbtngrptool', {
-                title : 'Button Group Toolbar Shortcode',
+                title : btngrptool.title,
                 image : url+'/icon.png',
                 onclick : function() {
                     ed.selection.setContent('[btngrptoolbar class="yourcustomclass"][/btngrptoolbar]');
@@ -13,13 +17,8 @@
             return null;
         },
         getInfo : function() {
-            return {
-                longname : "Button Group Toolbar Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
+            plugininfo.longname=btngrptool.title;
+            return plugininfo;
         }
     });
     tinymce.PluginManager.add('oscitasbtngrptool', tinymce.plugins.oscitasBtngrptool);
