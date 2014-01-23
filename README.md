@@ -12,8 +12,9 @@
 
 ## Features:
 
-* simplest bootstrap style plugin ever.
+* Simplest bootstrap style plugin ever.
 * Bootstrap 3.0 compatible.
+* IE6+ Compatible.
 * No need to paste shortcode in editor.
 * Add icons to editor.
 * Shortcode added to editor by clicking on icon.
@@ -51,6 +52,7 @@ Easy Bootstrap Shortcode provides following styles
 15. Image Effects (Round, Thumbnail, Square)
 16. Well
 17. Button Dropdown
+18. Service Box
 
 ## Plugin Filters
 The following filters are available to alter plugin functionality.
