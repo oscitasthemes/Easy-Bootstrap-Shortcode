@@ -1,1 +1,409 @@
-.oscitas-container .form-table{border:1px solid #9E9EA0}.oscitas-container .form-table th{font-weight:700}#oscitas-form-iconhead .form-table th{width:120px}oscitas-container .form-table tr:nth-child(odd){background:#D6D6D6}.oscitas-container .form-table tr:nth-child(even){background:#F0F0F0}.oscitas-container .form-table td{border-left:1px solid #AAAAAE;min-width:150px}#oscitas-form-dropdown .form-table td{min-width:184px}.oscitas-container .tb_multiple_column th{min-width:150px;border:0 none}.oscitas-container .tb_multiple_column,.oscitas-container .tb_multiple_column_upper{border:1px solid #C1BCC4!important}.oscitas-container .tb_multiple_column thead tr,.oscitas-container .tb_multiple_column_upper thead tr{background:none repeat scroll 0 0 #C2C2C2!important}.oscitas-container .tb_multiple_column tbody tr:nth-child(even){background:none repeat scroll 0 0 #D7D7D7!important}.oscitas-container .tb_multiple_column tbody tr:nth-child(odd){background:none repeat scroll 0 0 #ECECEC!important}.oscitas-container .tb_multiple_column td{border:0 none}.oscitas-container .tb_multiple_column_upper tbody tr:nth-child(even){background:none repeat scroll 0 0 #D7D7D7!important}.oscitas-container .tb_multiple_column_upper tbody tr:nth-child(odd){background:none repeat scroll 0 0 #ECECEC!important}.oscitas-container .tb_multiple_column_upper td{border:0 none}#osc_thumbnail_upload img,#osc_image_upload img{float:right;height:70px;width:70px}.oscitas-container .tb_multiple_column #oscitas-append-dropdownitem{display:block;float:left;height:146px;overflow-x:hidden;overflow-y:auto;width:100%}#oscitas-form-dropdown .tb_multiple_column thead tr{display:block}#oscitas-form-dropdown .tb_multiple_column thead tr{position:relative;background:none repeat scroll 0 0 #D6D6D6!important}#oscitas-form-dropdown .tb_multiple_column thead tr th{background:none repeat scroll 0 0 #C2C2C2!important}.oscitas-container .head_division{float:left;font-size:10px;text-align:left;width:30%}.oscitas-container .head_division.right{text-align:right}.oscitas-container .head_division_check{width:20%} #oscitas-form-btngrp .form-table td{min-width:184px} #oscitas-append-btngrpitem{display:block;float:left;height:146px;overflow-x:hidden;overflow-y:auto;width:100%} #oscitas-form-btngrp .tb_multiple_column thead tr{display:block}#oscitas-form-btngrp .tb_multiple_column thead tr{position:relative;background:none repeat scroll 0 0 #D6D6D6!important}#oscitas-form-btngrp .tb_multiple_column thead tr th{background:none repeat scroll 0 0 #C2C2C2!important}
+.oscitas-easy-bootstrap-shortcode .form-table  {
+    border:  1px solid #9E9EA0;
+}
+.oscitas-easy-bootstrap-shortcode .form-table th  {
+    font-weight:  bold;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-iconhead .form-table th  {
+    width:  120px
+}
+
+.oscitas-easy-bootstrap-shortcode .form-table td  {
+    padding: 10px;
+    border-left:  1px solid #e0e0e0;
+    min-width:  150px;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-dropdown .form-table td  {
+    min-width:  170px;
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column th  {
+    min-width:  150px;
+    border:  0 none;
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column,  .oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper  {
+    border:  1px solid #C1BCC4 !important;
+    border-collapse: collapse
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column thead tr,  .oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper thead tr  {
+    background:  none repeat scroll 0 0 #efefef !important;
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column tbody tr: nth-child(even)  {
+    background:  none repeat scroll 0 0 #D7D7D7 !important;
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column tbody tr: nth-child(odd)  {
+    background:  none repeat scroll 0 0 #ECECEC !important;
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column td  {
+    border:  0 none;
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper tbody tr: nth-child(even)  {
+    background:  none repeat scroll 0 0 #D7D7D7 !important;
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper tbody tr: nth-child(odd)  {
+    background:  none repeat scroll 0 0 #ECECEC !important;
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper td  {
+    border:  0 none;
+}
+.oscitas-easy-bootstrap-shortcode #osc_thumbnail_upload img, .oscitas-easy-bootstrap-shortcode #osc_image_upload img  {
+    float:  right;
+    height:  70px;
+    width:  70px;
+}
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column #oscitas-append-dropdownitem  {
+    display:  block;
+    float:  left;
+    height:  146px;
+    overflow-x:  hidden;
+    overflow-y:  auto;
+    width:  100%;
+}
+.oscitas-easy-bootstrap-shortcode .wp-picker-container, .oscitas-easy-bootstrap-shortcode  .wp-picker-container:active{
+    position: relative;
+}
+.oscitas-easy-bootstrap-shortcode .wp-picker-holder {
+    position: absolute;
+    z-index: 100;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-dropdown .tb_multiple_column thead tr  {
+    display:  block;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-dropdown .tb_multiple_column thead tr  {
+    position:  relative;
+    background:  none  !important;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-dropdown .tb_multiple_column thead tr th  {
+    background:  none repeat scroll 0 0 #0096D9 !important;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+.oscitas-easy-bootstrap-shortcode .head_division  {
+    float:  left;
+    font-size:  10px;
+    text-align:  left;
+    width:  30%;
+}
+.oscitas-easy-bootstrap-shortcode .head_division.right  {
+    text-align:  right;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-table  {
+    margin:  0 0 10px 0;
+}
+.oscitas-easy-bootstrap-shortcode p.submit  {
+    margin:  0;
+    padding:  1.5em 0 0;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-table table i  {
+    font-size:  11px;
+}
+.oscitas-easy-bootstrap-shortcode .form-table,  .oscitas-easy-bootstrap-shortcode .form-table td,  .oscitas-easy-bootstrap-shortcode .form-table th,  .oscitas-easy-bootstrap-shortcode .form-table td p,  .oscitas-easy-bootstrap-shortcode .form-wrap label  {
+    font-size:  11px;
+    border-right: 1px solid #e0e0e0;
+}
+.oscitas-easy-bootstrap-shortcode select  {
+    height:  inherit;
+}
+.oscitas-easy-bootstrap-shortcode input[type="checkbox"],  .oscitas-easy-bootstrap-shortcode input[type="radio"]  {
+    margin:  4px 0;
+}
+.oscitas-easy-bootstrap-shortcode .ui-dialog-content.ui-widget-content  {
+    margin:  10px;
+}
+.oscitas-easy-bootstrap-shortcode .form-table th  {
+    font-weight:  bold;
+    font-size:  11px;
+    padding:  12px 5px;
+    border-right: 1px solid #E0E0E0;
+    min-width: 130px;
+}
+.oscitas-easy-bootstrap-shortcode .form-table  {
+    border:  1px solid #e0e0e0;
+}
+.oscitas-easy-bootstrap-shortcode .head_division_check  {
+    width:  20%;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-btngrp .form-table td  {
+    min-width:  184px;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-append-btngrpitem  {
+    display:  block;
+    float:  left;
+    height:  146px;
+    overflow-x:  hidden;
+    overflow-y:  auto;
+    width:  100%
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-btngrp .tb_multiple_column td  {
+    min-width:  140px;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-btngrp .tb_multiple_column th  {
+    min-width:  140px;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-btngrp .tb_multiple_column td input  {
+    max-width:  140px;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-btngrp .tb_multiple_column thead tr  {
+    display:  block;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-btngrp .tb_multiple_column thead tr  {
+    position:  relative;
+    background:  none repeat scroll 0 0 #D6D6D6!important;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-btngrp .tb_multiple_column thead tr th  {
+    background:  none repeat scroll 0 0 #0096D9 !important;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-table textarea,  #oscitas-table input,  #oscitas-table select {
+    font-size:  12px;
+}
+.osc_ebsp_dropdown .mceFirst a  {
+    width:  auto !important;
+}
+.oscitas-easy-bootstrap-shortcode #osc-servicebox-scroll  {
+    max-height:  500px;
+    overflow-y:  auto;
+}
+.oscitas-easy-bootstrap-shortcode input[type="text"].slider_input {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E0E0E0;
+    color: #F6931F;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+.oscitas-easy-bootstrap-shortcode .slider_render {
+    width: 200px;
+}
+.oscitas-easy-bootstrap-shortcode .iconcircle span {
+    line-height: 100px;
+    display: inline-block;
+    margin: 0px;
+}
+.oscitas-easy-bootstrap-shortcode .iconcircle {
+    background-color: #FFFFFF;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #9A9A9A;
+    height: 100px;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    width: 100px;
+    z-index: 1;
+}
+
+.oscitas-easy-bootstrap-shortcode .oscitas-icon li.glyphicon {
+    float: left;
+    margin: 4px;
+}
+.oscitas-easy-bootstrap-shortcode #icon_bg_preview {
+    text-align:  center;
+    font-size: 40px;
+    line-height: 100px;
+    margin: 50px 10px;
+}
+.oscitas-easy-bootstrap-shortcode .ui-dialog-titlebar {
+    border: medium none;
+    border-radius: 0;
+}
+.oscitas-easy-bootstrap-shortcode .ui-dialog-titlebar .ui-button {
+    border: medium none;
+    padding: 0;
+}
+.oscitas-easy-bootstrap-shortcode .wp-dialog .ui-dialog-titlebar-close{
+    background: url("../../../../wp-includes/js/tinymce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif") no-repeat scroll -87px -16px transparent;
+}
+.oscitas-easy-bootstrap-shortcode #osc-servicebox-scroll {
+    height: 357px;
+    overflow-y: auto;
+}
+.oscitas-easy-bootstrap-shortcode #osc_show_iconlist_servicebox {
+    width: 400px;
+}
+
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column #oscitas-append-slideritem{
+    display: block;
+    float: left;
+    height: 146px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+
+}
+
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column #oscitas-append-slideritem .oscitas-icon-div{
+    width: 160px;
+}
+.oscitas-easy-bootstrap-shortcode #oscitas-form-slider .tb_multiple_column thead tr {
+    display: block;
+    position: relative;
+    background: none repeat scroll 0 0 #fff !important;
+    border: 1px solid #e0e0e0;
+}
+
+.oscitas-easy-bootstrap-shortcode #oscitas-form-slider .tb_multiple_column thead tr th {
+    background: none repeat scroll 0 0 #0096D9 !important;
+    font-size: 12px;
+    color: #fff;
+    border-right: 1px solid #e0e0e0;
+}
+
+.oscitas-easy-bootstrap-shortcode .oscitas-icon ul {
+    overflow: auto;
+}
+.oscitas-easy-bootstrap-shortcode .oscitas-icon ul li {
+    font-size: 16px;
+}
+.oscitas-easy-bootstrap-shortcode .oscitas-icon h4 {
+    display: block;
+    clear: both;
+    font-size: 18px;
+    margin: 10px 0 0 10px;
+}
+
+#oscitas-form-slider  .image_preview {
+    float: right;
+    height: 50px;
+    width: 50px;
+}
+
+#oscitas-form-slider  .image_preview  img{
+    width: 100%;
+    max-height: 100%;
+}
+
+#oscitas-form-slider .tb_multiple_column{
+    width: 100%;
+    border-collapse: collapse;
+}
+#oscitas-form-slider .tb_multiple_column td.enhanced {
+    border-right: 1px solid #E0E0E0;
+    text-align: left;
+    width: 200px;
+}
+#oscitas-form-slider .tb_multiple_column tbody td {
+    min-width: 80px;
+    text-align: center;
+}
+#oscitas-form-slider .tb_multiple_column th.enhanced {
+    width: 217px;
+}
+#oscitas-form-slider .tb_multiple_column th {
+    min-width: 90px;
+    text-align: center;
+    width: auto;
+}
+.osc-dialog .ui-dialog-titlebar {
+    background: none repeat scroll 0 0 #292424 !important;
+}
+/*.osc-dialog{*/
+    /*z-index: 10000 !important;*/
+/*}*/
+
+#oscitas-easy-bootstrap-shortcode-container .mfp-close{
+    right: 4px;
+    top: 2px;
+    color: #FFFFFF;
+}
+body.ebsp-mf-shown .mfp-bg { z-index: 10000 !important; }
+body.ebsp-mf-shown .mfp-wrap { z-index: 10001 !important; }
+body.ebsp-mf-shown .mfp-preloader { z-index: 10002 !important; }
+body.ebsp-mf-shown .mfp-content { z-index: 10003 !important; }
+body.ebsp-mf-shown button.mfp-close,
+body.ebsp-mf-shown button.mfp-arrow { z-index: 10004 !important; }
+
+
+
+
+/*new css*/
+#oscitas-easy-bootstrap-shortcode-container{
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 2px 25px #000000;
+    margin: 40px auto 100px !important;
+    padding:10px;
+    position: relative;
+    transition: max-width 0.2s ease 0s;
+    width: 85%;
+}
+#oscitas-easy-bootstrap-shortcode-container > h2 {
+    background: none repeat scroll 0 0 #0096D9;
+    border: 1px solid #1680B1;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    color: #EAEFF1;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 0 0 10px;
+    padding: 5px 8px;
+}
+#oscitas-easy-bootstrap-shortcode-container .mfp-close{
+    right: 4px;
+    top: 2px;
+    color: #FFFFFF;
+}
+.ebs-inner-popup #oscitas-easy-bootstrap-shortcode-container .mfp-close{
+    color: #fff;
+}
+#oscitas-easy-bootstrap-shortcode-container{
+    min-width: 900px;
+    min-height: 300px;
+}
+
+.oscitas-easy-bootstrap-shortcode .form-table tr:nth-child(odd) {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E0E0E0;
+}
+.oscitas-easy-bootstrap-shortcode .form-table tr:nth-child(even) {
+    background:#efefef;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.oscitas-easy-bootstrap-shortcode .oscitas-icon-div {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E0E0E0;
+    float: left;
+    height: 26px;
+    margin: 0 6px 0 0;
+    width: 150px;
+}
+.oscitas-easy-bootstrap-shortcode .oscitas-icon {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #A6A6A6;
+    height: 268px;
+    margin-top: 30px;
+    overflow-y: scroll;
+    position: absolute;
+    width: 629px !important;
+    z-index: 9;
+}
+.oscitas-easy-bootstrap-shortcode #osc_show_iconlist_togglestitle.oscitas-icon{
+    left:25%;
+    top: 43%;
+}
+.oscitas-easy-bootstrap-shortcode .glyphicon,
+.oscitas-easy-bootstrap-shortcode .fa{
+    float: left;
+    margin: 6px 8px;
+}
+
+#osc_add_new_dditem{
+    background-color: #1AB373;
+    border: 1px solid #119D63;
+    box-shadow: 0 1px 2px rgba(33, 166, 36, 0.75) inset;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 24px;
+    padding: 2px 6px;
+}
+body.ebs_plugin_shown_now #TB_overlay{
+    z-index: 1000000 !important;;
+}
+body.ebs_plugin_shown_now #TB_window{
+    z-index: 10000000 !important;
+}

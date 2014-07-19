@@ -1,56 +1,15 @@
+var progressbar={
+    title:"Progressbar Shortcode",
+    id :'oscitas-form-progressbar',
+    pluginName: 'progressbar',
+    setRowColors: true
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasProgressbar', {
-        init : function(ed, url) {
-            ed.addButton('oscitasprogressbar', {
-                title : 'Progressbar Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_progressbar();
-                    jQuery.fancybox({
-                        'autoSize':false,
-                        'autoWidth':false,
-                        'fitToView':false,
-                        'height':'auto',
-                        'topRatio':0.1,
-                        'width':800,
-                        'type' : 'inline',
-                        'title' : 'Progressbar Shortcode',
-                        'href' : '#oscitas-form-progressbar',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                    jQuery('#oscitas-form-progressbar table tr:visible:even').css('background', '#F0F0F0');
-                    jQuery('#oscitas-form-progressbar table tr:visible:odd').css('background', '#DADADD');
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Progressbar Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasprogressbar', tinymce.plugins.oscitasProgressbar);
+    _create_tinyMCE_options(progressbar, 800);
 })();
 
-function create_oscitas_progressbar(){
-    if(jQuery('#oscitas-form-progressbar').length){
-        jQuery('#oscitas-form-progressbar').remove();
-    }
-    // creates a form to be displayed everytime the button is clicked
-    // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-progressbar" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+function ebs_return_html_progressbar(pluginObj){
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-progressbar-style">Progress Bar Type:</label></th>\
 				<td><select name="type" id="oscitas-progressbar-style">\
@@ -95,31 +54,35 @@ function create_oscitas_progressbar(){
 			<input type="button" id="oscitas-progressbar-submit" class="button-primary" value="Insert Button" name="submit" />\
 		</p>\
 		</div>');
-		
+    return form;
+}
+function create_oscitas_progressbar(pluginObj){
+    var form=jQuery(pluginObj.hashId);
+
     var table = form.find('table');
-    form.appendTo('body').hide();
-    jQuery('#oscitas-form-progressbar table tr:visible:even').css('background', '#F0F0F0');
-    jQuery('#oscitas-form-progressbar table tr:visible:odd').css('background', '#DADADD');
+
+    jQuery('#oscitas-form-progressbar table tr:visible:even').css('background', '#ffffff');
+    jQuery('#oscitas-form-progressbar table tr:visible:odd').css('background', '#efefef');
     table.find('#oscitas-progressbar-stripped').click(function(){
         if(jQuery(this).prop('checked')){
             jQuery('#osc_progress_animate').show();
         } else{
             jQuery('#osc_progress_animate').hide();
         }
-        jQuery('#oscitas-form-progressbar table tr:visible:even').css('background', '#F0F0F0');
-        jQuery('#oscitas-form-progressbar table tr:visible:odd').css('background', '#DADADD');
+        jQuery('#oscitas-form-progressbar table tr:visible:even').css('background', '#ffffff');
+        jQuery('#oscitas-form-progressbar table tr:visible:odd').css('background', '#efefef');
     })
 
-   
 
-        
-		
+
+
+
     // handles the click event of the submit button
     form.find('#oscitas-progressbar-submit').click(function(){
-       
+
         var cusclass='',type='',value='',stripped='',label='';
         if(jQuery('#oscitas-progressbar-stripped').prop('checked')){
-            stripped=' barstyle="progress-striped'; 
+            stripped=' barstyle="progress-striped';
             if(jQuery('#oscitas-progressbar-animated').prop('checked')){
                 stripped +=' active';
             }
@@ -137,15 +100,15 @@ function create_oscitas_progressbar(){
         if(table.find('#oscitas-progressbar-label').val()!=''){
             label= ' label="'+table.find('#oscitas-progressbar-label').val()+'"';
         }
-        var shortcode = '[progressbar'+value+cusclass+type+stripped+label;
-       
+        var shortcode = '['+$ebs_prefix+'progressbar'+value+cusclass+type+stripped+label;
+
         shortcode += ']';
-			
+
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-			
+
         // closes fancybox
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

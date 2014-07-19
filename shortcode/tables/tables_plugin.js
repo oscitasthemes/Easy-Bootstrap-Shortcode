@@ -1,49 +1,14 @@
+var tables={
+    title:"Table Shortcode",
+    id :'oscitas-form-table',
+    pluginName: 'tables'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasTables', {
-        init : function(ed, url) {
-            ed.addButton('oscitastables', {
-                title : 'Table Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_table();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'Table Shortcode',
-                        'href' : '#oscitas-form-table',
-                        
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Table Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitastables', tinymce.plugins.oscitasTables);
+    _create_tinyMCE_options(tables);
 })();
 
-function create_oscitas_table(){
-    if(jQuery('#oscitas-form-table').length){
-        jQuery('#oscitas-form-table').remove();
-    }
-    // creates a form to be displayed everytime the button is clicked
-    // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-table" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+function ebs_return_html_tables(pluginObj){
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-table-width">Table Width</label></th>\
 				<td><input type="text" name="icontag" id="oscitas-table-width" value="100%" /><br />\
@@ -95,9 +60,13 @@ function create_oscitas_table(){
 			<input type="button" id="oscitas-submit" class="button-primary" value="Insert Table" name="submit" />\
 		</p>\
 		</div>');
+    return form;
+}
+function create_oscitas_tables(pluginObj){
+   var form=jQuery(pluginObj.hashId);
 		
     var table = form.find('table');
-    form.appendTo('body').hide();
+
 
     // handles the click event of the submit button
     form.find('#oscitas-submit').click(function(){
@@ -116,36 +85,36 @@ function create_oscitas_table(){
         var osHover = table.find('#oscitas-table-hover').prop('checked') ? ' table-hover' : '' ;
         var osScroll = table.find('#oscitas-table-scroll').prop('checked')? 'true': 'false';
         //creating table
-        var shortcode = '[table ';
+        var shortcode = '['+$ebs_prefix+'table ';
         shortcode += 'width ="' + value + '"';
         shortcode += ' style ="' + osStyle +osHover+ '"';
         shortcode += ' responsive ="' +osScroll+ '"'+cusclass;
 
-        shortcode += ']<br/>[table_head]<br/>';
+        shortcode += ']<br/>['+$ebs_prefix+'table_head]<br/>';
         for (var i=1;i<=columns;i++)
         {
-            shortcode += '[th_column]Heading-'+i+'[/th_column]<br/>';
+            shortcode += '['+$ebs_prefix+'th_column]Heading-'+i+'[/'+$ebs_prefix+'th_column]<br/>';
         }
-        shortcode += '[/table_head]<br/>[table_body]<br/>';
+        shortcode += '[/'+$ebs_prefix+'table_head]<br/>['+$ebs_prefix+'table_body]<br/>';
         
         for (var j=1;j<=rows;j++)
         {
-            shortcode += '[table_row]<br/>';
+            shortcode += '['+$ebs_prefix+'table_row]<br/>';
             for (var i=1;i<=columns;i++)
             {
-                shortcode += '[row_column]value-'+i+'[/row_column]<br/>';
+                shortcode += '['+$ebs_prefix+'row_column]value-'+i+'[/'+$ebs_prefix+'row_column]<br/>';
             }
             
-            shortcode += '[/table_row]<br/>';
+            shortcode += '[/'+$ebs_prefix+'table_row]<br/>';
         }
-        shortcode += '[/table_body]<br/>[/table]';
+        shortcode += '[/'+$ebs_prefix+'table_body]<br/>[/'+$ebs_prefix+'table]';
                         
 			
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 			
         // closes fancybox
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

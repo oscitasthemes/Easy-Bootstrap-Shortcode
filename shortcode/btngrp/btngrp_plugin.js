@@ -1,50 +1,15 @@
+var btngrp={
+    title:"Button Group Shortcode",
+    id :'oscitas-form-btngrp',
+    pluginName: 'btngrp'
+};
+
 (function() {
-    tinymce.create('tinymce.plugins.oscitasBtngrp', {
-        init : function(ed, url) {
-            ed.addButton('oscitasbtngrp', {
-                title : 'Button Btngrp Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_btngrp();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'Button Group Shortcode',
-                        'href' : '#oscitas-form-btngrp',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Button Group Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasbtngrp', tinymce.plugins.oscitasBtngrp);
+    _create_tinyMCE_options(btngrp);
 })();
 
-
-function create_oscitas_btngrp(){
-    if(jQuery('#oscitas-form-btngrp').length){
-        jQuery('#oscitas-form-btngrp').remove();
-    }
-    // creates a form to be displayed everytime the button is clicked
-    // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-btngrp">\
-    <table id="oscitas-table" class="form-table">\
+function ebs_return_html_btngrp(pluginObj){
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th class="main_dp_th"><label for="oscitas-btngrp-heading" >Button Group Features</label></th>\
 				<td>\
@@ -133,9 +98,13 @@ function create_oscitas_btngrp(){
 			<input type="button" id="oscitas-btngrp-submit" class="button-primary" value="Insert Button Group" name="submit" />\
 		</p>\
 		</div>');
+    return form;
+}
+function create_oscitas_btngrp(pluginObj){
 
+
+    var form=jQuery(pluginObj.hashId);
     var table = form.find('table');
-    form.appendTo('body').hide();
     form.find('#osc_add_new_dditem').click(function(){
         var item='<tr class="osc_btngrp_list_item">' +
             '<td><select name="type" class="oscitas-btngrpitem-style">'+
@@ -197,7 +166,7 @@ function create_oscitas_btngrp(){
         if(table.find('#oscitas-btngrp-style').val()!=''){
             style= ' style="'+table.find('#oscitas-btngrp-style').val()+'"';
         }
-        var shortcode='[buttongroup'+cusclass+style;
+        var shortcode='['+$ebs_prefix+'buttongroup'+cusclass+style;
         shortcode+=']';
        var type='',title='',link='';
         jQuery('tr.osc_btngrp_list_item').each(function(){
@@ -205,7 +174,7 @@ function create_oscitas_btngrp(){
             title = jQuery(this).find('.oscitas-btngrpitem-title').val();
             link = jQuery(this).find('.oscitas-btngrpitem-link').val();
 
-            shortcode+='[button';
+            shortcode+='['+$ebs_prefix+'button';
             shortcode += ' style="'+jQuery(this).find('.oscitas-btngrpitem-style').val();
             shortcode += ' '+jQuery('#oscitas-btngrp-size').val();
             shortcode += '"';
@@ -217,14 +186,14 @@ function create_oscitas_btngrp(){
             shortcode += ' title="'+title+'" ';
             shortcode+=']<br/>';
         });
-        shortcode+='[/buttongroup]';
+        shortcode+='[/'+$ebs_prefix+'buttongroup]';
 
 
 
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

@@ -12,26 +12,22 @@ function osc_theme_oscitasthumbnail($params, $content = 'Label') {
                 'border'=>''
                     ), $params));
     $out = '';
-    $borderClass = '';
-    $imageBorderClass = 'img-responsive';
-    if ($border != '') {
-        $borderClass = 'img-thumbnail ';
-    }
+	if ($border != '') {
+		$borderClass = 'img-thumbnail';
+	} else {
+		$borderClass = 'img-responsive';
+	}
 
-    $out = ' <div class="' . $borderClass.$class . '">';
 
-    //$out = ' <div class="img-thumbnail ' . $class . '">';
-    if ($link != '') {
-        $out .='<a href="' . $link . '">';
-    }
-    $out .= '<img src="' . $src . '" '.($imageBorderClass? ' class="'.$imageBorderClass.'"':'').'>';
-    if ($link != '') {
-        $out .='</a>';
-    }
-
-    $out .= '</div>';
+	//$out = ' <div class="img-thumbnail ' . $class . '">';
+	if ($link != '') {
+		$out .='<a href="' . $link . '">';
+	}
+	$out .= '<img src="' . $src . '" class="' . $borderClass.EBS_CONTAINER_CLASS . ' oscitas-res-image">';
+	if ($link != '') {
+		$out .='</a>';
+	}
     return $out;
 }
 
-add_shortcode('thumbnail', 'osc_theme_oscitasthumbnail');
-
+ebs_backward_compatibility_callback('thumbnail', 'osc_theme_oscitasthumbnail');

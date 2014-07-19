@@ -1,49 +1,14 @@
+var thumbnail={
+    title:"Responsive Image Shortcode",
+    id :'oscitas-form-thumbnail',
+    pluginName: 'thumbnail'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasThumbnail', {
-        init : function(ed, url) {
-            ed.addButton('oscitasthumbnail', {
-                title : 'Responsive Image Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_thumbnail();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'Responsive Image Shortcode',
-                        'href' : '#oscitas-form-thumbnail',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                        
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Responsive Image Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasthumbnail', tinymce.plugins.oscitasThumbnail);
+    _create_tinyMCE_options(thumbnail);
 })();
 
-function create_oscitas_thumbnail(){
-    if(jQuery('#oscitas-form-thumbnail').length){
-        jQuery('#oscitas-form-thumbnail').remove();
-    }
-    // creates a form to be displayed everytime the button is clicked
-    // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-thumbnail" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+function ebs_return_html_thumbnail(pluginObj){
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 				<th><label for="oscitas-label-content">Upload Image:</label></th>\
 				<td id="osc_thumbnail_upload"><input id="oscitas-thumbnail-src" type="hidden" name="oscitas-thumbnail-src"  value="" />\
                                 <input id="_btn" class="upload_image_button" type="button" value="Upload Image" />\
@@ -69,13 +34,21 @@ function create_oscitas_thumbnail(){
 			<input type="button" id="oscitas-thumbnail-submit" class="button-primary" value="Insert Thumbnail" name="submit" />\
 		</p>\
 		</div>');
+
+    return form;
+}
+function create_oscitas_thumbnail(pluginObj){
+   var form=jQuery(pluginObj.hashId);
+
+
     
     var table = form.find('table');
-    form.appendTo('body').hide();
+
 
     
     form.find('.upload_image_button').click(function() {
-        jQuery('.fancybox-overlay').css('z-index',100);
+        jQuery('body').addClass('ebs_plugin_shown_now');
+        jQuery('.ui-widget-overlay, .ui-dialog').css('z-index',100);
         jQuery('html').addClass('Image');
         formfield = jQuery(this).prev().attr('id');
         tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
@@ -94,11 +67,13 @@ function create_oscitas_thumbnail(){
             jQuery('#' + formfield).val(fileurl);
             tb_remove();
             form.find('#osc_thumbnail_upload img').remove();
-            form.find('#osc_thumbnail_upload').append('<img src="'+fileurl+'">')
+            form.find('#osc_thumbnail_upload').append('<img src="'+fileurl+'">');
+            jQuery('body').removeClass('ebs_plugin_shown_now');
             jQuery('html').removeClass('Image');
 
         } else {
             window.original_send_to_editor(html);
+            jQuery('body').removeClass('ebs_plugin_shown_now');
         }
 
     };
@@ -111,7 +86,7 @@ function create_oscitas_thumbnail(){
         if(table.find('#oscitas-thumbnail-class').val()!=''){
             cusclass= ' class="'+table.find('#oscitas-thumbnail-class').val()+'"';
         }
-        if(table.find('#oscitas-thumbnail-class').val()!=''){
+        if(table.find('#oscitas-thumbnail-link').val()!=''){
             link= ' link="'+form.find('#oscitas-thumbnail-link').val()+'"';
         }
 
@@ -120,13 +95,13 @@ function create_oscitas_thumbnail(){
         }
 
         if(form.find('#oscitas-thumbnail-src').val()!=''){
-            shortcode = '[thumbnail'+link+cusclass+border+' src="'+form.find('#oscitas-thumbnail-src').val()+'"]';
+            shortcode = '['+$ebs_prefix+'thumbnail'+link+cusclass+border+' src="'+form.find('#oscitas-thumbnail-src').val()+'"]';
         }
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-			
-        // closes fancybox
-        jQuery.fancybox.close();
+
+        // closes Dialoguebox
+        close_dialogue(pluginObj.hashId);
     });
 }
 

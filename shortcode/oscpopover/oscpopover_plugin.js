@@ -1,48 +1,14 @@
+var oscpopover={
+    title:"Popover Shortcode",
+    id :'oscitas-form-popover',
+    pluginName: 'oscpopover'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasOscPopover', {
-        init: function(ed, url) {
-            ed.addButton('oscitasoscpopover', {
-                title: 'Popover Shortcode',
-                image: url + '/icon.png',
-                onclick: function() {
-                    create_oscitas_popover();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'Popover Shortcode',
-                        'href' : '#oscitas-form-popover',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl: function(n, cm) {
-            return null;
-        },
-        getInfo: function() {
-            return {
-                longname: "Popover Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasoscpopover', tinymce.plugins.oscitasOscPopover);
+    _create_tinyMCE_options(oscpopover);
 })();
 
-function create_oscitas_popover(){
-    if(jQuery('#oscitas-form-popover').length){
-        jQuery('#oscitas-form-popover').remove();
-    }
-    // creates a form to be displayed everytime the button is clicked
-    // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-popover" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+function ebs_return_html_oscpopover(pluginObj){
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-popover-style">Popover Style:</label></th>\
 				<td><select name="oscitas-popover-style" id="oscitas-popover-style">\
@@ -111,12 +77,17 @@ function create_oscitas_popover(){
 			<input type="button" id="oscitas-popover-submit" class="button-primary" value="Insert Popover" name="submit" />\
 		</p>\
 		</div>');
+    return form;
+}
+function create_oscitas_oscpopover(pluginObj){
+   var form=jQuery(pluginObj.hashId);
+
 
     var table = form.find('table');
-    form.appendTo('body').hide();
+
     var colors = ['color', 'bgcolor'];
-    jQuery('#oscitas-table tr:visible:even').css('background', '#F0F0F0');
-    jQuery('#oscitas-table tr:visible:odd').css('background', '#DADADD');
+    jQuery('#oscitas-table tr:visible:even').css('background', '#ffffff');
+    jQuery('#oscitas-table tr:visible:odd').css('background', '#efefef');
     
 
     // handles the click event of the submit button
@@ -128,7 +99,7 @@ function create_oscitas_popover(){
         if(table.find('#oscitas-popover-class').val()!=''){
             cusclass= ' class="'+table.find('#oscitas-popover-class').val()+'"';
         }
-        var shortcode = '[popover'+cusclass;
+        var shortcode = '['+$ebs_prefix+'popover'+cusclass;
         shortcode += ' title="' + table.find('#oscitas-popover-title').val();
 
         shortcode += '" ';
@@ -154,13 +125,13 @@ function create_oscitas_popover(){
 
         shortcode += ']';
         shortcode+= table.find('#oscitas-popover-button-text').val();
-        shortcode+='[/popover]';
+        shortcode+='[/'+$ebs_prefix+'popover]';
 
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 
         // closes fancybox
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

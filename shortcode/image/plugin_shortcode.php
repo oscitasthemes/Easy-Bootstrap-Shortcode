@@ -13,10 +13,9 @@ function osc_theme_image($params, $content = 'Label') {
     $out = '';
 
 
-    $out = '<img src="' . $src . '" class="' . $class .' '. $shape . '">';
+    $out = '<img src="' . $src . '" class="' . $class .' '. $shape .EBS_CONTAINER_CLASS. '">';
 
     return $out;
 }
 
-add_shortcode('image', 'osc_theme_image');
-
+ebs_backward_compatibility_callback('image', 'osc_theme_image');

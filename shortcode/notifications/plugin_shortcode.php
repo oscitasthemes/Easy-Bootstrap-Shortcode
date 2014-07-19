@@ -9,9 +9,9 @@ function osc_theme_notification($atts, $content = null) {
     $type = ($close == 'true' ? $type . ' alert-dismissable' : $type);
 
 
-    $result = '<div class = "alert ' . $type . ' ' . $class . '">';
+    $result = '<div class = "alert ' . $type . ' ' . $class .EBS_CONTAINER_CLASS. '">';
     if ($close == 'true') {
-        $result .= '<button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">&times;
+        $result .= '<button type = "button" class = "close'.EBS_CONTAINER_CLASS.'" data-dismiss = "alert" aria-hidden = "true">&times;
     </button>';
     }
     $result .= do_shortcode($content);
@@ -20,9 +20,7 @@ function osc_theme_notification($atts, $content = null) {
     return $result;
 }
 
-add_shortcode('notification', 'osc_theme_notification');
-
-
+ebs_backward_compatibility_callback('notification', 'osc_theme_notification');
 
 
 

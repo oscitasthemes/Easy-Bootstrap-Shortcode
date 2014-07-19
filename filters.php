@@ -72,6 +72,16 @@ function apply_ebs_bootstrap_css_url( $url ) {
 add_filter( 'ebs_bootstrap_css_url', 'apply_ebs_bootstrap_css_url' );
 
 /*
+  * Filter for custom bootstrap css when your theme is not a bootstrap theme. this filter is only applicable if you selected css inclusion option as 'no bootstrap theme'
+  */
+
+function apply_ebs_no_bootstrap_theme_css_url( $url ) {
+	$ebs_nobs_css_url='';// write your custom bootstrap css  url here
+	return $ebs_nobs_css_url;
+}
+add_filter( 'ebs_no_bootstrap_theme_css_url', 'apply_ebs_no_bootstrap_theme_css_url' );
+
+/*
   * Filter for bootstrap-icon.min.css url this filter is only applicable if you selected css inclusion from plugin or theme in EBS Settings
   */
 

@@ -8,10 +8,10 @@ function osc_theme_deslist($params, $content = null) {
     $content = str_replace("]<br />", ']', $content);
     $content = str_replace("]<br />\n", ']', $content);
     $content = str_replace("<br />\n[", '[', $content);
-    return '<dl class="osc-deslist ' . $style . ' '.$class.'">' . do_shortcode($content) . '</dl>';
+    return '<dl class="osc-deslist ' . $style . ' '.$class.EBS_CONTAINER_CLASS.'">' . do_shortcode($content) . '</dl>';
 }
 
-add_shortcode('dl', 'osc_theme_deslist');
+ebs_backward_compatibility_callback('dl', 'osc_theme_deslist');
 
 function osc_theme_dlitem($params, $content = null) {
     extract(shortcode_atts(array(
@@ -22,4 +22,4 @@ function osc_theme_dlitem($params, $content = null) {
 	return $out;
 }
 
-add_shortcode('dlitem', 'osc_theme_dlitem');
+ebs_backward_compatibility_callback('dlitem', 'osc_theme_dlitem');

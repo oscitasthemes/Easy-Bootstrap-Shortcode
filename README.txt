@@ -3,38 +3,38 @@ Contributors: oscitas
 Link: http://www.osCitasthemes.com
 Tags: Wordpress Shortcodes, Wordpress Bootstrap, Wordpress Bootstrap Shortcode, Bootstrap, Responsive pages, Editor plugin, Bootstrap Shortcode, TinyMCE
 Requires at least: 3.0
-Tested up to: 3.6.1
-Stable tag: 3.7
+Tested up to: 3.9
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easy Bootstrap Shortcode enable you to add bootstrap 3.0 styles in your pages, post and custom post in simplest manner.
+Easy Bootstrap Shortcode enable you to add bootstrap 3.0.3 styles in your pages, post and custom post in simplest manner.
 
 == Description ==
 
-Easy Bootstrap Shortcode is bootstrap 3.0 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add bootstrap style to their website just by clicking on tinyMCE  editor icon.
+>For plugin support go to [http://support.oscitasthemes.com](http://support.oscitasthemes.com)
+
+>Ready for Wordpress 3.9
+
+Easy Bootstrap Shortcode is bootstrap 3.0.3 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add bootstrap style to their website just by clicking on tinyMCE  editor icon.
+
+= New improved EBS-Pro Version =
+
+https://www.youtube.com/watch?v=5E8858NiXVA
 
 http://www.youtube.com/watch?v=8T0IC1PsdTw
 
-New column hide functionality
-http://www.youtube.com/watch?v=eSrFVAro8Nc
 
-[Easy Bootstrap Shortcode Demo](http://demo.oscitasthemes.com/demos/easy-bootstrap-shortcode/)
+>[DEMO](http://demo.oscitasthemes.com/osc_ebsp_demo/) | [PRO VERSION](http://oscitasthemes.com/downloads/easy-bootstrap-shortcodes-pro/) | [DOCUMENTATION](http://oscitasthemes.com/documentation/easy-bootstrap-shortcodes/)
 
-[Easy Bootstrap Shortcode Documentation](http://oscitasthemes.com/documentation/easy-bootstrap-shortcodes/)
-
-Looking for parallax slider, check this [Easy Wordpress Parallax Slider](http://wordpress.org/plugins/easy-wp-parallax-slider/)
-
-Want to implement responsive tabs to your pages, check this [Easy Responsive Tabs](http://wordpress.org/plugins/easy-responsive-tabs/)
-
-
-
-= For best results use with bootstrap 3.0 responsive theme =
+= Just by one setting, you can use bootstrap styles in your themes, which are not bootstrap based themes using Bootstrap Shortcodes =
 
 = Features: =
 
 * simplest bootstrap style plugin ever.
-* Bootstrap 3.0 compatible.
+* IE 6+ compatible
+* Bootstrap 3.0.3 compatible.
+* 500+ Font-Awesome & Glyphicons Icon Fonts
 * No need to paste shortcode in editor.
 * Add icons to editor.
 * Shortcode added to editor by clicking on icon.
@@ -42,7 +42,10 @@ Want to implement responsive tabs to your pages, check this [Easy Responsive Tab
 * More control over the css, you can add your own custom class to shortcodes.
 * Now you can use js file from CDN or disable the plugin js.
 * You can use your own css file by disabling the plugin css, which gives you more flexibility over styling.
+* New sidebar widget to show shortcodes in sidebars and footer
+* New option to give custom shortcode prefix.
 
+>Note : This settings is provided to remove the shortcode confliction with any other existing shortcode, but be careful while changing the Shortcode Prefix, as existing shortcodes (created with EBS Plugin) will not work if changed the existing prefix. So we advice to change it when you install the plugin.
 
 Easy Bootstrap Shortcode provides following styles
 
@@ -62,7 +65,7 @@ Easy Bootstrap Shortcode provides following styles
 5. Popover
 6. Tooltip
 7. Panel
-8. Progress Bars
+8. Progress Bars with labels
 9. Icons
 10. Labels
 11. Buttons
@@ -72,11 +75,34 @@ Easy Bootstrap Shortcode provides following styles
 15. Image Effects (Round, Thumbnail, Square)
 16. Well
 17. Button Dropdown
+18. Button Group
+19. Button Group Toolbar
+20. Description List
+21. Service Box
+22. Responsive slider
 
+Many more shortcodes coming soon.....
+
+>Note : we have removed the Line Separator, Dropcaps, Youtube & Vimeo video, Boxesframes, Horizontal Rule, Testimonial, Section Heading, Social, Lead,Page Header, Highlights shortcodes as these are PRO version features, which were committed to free version by mistake.
 
 = How to embed this plugin to your theme =
 
 We have provided few new settings so that anybody can give inbuilt compatibility with our plugin. Such as if you are creating theme/plugin and want to use our plugin, to give your users more flexibility to add responsive content, however you like to use your own custom css/js files. So now you can do this.
+
+
+= People's view =
+
+* [10+ Amazing WordPress Bootstrap Plugins](http://www.indexwp.com/wordpress-bootstrap-plugins/)
+* [10+ Best WordPress Bootstrap Plugins | WP Template](http://www.wptemplate.com/plugins/wordpress-bootstrap-plugins.html)
+* [18 New Free Bootstrap WordPress Widgets](http://inspirationkeys.com/wordpress/bootstrap-wordpress-widgets/)
+* [Top 30 Free Wordpress Shortcode Plugins](http://www.qasimbaig.com/2014/03/free-wp-shortcode-plugins.html)
+* [45+ Free WordPress Shortcode plugins/widgets](http://www.nextdesignweb.com/2014/04/free-wordpress-shortcode-plugins.html)
+* [75+ Best WordPress Shortcodes Plugins](http://www.designrazzi.net/2014/wordpress-shortcodes-plugins/)
+* [Easy Bootstrap Shortcode Recommended Plugins](http://www.designwall.com/question/looking-for-documentation-on-dw-shortcodes-bootstrap/)
+* [Easy Bootstrap Shortcode Recommended Plugins](http://ipanelthemes.com/kb/wp-knowledge-base-theme/kb-plugins/easy-bootstrap-shortcode/)
+* [Paid themes using EBS](http://www.themeguider.com/portfolio/dagoiday/)
+
+
 
 Now we are supporting filters so that you can easily give inbuilt support of this plugin in your themes/plugins
 
@@ -160,8 +186,7 @@ And to give use the custom css for admin
 
 If you'd like to contribute to this plugin, you can find it [hosted on GitHub](https://github.com/oscitasthemes/Easy-Bootstrap-Shortcode).
 
-
-
+Follow us [@Twitter](https://twitter.com/oscitasthemes), [@facebook](https://www.facebook.com/oscitaswebsolution), [@google+](https://plus.google.com/109122908951553852347/posts)
 
 == Installation ==
 
@@ -180,21 +205,196 @@ It's that simple ... just what the name suggests
 
 1. how it looks after installation
 2. different shortcode options this plugin provides
-3. columns shortcode
-4. table shortcode
-5. You can create this kind of page content very easily.
+3. Easy Bootstrap Shortcode Pro
+4. You can create this kind of page content very easily.
 6. mobile view
 7. few samples which can be created using this plugin
-8. sample 2 I
-9. sample 2 II
-10. sample 3
-11. sample 4 I
-12. sample 4 II
+
 
 
 == Changelog ==
 
+>= Note : we have removed the Line Separator, Dropcaps, Youtube & Vimeo video, Boxesframes, Horizontal Rule, Testimonial, Section Heading, Social, Lead,Page Header, Highlights shortcodes as these are PRO version features, which were committed to free version by mistake. =
 
+= 4.3.2 =
+
+* [fixes] Image upload issue fixed.
+
+= 4.3.1 =
+
+* [fixes] Icon disappear issue resolved.
+
+
+= 4.3.0 =
+
+* [Update] New option to give custom shortcode prefix.
+* [Update] New design.
+
+= 4.2.3 =
+
+* [Update] Now support font awesome, you just have to enable it from settings page.
+
+= 4.2.2 =
+
+* [fixes] Committed missing css file.
+
+= 4.2.1 =
+
+* [fixes] Committed missing js file.
+
+= 4.2.0 =
+
+* [fixes] Fixed tinyMCE dropdown for EBS.
+
+= 4.1.0 =
+
+* [fixes] Now ready for Wordpress 3.9 too.
+
+= 4.0.0 =
+
+* [fixes] Created new stable tag.
+
+= 3.7.0 =
+
+* [New] Implemented the new shortcode widget to add shortcode to sidebars/footer.
+
+= 3.6.0 =
+
+* [Fixes] Resolved issue of using mce_external_plugins function.
+
+= 3.5.0 =
+
+* [Fixes] Custom css was not working for non bootstrap themes issue resolved.
+* [Fixes] Session warring issue in service box shortcode.
+
+= 3.4.0 =
+
+* [Fixes] Function undefined issue resolved.
+
+= 3.3.0 =
+
+* [Fixes] Service box circle issue resolved.
+
+
+= 3.2.0 =
+
+* [Fixes] Session issue in Service Box Shortcode is fixed.
+
+= 3.1.0 =
+
+* [update] Added new responsive slider shortcode.
+* [Update] Added fit text effect to make text responsive for slider.
+* [Fixes] Changed Toggle Shortcode caption to Toggl/Accordion Shortcode, as suggested by users
+
+= 3.0.0 =
+
+* [Fixes] Allow Html tags in popover.
+* [Fixes] Changed Table button title in wysiwyg editor.
+
+
+= 2.7.3 =
+
+* [New] Icon Font support in Tabs, List Group and Toggle Shortcodes
+
+= 2.7.2 =
+
+* [Fixes] List Shortcode not working
+
+= 2.7.1 =
+
+* [New] Font Awesome Icons (400+ Icon Fonts : http://fortawesome.github.io/Font-Awesome/icons/ )
+* [New] Custom Button Option in "Button Shortcode"(Now can add choice Colours of Button/Link)
+
+= 2.7.0 =
+
+* [New] 11 New Shortcodes(Line Separator, Dropcaps, Youtube & Vimeo video, Boxesframes, Horizontal Rule, Testimonial, Section Heading, Social, Lead,Page Header, Highlights).
+
+= 2.6.1 =
+
+* [Fixes] Few missing icon issue resolved.
+* [Fixes] Icon Heading not working issue resolved.
+* [Fixes] Custom CSS Classes not working with images shorcode.
+
+
+
+= 2.6.0 =
+
+* [Update] Now you don't need bootstrap based theme to use Bootstrap Shortcodes Plugin. Just by one setting, you can use bootstrap styles in your themes, which are not bootstrap based themes.
+
+
+= 2.5.3 =
+
+* [Update] Now you can add Top and Bottom Margin in Service Box Shortcode Icon Container.
+* [Update] Now you can add different size of button in Service Box Shortcode.
+* [Update] Now you can have different style of Icon background in Service Box Shortcode like Circle, Square box,
+Rounded Corner box.
+
+= 2.5.2 =
+
+* [New] New Shortcode Service Box added in Optional Dropdown Menu in TinyMCE Editor.
+* Remove Default color of Service box.
+
+= 2.5.1 =
+
+* [New] New Shortcode Service Box.
+* Look modify of EBS Setting Page
+
+= 2.5 =
+
+* [New] Custom CSS Option in EBS Setting Page.
+
+= 2.4.8 =
+
+* [Fixed] CSS file priority order change.
+
+= 2.4.7 =
+
+* [Fixed] Image issue resolved for setting page.
+
+= 2.4.6 =
+
+* Add Icons for new Dropdown menu in TinyMCE Editor.
+
+= 2.4.5 =
+
+* Add New Dropdown Menu Option in TinyMCE Editor.
+
+= 2.4.4 =
+
+* [Fixed] css for admin popups.
+
+= 2.4.3 =
+
+* [Fixed] Few js issues.
+* [Fixed] css for admin popups.
+
+= 2.4.2 =
+
+* [Fixed] Resolved the image upload issue in Thumbnail and Image Shortcodes.
+
+= 2.4.1 =
+
+* [Fixed] Removed the Fancybox.
+
+= 2.4.0 =
+
+* [Update] Updated to Twitter Bootstrap 3.0.3.
+* [Update] Choose custom color option for icon in Icons Shortcode.
+* [Update] Choose font size option for icon in Icons Shortcode.
+* [Update] Choose custom color option for icon in Icon Heading Shortcode.
+* [Update] Choose custom color option for icon in Button Shortcode.
+
+
+= 2.3.6 =
+
+* [fixed] Button Group, Button Group Toolbar, Description List icon issues fixed.
+
+
+= 2.3.5 =
+
+* [update] Banner of Easy Bootstrap Shortcodes PRO Version in settings page.
+
+http://pawsbarkery.com/post.php
 = 2.3.4 =
 
 * [update] Implemented filter to add buttons to tinyMCE, Credit goes to Nikoya.
@@ -276,5 +476,3 @@ It's that simple ... just what the name suggests
 
 = 1.1 =
 * fixed columns alternate color issue in admin panel
-
-

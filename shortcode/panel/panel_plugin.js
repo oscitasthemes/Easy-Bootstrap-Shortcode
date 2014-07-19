@@ -1,48 +1,14 @@
+var panel={
+    title:"Panel Shortcode",
+    id :'oscitas-form-panel',
+    pluginName: 'panel'
+};
 (function() {
-    tinymce.create('tinymce.plugins.oscitasPanel', {
-        init : function(ed, url) {
-            ed.addButton('oscitaspanel', {
-                title : 'Panel Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_panel();
-                    jQuery.fancybox({
-                        'type' : 'inline',
-                        'title' : 'Panel Shortcode',
-                        'href' : '#oscitas-form-panel',
-                        helpers:  {
-                            title : {
-                                type : 'over',
-                                position:'top'
-                            }
-                        }
-                    });
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Panel Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitaspanel', tinymce.plugins.oscitasPanel);
+    _create_tinyMCE_options(panel);
 })();
 
-function create_oscitas_panel(){
-    if(jQuery('#oscitas-form-panel').length){
-        jQuery('#oscitas-form-panel').remove();
-    }
-    // creates a form to be displayed everytime the button is clicked
-    // you should achieve this using AJAX instead of direct html code like this
-    var form = jQuery('<div id="oscitas-form-panel" class="oscitas-container"><table id="oscitas-table" class="form-table">\
+function ebs_return_html_panel(pluginObj){
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-type">Style</label></th>\
 				<td><select name="type" id="oscitas-panel-type">\
@@ -70,9 +36,13 @@ function create_oscitas_panel(){
 			<input type="button" id="oscitas-submit" class="button-primary" value="Insert Panel" name="submit" />\
 		</p>\
 		</div>');
-		
+return form;
+}
+function create_oscitas_panel(pluginObj){
+   var form=jQuery(pluginObj.hashId);
+
     var table = form.find('table');
-    form.appendTo('body').hide();
+
 		
     // handles the click event of the submit button
     form.find('#oscitas-submit').click(function(){
@@ -83,17 +53,17 @@ function create_oscitas_panel(){
         if(table.find('#oscitas-panel-class').val()!=''){
             cusclass= ' class="'+table.find('#oscitas-panel-class').val()+'"';
         }
-        var shortcode = '[panel style="'+table.find('#oscitas-panel-type').val()+ '"'+cusclass+']';
-        shortcode += '<br/>[panel-header]<br/>Heading goes here<br/>[/panel-header]';
+        var shortcode = '['+$ebs_prefix+'panel style="'+table.find('#oscitas-panel-type').val()+ '"'+cusclass+']';
+        shortcode += '<br/>['+$ebs_prefix+'panel-header]<br/>Heading goes here<br/>[/'+$ebs_prefix+'panel-header]';
         //shortcode += (table.find('#oscitas-panel-header').prop('checked')? '[panel-header]<br/>Heading goes here<br/>[/panel-header]': '');
-        shortcode += '<br/>[panel-content]<br/>Content goes here<br/>[/panel-content]';
-        shortcode += (table.find('#oscitas-panel-footer').prop('checked')? '<br/>[panel-footer]<br/>Footer goes here<br/>[/panel-footer]': '');
-        shortcode += '<br/>[/panel]';
+        shortcode += '<br/>['+$ebs_prefix+'panel-content]<br/>Content goes here<br/>[/'+$ebs_prefix+'panel-content]';
+        shortcode += (table.find('#oscitas-panel-footer').prop('checked')? '<br/>['+$ebs_prefix+'panel-footer]<br/>Footer goes here<br/>[/'+$ebs_prefix+'panel-footer]': '');
+        shortcode += '<br/>[/'+$ebs_prefix+'panel]';
 			
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 			
-        jQuery.fancybox.close();
+        close_dialogue(pluginObj.hashId);
     });
 }
 

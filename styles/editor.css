@@ -1,0 +1,24 @@
+.mce-ico.mce-i-osc_icon_drop.ebsp_dropdown_icon {
+    background: url("../images/icon_dropdown.png") repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+    height: 16px !important;
+    position: relative !important;
+    top: 0 !important;
+    width: 32px !important;
+}
+
+.mce-splitbtn.ebsp_dropdown_cs_class {
+    height: 22px !important;
+    line-height: 22px !important;
+}
+
+.mce-splitbtn.ebsp_dropdown_cs_class:hover{
+    border: 1px solid #BBBBBB !important;
+    background: linear-gradient(to top, #E5E5E5, #FFFFFF) repeat scroll 0 0 #EEEEEE !important;
+}
+.ebsp_dropdown_items{
+    max-height: 22px !important;
+}
+.mce-i-osc_icon{
+    width: 20px !important;
+    height: 20px !important;
+}

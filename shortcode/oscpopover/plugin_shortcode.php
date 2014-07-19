@@ -2,18 +2,18 @@
 
 function osc_theme_popover($params, $content = 'Popover') {
     extract(shortcode_atts(array(
-                'trigger' => '',
-                'title' => '',
-                'pop_content' => '',
-                'style' => '',
-                'size' => '',
-                'type' => '',
-                'class' => ''
-                    ), $params));
+        'trigger' => '',
+        'title' => '',
+        'pop_content' => '',
+        'style' => '',
+        'size' => '',
+        'type' => '',
+        'class' => ''
+    ), $params));
     $out = '';
-    $out = '<button class="osc_popover btn ' . $size . ' ' . $type . ' ' . $class . '" data-content="' . $pop_content . '" data-placement="' . $style . '" data-toggle="popover" data-trigger="' . $trigger . '" data-container="body" type="button" data-title="' . $title . '"> ' . do_shortcode($content) . ' </button>';
+    $out = '<button class="osc_popover btn ' . $size . ' ' . $type . ' ' . $class .EBS_CONTAINER_CLASS. '" data-content="' . $pop_content . '" data-placement="' . $style . '" data-toggle="popover" data-trigger="' . $trigger . '" data-container="body" type="button" data-title="' . $title . '"> ' . do_shortcode($content) . ' </button>';
 
-
+if(EBS_POPOVER_TEMPLATE==''){
     $out .= "
     <script>
        jQuery(document).ready(function(){
@@ -22,7 +22,17 @@ function osc_theme_popover($params, $content = 'Popover') {
     </script>
     ";
 
+
+} else{
+    $out .= "
+    <script>
+       jQuery(document).ready(function(){
+        jQuery('.osc_popover').popover({template:'".EBS_POPOVER_TEMPLATE."'});
+        });
+    </script>
+    ";
+}
     return $out;
 }
 
-add_shortcode('popover', 'osc_theme_popover');
+ebs_backward_compatibility_callback('popover', 'osc_theme_popover');
