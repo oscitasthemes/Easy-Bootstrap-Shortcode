@@ -17,7 +17,8 @@ function osc_theme_button($params, $content = null) {
         'iconcolor'=>''
                     ), $params));
     $out = '';
-    $iconcount=explode(' ',$icon);
+    $iconcount = array();
+    if ($icon) $iconcount=explode(' ',$icon);
     array_filter($iconcount);
     if(count($iconcount)==1){
         $icon= 'glyphicon '.$icon;

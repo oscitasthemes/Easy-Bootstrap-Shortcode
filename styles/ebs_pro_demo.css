@@ -1,0 +1,35 @@
+.ebs-prodemo-outer{
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    margin: 20px 0 0;
+}
+.ebs-prodemo-outer .ebspro-titlebar{
+    border-bottom: 1px solid #e0e0e0;
+}
+.ebs-prodemo-outer .ebspro-titlebar h1{
+    display: inline-block;
+    font-size: 14px;
+}
+
+.ebs-prodemo-outer .ebspro-titlebar .osc-logo {
+    display: inline-block;
+    float: right;
+}
+.ebs-prodemo-outer .ebs-content {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 1px solid #E0E0E0;
+    margin: 10px 0 20px;
+    padding: 10px;
+}
+.ebs-prodemo-outer  .ebs-content > p {
+    color: #717171;
+    font-size: 13px;
+    line-height: 22px;
+}
+.ebs-prodemo-outer .ebs-pro-update {
+    text-align: center;
+}
+.ebs-prodemo-outer .ebs-pro-update img{
+    border: 5px solid #e0e0e0;
+}

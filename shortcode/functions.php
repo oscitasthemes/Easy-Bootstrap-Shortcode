@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * Add Bootstrap container class if no bootstrap option chosen in css inclusion
+ */
 // Add Shortcode buttons in TinyMCE
 $css = get_option( 'EBS_BOOTSTRAP_CSS_LOCATION', 1 );
 if($css==3){
@@ -11,6 +13,10 @@ if($css==3){
     define('EBS_POPOVER_TEMPLATE','');
     define('EBS_TOOLTIP_TEMPLATE','');
 }
+
+/*
+ * EBS shortcode list
+ */
 $elements = array(
     'toggles',
     'tabs',
@@ -34,7 +40,8 @@ $elements = array(
     'image',
     'progressbar',
     'servicebox',
-    'slider'
+    'slider',
+    'badge',
 
 );
 function ebs_groups($grps=array()){
@@ -170,12 +177,18 @@ function ebs_shortcodes($shortcodes=array()){
 
     return $shortcodes;
 }
+
+/*
+ * include each shortcode php file
+ */
 foreach ($elements as $element) {
     include( $element . '/plugin_shortcode.php');
 }
 
 add_action('init', 'osc_add_ebs_buttons_to_tinymce');
-
+/*
+ * Add each shortcode js to tinymce editor and create button for it
+ */
 function osc_add_ebs_buttons_to_tinymce() {
     $ebsp_editor_opt=get_option('EBS_EDITOR_OPT','icon');
     if (!current_user_can('edit_posts') && !current_user_can('edit_pages'))
@@ -184,16 +197,23 @@ function osc_add_ebs_buttons_to_tinymce() {
     if (get_user_option('rich_editing') == 'true') {
         add_filter("mce_external_plugins", "osc_add_ebs_plugin");
         if($ebsp_editor_opt=='icon'){
-            add_filter('mce_buttons_3', 'osc_register_ebs_button');
+            add_filter('mce_buttons_3', 'osc_register_ebs_button',1375.261);
         } else{
-            add_filter('mce_buttons', 'osc_register_ebs_dropdown');
+            add_filter('mce_buttons', 'osc_register_ebs_dropdown',1375.261);
         }
     }
 }
+
+/*
+ * Create EBS dropdown button
+ */
 function osc_register_ebs_dropdown($buttons){
     $buttons[] = 'oscitas_main_dropdown_button';
     return $buttons;
 }
+/*
+ * Create EBS button for each shortcode
+ */
 function osc_register_ebs_button($buttons) {
     global $elements;
     foreach ($elements as $element) {
@@ -202,6 +222,9 @@ function osc_register_ebs_button($buttons) {
     return $buttons;
 }
 
+/*
+ * Include shortcode js
+ */
 function osc_add_ebs_plugin($plugin_array) {
     global $elements;
     foreach ($elements as $element) {
@@ -216,6 +239,10 @@ function osc_add_ebs_plugin($plugin_array) {
     return $plugin_array;
 
 }
+
+/*
+ * Provide shortcode prefix support
+ */
 function ebs_backward_compatibility_callback($shortcode,$callback){
 
 $val=get_option('EBS_SHORTCODE_PREFIX','');

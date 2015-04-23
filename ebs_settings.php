@@ -1,3 +1,4 @@
+<!--EBS setting page-->
 <div class="ebs_page_settings">
     <h1>Easy Bootstrap Shortcode Settings</h1><form name="ebs_setting" id="ebs_setting" method="post" action="">
         <?php  if(!apply_filters('plugin_oscitas_theme_check',false)){ ?><div class="ebs_details">

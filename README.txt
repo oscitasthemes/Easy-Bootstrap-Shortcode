@@ -3,10 +3,11 @@ Contributors: oscitas
 Link: http://www.osCitasthemes.com
 Tags: Wordpress Shortcodes, Wordpress Bootstrap, Wordpress Bootstrap Shortcode, Bootstrap, Responsive pages, Editor plugin, Bootstrap Shortcode, TinyMCE
 Requires at least: 3.0
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Donate link: http://oscitasthemes.com/support-our-free-plugins/
 
 Easy Bootstrap Shortcode enable you to add bootstrap 3.0.3 styles in your pages, post and custom post in simplest manner.
 
@@ -14,9 +15,9 @@ Easy Bootstrap Shortcode enable you to add bootstrap 3.0.3 styles in your pages,
 
 >For plugin support go to [http://support.oscitasthemes.com](http://support.oscitasthemes.com)
 
->Ready for Wordpress 3.9
+>Ready for Wordpress 4.0 and support Twitter 3.2.0
 
-Easy Bootstrap Shortcode is bootstrap 3.0.3 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add bootstrap style to their website just by clicking on tinyMCE  editor icon.
+Easy Bootstrap Shortcode is bootstrap 3.2.0 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add bootstrap style to their website just by clicking on tinyMCE  editor icon.
 
 = New improved EBS-Pro Version =
 
@@ -24,6 +25,7 @@ https://www.youtube.com/watch?v=5E8858NiXVA
 
 http://www.youtube.com/watch?v=8T0IC1PsdTw
 
+https://www.youtube.com/watch?v=cuGVnOCMwJI
 
 >[DEMO](http://demo.oscitasthemes.com/osc_ebsp_demo/) | [PRO VERSION](http://oscitasthemes.com/downloads/easy-bootstrap-shortcodes-pro/) | [DOCUMENTATION](http://oscitasthemes.com/documentation/easy-bootstrap-shortcodes/)
 
@@ -66,7 +68,7 @@ Easy Bootstrap Shortcode provides following styles
 6. Tooltip
 7. Panel
 8. Progress Bars with labels
-9. Icons
+9. Icons (250 Glyphicons & also support Fontawesome Icons)
 10. Labels
 11. Buttons
 12. Icon Heading
@@ -80,6 +82,8 @@ Easy Bootstrap Shortcode provides following styles
 20. Description List
 21. Service Box
 22. Responsive slider
+23. Badges
+24. Jumbotron
 
 Many more shortcodes coming soon.....
 
@@ -102,91 +106,20 @@ We have provided few new settings so that anybody can give inbuilt compatibility
 * [Easy Bootstrap Shortcode Recommended Plugins](http://ipanelthemes.com/kb/wp-knowledge-base-theme/kb-plugins/easy-bootstrap-shortcode/)
 * [Paid themes using EBS](http://www.themeguider.com/portfolio/dagoiday/)
 
-
-
-Now we are supporting filters so that you can easily give inbuilt support of this plugin in your themes/plugins
-
-You can Write these filter into your theme's functions.php to make plugin compatible to your theme, You can use any of these filters as per your requirements.
-
-
-Filter for Custom options
-
-`function apply_ebs_custom_option( $prevent ) {
-	return true;
-}
-add_filter( 'ebs_custom_option', 'apply_ebs_custom_option' );`
-
-
-
-
-Filter for bootstrap_admin.css
-
-`function apply_ebs_custom_bootstrap_admin_css( $prevent ) {
-	return true;
-}
-add_filter( 'ebs_custom_bootstrap_admin_css', 'apply_ebs_custom_bootstrap_admin_css' );`
-
-
-
-Filter for bootstrap.min.js url this filter is only applicable if you selected js inclusion from plugin in EBS Settings
-
-
-`function apply_ebs_bootstrap_js_url( $url ) {
-	$ebs_js_url='';// write your desired bootstrap.min.js url here
-	return $ebs_js_url;
-}
-add_filter( 'ebs_bootstrap_js_url', 'apply_ebs_bootstrap_js_url' );`
-
-
-
-Filter for bootstrap.min.js CDN path this filter is only applicable if you selected js inclusion from CDN in EBS Settings
-
-`function apply_ebs_bootstrap_js_cdn( $url ) {
-	$ebs_cdn_url='';// write your bootstrap.min.js cdn path here
-	return $ebs_cdn_url;
-}
-add_filter( 'ebs_bootstrap_js_cdn', 'apply_ebs_bootstrap_js_cdn' );`
-
-
-Filter for bootstrap.min.css urlthis filter is only applicable if you selected css inclusion from plugin in EBS Settings
-
-`function apply_ebs_bootstrap_css_url( $url ) {
-	$ebs_css_url='';// write your bootstrap.min.css  url here
-	return $ebs_css_url;
-}
-add_filter( 'ebs_bootstrap_css_url', 'apply_ebs_bootstrap_css_url' );`
-
-
-
-Filter for bootstrap-icon.min.css url this filter is only applicable if you selected css inclusion from plugin or theme in EBS Settings
-
-
-`function apply_ebs_bootstrap_icon_css_url( $url ) {
-	$ebs_icon_url='';// write your bootstrap-icon.min.css url here
-	return $ebs_icon_url;
-}
-add_filter( 'ebs_bootstrap_icon_css_url', 'apply_ebs_bootstrap_icon_css_url' );`
-
-
-We have removed the support of the following options 
-
-
-<blockquote>After adding this code user will not be able to change the files location for EBS plugin as user can't see the EBS  Settings link of LHS menu in admin panel</blockquote>
-
-`update_option( 'EBS_CUSTOM_OPTION', 1 );
-update_option( 'EBS_BOOTSTRAP_JS_LOCATION', 2 );
-update_option( 'EBS_BOOTSTRAP_CSS_LOCATION', 2 );`
-
-To give use the custom css for icons
-`update_option( 'EBS_CUSTOM_BOOTSTRAP_ICON_CSS', 1 );`
-
-And to give use the custom css for admin
-`update_option( 'EBS_CUSTOM_BOOTSTRAP_ADMIN_CSS', 1 );`
-
-
 If you'd like to contribute to this plugin, you can find it [hosted on GitHub](https://github.com/oscitasthemes/Easy-Bootstrap-Shortcode).
 
 Follow us [@Twitter](https://twitter.com/oscitasthemes), [@facebook](https://www.facebook.com/oscitaswebsolution), [@google+](https://plus.google.com/109122908951553852347/posts)
+
+== FAQ ==
+
+>For plugin support go to [http://support.oscitasthemes.com](http://support.oscitasthemes.com)
+
+= Q. How To Embed Easy Bootstrap Shortcodes Into Your Theme? =
+Ans: Check this [link](http://oscitasthemes.com/embed-easy-bootstrap-shortcodes-theme/).
+
+= Q. How To Add Custom Css In EBS? =
+Ans: Check this [link](http://oscitasthemes.com/add-custom-css-ebs-pro/).
+
 
 == Installation ==
 
@@ -215,6 +148,38 @@ It's that simple ... just what the name suggests
 == Changelog ==
 
 >= Note : we have removed the Line Separator, Dropcaps, Youtube & Vimeo video, Boxesframes, Horizontal Rule, Testimonial, Section Heading, Social, Lead,Page Header, Highlights shortcodes as these are PRO version features, which were committed to free version by mistake. =
+
+= 4.3.9 =
+
+* [Update] Resolved the undefined index warning issue.
+
+= 4.3.8 =
+
+* [Update] Updated to latest Glyphicons.
+
+= 4.3.7 =
+
+* [Update] New option to select the target and alternate text in Responsive Image shortcode.
+* [Update] New option to select the target in tooltip shortcode.
+
+= 4.3.6 =
+
+* [Update] Button icon issue resolved.
+
+= 4.3.5 =
+
+* [Update] Now you can add html to Popover Shortcode.
+
+= 4.3.4 =
+
+* [New] New shortcode for jumbotron
+
+= 4.3.3 =
+
+* [New] New shortcode for bagdes
+* [Update] Font Awesome icons updated
+* [Update] Bootstrap updated to 3.2.0
+
 
 = 4.3.2 =
 

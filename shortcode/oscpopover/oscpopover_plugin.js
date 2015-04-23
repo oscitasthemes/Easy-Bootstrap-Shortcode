@@ -99,12 +99,12 @@ function create_oscitas_oscpopover(pluginObj){
         if(table.find('#oscitas-popover-class').val()!=''){
             cusclass= ' class="'+table.find('#oscitas-popover-class').val()+'"';
         }
-        var shortcode = '['+$ebs_prefix+'popover'+cusclass;
+        var shortcode = '['+$ebs_prefix+'popovernew'+cusclass;
         shortcode += ' title="' + table.find('#oscitas-popover-title').val();
 
         shortcode += '" ';
         
-        shortcode += ' pop_content="' + table.find('#oscitas-popover-content').val();
+        shortcode += ' button_text="' + table.find('#oscitas-popover-button-text').val();
 
         shortcode += '" ';
         shortcode += ' trigger="' + table.find('#oscitas-pbutton-trigger').val();
@@ -124,8 +124,8 @@ function create_oscitas_oscpopover(pluginObj){
 
 
         shortcode += ']';
-        shortcode+= table.find('#oscitas-popover-button-text').val();
-        shortcode+='[/'+$ebs_prefix+'popover]';
+        shortcode+= table.find('#oscitas-popover-content').val();
+        shortcode+='[/'+$ebs_prefix+'popovernew]';
 
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);

@@ -15,8 +15,18 @@ function ebs_return_html_thumbnail(pluginObj){
 				</td>\
 			</tr>\
             <tr>\
+				<th><label for="oscitas-thumbnail-link">Alternate Text :</label></th>\
+				<td><input type="text" name="oscitas-alt-txt" id="oscitas-alt-txt" value=""/><br />\
+				</td>\
+			</tr>\
+            <tr>\
 				<th><label for="oscitas-thumbnail-link">Link:</label></th>\
 				<td><input type="text" name="oscitas-thumbnail-link" id="oscitas-thumbnail-link" value=""/><br />\
+				</td>\
+			</tr>\
+            <tr>\
+				<th><label for="oscitas-thumbnail-link">Target:</label></th>\
+				<td><select name="oscitas-thumbnail-link-target" id="oscitas-thumbnail-link-target"><option value="_self">Self</option><option value="_blank">New Window</option></select><br />\
 				</td>\
 			</tr>\
             <tr>\
@@ -37,6 +47,7 @@ function ebs_return_html_thumbnail(pluginObj){
 
     return form;
 }
+
 function create_oscitas_thumbnail(pluginObj){
    var form=jQuery(pluginObj.hashId);
 
@@ -82,7 +93,7 @@ function create_oscitas_thumbnail(pluginObj){
     // handles the click event of the submit button
     form.find('#oscitas-thumbnail-submit').click(function(){
         var shortcode='';
-        var cusclass='',link='', border='';
+        var cusclass='',link='', border='',tget='', alt='';
         if(table.find('#oscitas-thumbnail-class').val()!=''){
             cusclass= ' class="'+table.find('#oscitas-thumbnail-class').val()+'"';
         }
@@ -90,12 +101,20 @@ function create_oscitas_thumbnail(pluginObj){
             link= ' link="'+form.find('#oscitas-thumbnail-link').val()+'"';
         }
 
+        if(table.find('#oscitas-alt-txt').val()!=''){
+            alt= ' alt="'+form.find('#oscitas-alt-txt').val()+'"';
+        }
+
+        if(table.find('#oscitas-thumbnail-link-target').val()!=''){
+            tget= ' target="'+form.find('#oscitas-thumbnail-link-target').val()+'"';
+        }
+
         if(table.find('#oscitas-thumbnail-border').is(':checked')){
             border= ' border="1"';
         }
 
         if(form.find('#oscitas-thumbnail-src').val()!=''){
-            shortcode = '['+$ebs_prefix+'thumbnail'+link+cusclass+border+' src="'+form.find('#oscitas-thumbnail-src').val()+'"]';
+            shortcode = '['+$ebs_prefix+'thumbnail'+link+cusclass+border+tget+alt+' src="'+form.find('#oscitas-thumbnail-src').val()+'"]';
         }
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);

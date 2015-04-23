@@ -33,9 +33,14 @@ function ebs_return_html_tooltip(pluginObj){
 					</select><br />\
 				</td>\
 			</tr >\
-  <tr id="oscitas-tooltip-link-tr">\
+  <tr class="oscitas-tooltip-link-tr">\
 				<th><label for="oscitas-tooltip-link">Link:</label></th>\
 				<td><input type="text" name="tooltip-link" id="oscitas-tooltip-link" value="#"/><br />\
+				</td>\
+			</tr>\
+  <tr class="oscitas-tooltip-link-tr">\
+				<th><label for="oscitas-tooltip-link">Open New Window:</label></th>\
+				<td><input type="checkbox" id="oscitas-tooltip-link-target" value="_blank"/><br />\
 				</td>\
 			</tr>\
 <tr>\
@@ -65,10 +70,10 @@ function create_oscitas_tooltip(pluginObj){
 
     form.find('#oscitas-tooltip-type').change(function(){
         if(jQuery(this).val()=='link'){
-            table.find('#oscitas-tooltip-link-tr').show();
+            table.find('.oscitas-tooltip-link-tr').show();
             table.find('#oscitas-tooltip-link').val('#');
         } else{
-            table.find('#oscitas-tooltip-link-tr').hide();
+            table.find('.oscitas-tooltip-link-tr').hide();
             table.find('#oscitas-tooltip-link').val('');
         }
         jQuery(this).parents('#oscitas-table').find('tr:visible:even').css('background', '#ffffff');
@@ -89,7 +94,9 @@ function create_oscitas_tooltip(pluginObj){
 
         shortcode += '" ';
 
-        shortcode += ' link="' + table.find('#oscitas-tooltip-link').val();
+        shortcode += ' link="' + table.find('#oscitas-tooltip-link').val()+'"';
+
+        shortcode += ' target="' + (table.find('#oscitas-tooltip-link-target').is(':checked') ? '_blank' : '_self');
 
         shortcode += '" ';
         shortcode += ' tooltip="' + table.find('#oscitas-tooltip-text').val();

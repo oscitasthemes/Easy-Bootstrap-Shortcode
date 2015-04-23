@@ -9,7 +9,9 @@ function osc_theme_oscitasthumbnail($params, $content = 'Label') {
                 'src' => '',
                 'class' => '',
                 'link' => '',
-                'border'=>''
+                'border'=>'',
+                'target'=>'_self',
+                'alt'=>'',
                     ), $params));
     $out = '';
 	if ($border != '') {
@@ -21,9 +23,9 @@ function osc_theme_oscitasthumbnail($params, $content = 'Label') {
 
 	//$out = ' <div class="img-thumbnail ' . $class . '">';
 	if ($link != '') {
-		$out .='<a href="' . $link . '">';
+		$out .='<a href="' . $link . '" target="'.$target.'">';
 	}
-	$out .= '<img src="' . $src . '" class="' . $borderClass.EBS_CONTAINER_CLASS . ' oscitas-res-image">';
+	$out .= '<img src="' . $src . '" class="' . $borderClass.EBS_CONTAINER_CLASS . ' oscitas-res-image" alt="'.$alt.'">';
 	if ($link != '') {
 		$out .='</a>';
 	}

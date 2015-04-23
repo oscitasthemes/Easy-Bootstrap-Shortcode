@@ -36,10 +36,10 @@
 .oscitas-easy-bootstrap-shortcode .tb_multiple_column td  {
     border:  0 none;
 }
-.oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper tbody tr: nth-child(even)  {
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper tbody tr:nth-child(even)  {
     background:  none repeat scroll 0 0 #D7D7D7 !important;
 }
-.oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper tbody tr: nth-child(odd)  {
+.oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper tbody tr:nth-child(odd)  {
     background:  none repeat scroll 0 0 #ECECEC !important;
 }
 .oscitas-easy-bootstrap-shortcode .tb_multiple_column_upper td  {
@@ -193,7 +193,7 @@
     z-index: 1;
 }
 
-.oscitas-easy-bootstrap-shortcode .oscitas-icon li.glyphicon {
+.oscitas-easy-bootstrap-shortcode .oscitas-icon li.glyphicon,.oscitas-easy-bootstrap-shortcode .oscitas-icon li.fa {
     float: left;
     margin: 4px;
 }

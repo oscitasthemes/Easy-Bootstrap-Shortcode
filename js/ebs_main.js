@@ -3,6 +3,10 @@
  */
 
 var gBtnVar={};
+
+/*
+Open magnific popup
+ */
 function open_dialogue(pluginObj,width,height){
 //    close_dialogue(pluginObj);
     var $width='';
@@ -39,6 +43,10 @@ function open_dialogue(pluginObj,width,height){
     });
 
 }
+
+/*
+Close magnific popup
+ */
 function close_dialogue(dialogueid){
     jQuery.magnificPopup.close();
     jQuery('body').removeClass('ebsp-mf-shown');
@@ -53,6 +61,10 @@ var plugininfo={
     infourl : 'http://www.oscitasthemes.com/',
     version : "1.0.0"
 }
+
+/*
+Create tinymce icon
+ */
 
 function _create_tinyMCE_options(pluginObj, width) {
     if(typeof(width)==='undefined') width = 'auto';
@@ -85,6 +97,9 @@ function _create_tinyMCE_options(pluginObj, width) {
     //return options;
     tinymce.PluginManager.add('oscitas'+pluginObj.pluginName, tinymce.plugins[pluginName]);
 }
+/*
+Create tinymce dropdown
+ */
 
 function _create_tinyMCE_dropdown(pluginObj,width,height) {
     if(typeof(width)==='undefined') width = 'auto';
@@ -135,6 +150,7 @@ var iconsval= jQuery('<li type="glyphicon" data-value="glyphicon-asterisk"  clas
 <li type="glyphicon" data-value="glyphicon-repeat"  class="glyphicon glyphicon-repeat"> </li>\
 <li type="glyphicon" data-value="glyphicon-refresh"  class="glyphicon glyphicon-refresh"> </li>\
 <li type="glyphicon" data-value="glyphicon-list-alt"  class="glyphicon glyphicon-list-alt"> </li>\
+<li type="glyphicon" data-value="glyphicon-lock"  class="glyphicon glyphicon-lock"> </li>\
 <li type="glyphicon" data-value="glyphicon-flag"  class="glyphicon glyphicon-flag"> </li>\
 <li type="glyphicon" data-value="glyphicon-headphones"  class="glyphicon glyphicon-headphones"> </li>\
 <li type="glyphicon" data-value="glyphicon-volume-off"  class="glyphicon glyphicon-volume-off"> </li>\
@@ -145,7 +161,9 @@ var iconsval= jQuery('<li type="glyphicon" data-value="glyphicon-asterisk"  clas
 <li type="glyphicon" data-value="glyphicon-tag"  class="glyphicon glyphicon-tag"> </li>\
 <li type="glyphicon" data-value="glyphicon-tags"  class="glyphicon glyphicon-tags"> </li>\
 <li type="glyphicon" data-value="glyphicon-book"  class="glyphicon glyphicon-book"> </li>\
+<li type="glyphicon" data-value="glyphicon-bookmark"  class="glyphicon glyphicon-bookmark"> </li>\
 <li type="glyphicon" data-value="glyphicon-print"  class="glyphicon glyphicon-print"> </li>\
+<li type="glyphicon" data-value="glyphicon-camera"  class="glyphicon glyphicon-camera"> </li>\
 <li type="glyphicon" data-value="glyphicon-font"  class="glyphicon glyphicon-font"> </li>\
 <li type="glyphicon" data-value="glyphicon-bold"  class="glyphicon glyphicon-bold"> </li>\
 <li type="glyphicon" data-value="glyphicon-italic"  class="glyphicon glyphicon-italic"> </li>\
@@ -199,10 +217,12 @@ var iconsval= jQuery('<li type="glyphicon" data-value="glyphicon-asterisk"  clas
 <li type="glyphicon" data-value="glyphicon-exclamation-sign"  class="glyphicon glyphicon-exclamation-sign"> </li>\
 <li type="glyphicon" data-value="glyphicon-gift"  class="glyphicon glyphicon-gift"> </li>\
 <li type="glyphicon" data-value="glyphicon-leaf"  class="glyphicon glyphicon-leaf"> </li>\
+<li type="glyphicon" data-value="glyphicon-fire"  class="glyphicon glyphicon-fire"> </li>\
 <li type="glyphicon" data-value="glyphicon-eye-open"  class="glyphicon glyphicon-eye-open"> </li>\
 <li type="glyphicon" data-value="glyphicon-eye-close"  class="glyphicon glyphicon-eye-close"> </li>\
 <li type="glyphicon" data-value="glyphicon-warning-sign"  class="glyphicon glyphicon-warning-sign"> </li>\
 <li type="glyphicon" data-value="glyphicon-plane"  class="glyphicon glyphicon-plane"> </li>\
+<li type="glyphicon" data-value="glyphicon-calendar"  class="glyphicon glyphicon-calendar"> </li>\
 <li type="glyphicon" data-value="glyphicon-random"  class="glyphicon glyphicon-random"> </li>\
 <li type="glyphicon" data-value="glyphicon-comment"  class="glyphicon glyphicon-comment"> </li>\
 <li type="glyphicon" data-value="glyphicon-magnet"  class="glyphicon glyphicon-magnet"> </li>\
@@ -216,6 +236,7 @@ var iconsval= jQuery('<li type="glyphicon" data-value="glyphicon-asterisk"  clas
 <li type="glyphicon" data-value="glyphicon-resize-horizontal"  class="glyphicon glyphicon-resize-horizontal"> </li>\
 <li type="glyphicon" data-value="glyphicon-hdd"  class="glyphicon glyphicon-hdd"> </li>\
 <li type="glyphicon" data-value="glyphicon-bullhorn"  class="glyphicon glyphicon-bullhorn"> </li>\
+<li type="glyphicon" data-value="glyphicon-bell"  class="glyphicon glyphicon-bell"> </li>\
 <li type="glyphicon" data-value="glyphicon-certificate"  class="glyphicon glyphicon-certificate"> </li>\
 <li type="glyphicon" data-value="glyphicon-thumbs-up"  class="glyphicon glyphicon-thumbs-up"> </li>\
 <li type="glyphicon" data-value="glyphicon-thumbs-down"  class="glyphicon glyphicon-thumbs-down"> </li>\
@@ -228,13 +249,17 @@ var iconsval= jQuery('<li type="glyphicon" data-value="glyphicon-asterisk"  clas
 <li type="glyphicon" data-value="glyphicon-circle-arrow-up"  class="glyphicon glyphicon-circle-arrow-up"> </li>\
 <li type="glyphicon" data-value="glyphicon-circle-arrow-down"  class="glyphicon glyphicon-circle-arrow-down"> </li>\
 <li type="glyphicon" data-value="glyphicon-globe"  class="glyphicon glyphicon-globe"> </li>\
+<li type="glyphicon" data-value="glyphicon-wrench"  class="glyphicon glyphicon-wrench"> </li>\
 <li type="glyphicon" data-value="glyphicon-tasks"  class="glyphicon glyphicon-tasks"> </li>\
 <li type="glyphicon" data-value="glyphicon-filter"  class="glyphicon glyphicon-filter"> </li>\
+<li type="glyphicon" data-value="glyphicon-briefcase"  class="glyphicon glyphicon-briefcase"> </li>\
 <li type="glyphicon" data-value="glyphicon-fullscreen"  class="glyphicon glyphicon-fullscreen"> </li>\
 <li type="glyphicon" data-value="glyphicon-dashboard"  class="glyphicon glyphicon-dashboard"> </li>\
+<li type="glyphicon" data-value="glyphicon-paperclip"  class="glyphicon glyphicon-paperclip"> </li>\
 <li type="glyphicon" data-value="glyphicon-heart-empty"  class="glyphicon glyphicon-heart-empty"> </li>\
 <li type="glyphicon" data-value="glyphicon-link"  class="glyphicon glyphicon-link"> </li>\
 <li type="glyphicon" data-value="glyphicon-phone"  class="glyphicon glyphicon-phone"> </li>\
+<li type="glyphicon" data-value="glyphicon-pushpin"  class="glyphicon glyphicon-pushpin"> </li>\
 <li type="glyphicon" data-value="glyphicon-usd"  class="glyphicon glyphicon-usd"> </li>\
 <li type="glyphicon" data-value="glyphicon-gbp"  class="glyphicon glyphicon-gbp"> </li>\
 <li type="glyphicon" data-value="glyphicon-sort"  class="glyphicon glyphicon-sort"> </li>\
@@ -283,7 +308,72 @@ var iconsval= jQuery('<li type="glyphicon" data-value="glyphicon-asterisk"  clas
 <li type="glyphicon" data-value="glyphicon-cloud-download"  class="glyphicon glyphicon-cloud-download"> </li>\
 <li type="glyphicon" data-value="glyphicon-cloud-upload"  class="glyphicon glyphicon-cloud-upload"> </li>\
 <li type="glyphicon" data-value="glyphicon-tree-conifer"  class="glyphicon glyphicon-tree-conifer"> </li>\
-<li type="glyphicon" data-value="glyphicon-tree-deciduous"  class="glyphicon glyphicon-tree-deciduous"> </li>');
+<li type="glyphicon" data-value="glyphicon-tree-deciduous"  class="glyphicon glyphicon-tree-deciduous"> </li>\
+<li type="glyphicon" data-value="glyphicon-tree-deciduous"  class="glyphicon glyphicon-tree-deciduous"> </li>\
+<li type="glyphicon" data-value="glyphicon-cd"  class="glyphicon glyphicon-cd"> </li>\
+<li type="glyphicon" data-value="glyphicon-save-file"  class="glyphicon glyphicon-save-file"> </li>\
+<li type="glyphicon" data-value="glyphicon-open-file"  class="glyphicon glyphicon-open-file"> </li>\
+<li type="glyphicon" data-value="glyphicon-level-up"  class="glyphicon glyphicon-level-up"> </li>\
+<li type="glyphicon" data-value="glyphicon-copy"  class="glyphicon glyphicon-copy"> </li>\
+<li type="glyphicon" data-value="glyphicon-paste"  class="glyphicon glyphicon-paste"> </li>\
+<li type="glyphicon" data-value="glyphicon-alert"  class="glyphicon glyphicon-alert"> </li>\
+<li type="glyphicon" data-value="glyphicon-equalizer"  class="glyphicon glyphicon-equalizer"> </li>\
+<li type="glyphicon" data-value="glyphicon-king"  class="glyphicon glyphicon-king"> </li>\
+<li type="glyphicon" data-value="glyphicon-queen"  class="glyphicon glyphicon-queen"> </li>\
+<li type="glyphicon" data-value="glyphicon-pawn"  class="glyphicon glyphicon-pawn"> </li>\
+<li type="glyphicon" data-value="glyphicon-bishop"  class="glyphicon glyphicon-bishop"> </li>\
+<li type="glyphicon" data-value="glyphicon-knight"  class="glyphicon glyphicon-knight"> </li>\
+<li type="glyphicon" data-value="glyphicon-baby-formula"  class="glyphicon glyphicon-baby-formula"> </li>\
+<li type="glyphicon" data-value="glyphicon-tent"  class="glyphicon glyphicon-tent"> </li>\
+<li type="glyphicon" data-value="glyphicon-blackboard"  class="glyphicon glyphicon-blackboard"> </li>\
+<li type="glyphicon" data-value="glyphicon-bed"  class="glyphicon glyphicon-bed"> </li>\
+<li type="glyphicon" data-value="glyphicon-apple"  class="glyphicon glyphicon-apple"> </li>\
+<li type="glyphicon" data-value="glyphicon-erase"  class="glyphicon glyphicon-erase"> </li>\
+<li type="glyphicon" data-value="glyphicon-hourglass"  class="glyphicon glyphicon-hourglass"> </li>\
+<li type="glyphicon" data-value="glyphicon-lamp"  class="glyphicon glyphicon-lamp"> </li>\
+<li type="glyphicon" data-value="glyphicon-duplicate"  class="glyphicon glyphicon-duplicate"> </li>\
+<li type="glyphicon" data-value="glyphicon-piggy-bank"  class="glyphicon glyphicon-piggy-bank"> </li>\
+<li type="glyphicon" data-value="glyphicon-scissors"  class="glyphicon glyphicon-scissors"> </li>\
+<li type="glyphicon" data-value="glyphicon-bitcoin"  class="glyphicon glyphicon-bitcoin"> </li>\
+<li type="glyphicon" data-value="glyphicon-btc"  class="glyphicon glyphicon-btc"> </li>\
+<li type="glyphicon" data-value="glyphicon-xbt"  class="glyphicon glyphicon-xbt"> </li>\
+<li type="glyphicon" data-value="glyphicon-yen"  class="glyphicon glyphicon-yen"> </li>\
+<li type="glyphicon" data-value="glyphicon-jpy"  class="glyphicon glyphicon-jpy"> </li>\
+<li type="glyphicon" data-value="glyphicon-ruble"  class="glyphicon glyphicon-ruble"> </li>\
+<li type="glyphicon" data-value="glyphicon-rub"  class="glyphicon glyphicon-rub"> </li>\
+<li type="glyphicon" data-value="glyphicon-scale"  class="glyphicon glyphicon-scale"> </li>\
+<li type="glyphicon" data-value="glyphicon-ice-lolly"  class="glyphicon glyphicon-ice-lolly"> </li>\
+<li type="glyphicon" data-value="glyphicon-ice-lolly-tasted"  class="glyphicon glyphicon-ice-lolly-tasted"> </li>\
+<li type="glyphicon" data-value="glyphicon-education"  class="glyphicon glyphicon-education"> </li>\
+<li type="glyphicon" data-value="glyphicon-option-horizontal"  class="glyphicon glyphicon-option-horizontal"> </li>\
+<li type="glyphicon" data-value="glyphicon-option-vertical"  class="glyphicon glyphicon-option-vertical"> </li>\
+<li type="glyphicon" data-value="glyphicon-menu-hamburger"  class="glyphicon glyphicon-menu-hamburger"> </li>\
+<li type="glyphicon" data-value="glyphicon-modal-window"  class="glyphicon glyphicon-modal-window"> </li>\
+<li type="glyphicon" data-value="glyphicon-oil"  class="glyphicon glyphicon-oil"> </li>\
+<li type="glyphicon" data-value="glyphicon-grain"  class="glyphicon glyphicon-grain"> </li>\
+<li type="glyphicon" data-value="glyphicon-sunglasses"  class="glyphicon glyphicon-sunglasses"> </li>\
+<li type="glyphicon" data-value="glyphicon-ext-size"  class="glyphicon glyphicon-ext-size"> </li>\
+<li type="glyphicon" data-value="glyphicon-text-color"  class="glyphicon glyphicon-text-color"> </li>\
+<li type="glyphicon" data-value="glyphicon-text-background"  class="glyphicon glyphicon-text-background"> </li>\
+<li type="glyphicon" data-value="glyphicon-object-align-top"  class="glyphicon glyphicon-object-align-top"> </li>\
+<li type="glyphicon" data-value="glyphicon-object-align-bottom"  class="glyphicon glyphicon-object-align-bottom"> </li>\
+<li type="glyphicon" data-value="glyphicon-object-align-horizontal"  class="glyphicon glyphicon-object-align-horizontal"> </li>\
+<li type="glyphicon" data-value="glyphicon-object-align-left"  class="glyphicon glyphicon-object-align-left"> </li>\
+<li type="glyphicon" data-value="glyphicon-object-align-vertical"  class="glyphicon glyphicon-object-align-vertical"> </li>\
+<li type="glyphicon" data-value="glyphicon-object-align-right"  class="glyphicon glyphicon-object-align-right"> </li>\
+<li type="glyphicon" data-value="glyphicon-triangle-right"  class="glyphicon glyphicon-triangle-right"> </li>\
+<li type="glyphicon" data-value="glyphicon-triangle-left"  class="glyphicon glyphicon-triangle-left"> </li>\
+<li type="glyphicon" data-value="glyphicon-triangle-bottom"  class="glyphicon glyphicon-triangle-bottom"> </li>\
+<li type="glyphicon" data-value="glyphicon-triangle-top"  class="glyphicon glyphicon-triangle-top"> </li>\
+<li type="glyphicon" data-value="glyphicon-console"  class="glyphicon glyphicon-console"> </li>\
+<li type="glyphicon" data-value="glyphicon-superscript"  class="glyphicon glyphicon-superscript"> </li>\
+<li type="glyphicon" data-value="glyphicon-subscript"  class="glyphicon glyphicon-subscript"> </li>\
+<li type="glyphicon" data-value="glyphicon-menu-left"  class="glyphicon glyphicon-menu-left"> </li>\
+<li type="glyphicon" data-value="glyphicon-menu-right"  class="glyphicon glyphicon-menu-right"> </li>\
+<li type="glyphicon" data-value="glyphicon-menu-down"  class="glyphicon glyphicon-menu-down"> </li>\
+<li type="glyphicon" data-value="glyphicon-menu-up"  class="glyphicon glyphicon-menu-up"> </li>\
+');
+
 var faicons=jQuery('<li type="fa" data-value="fa-glass"  class="fa fa-glass"> </li>\
 <li type="fa" data-value="fa-music"  class="fa fa-music"> </li>\
 <li type="fa" data-value="fa-search"  class="fa fa-search"> </li>\
@@ -297,6 +387,8 @@ var faicons=jQuery('<li type="fa" data-value="fa-glass"  class="fa fa-glass"> </
 <li type="fa" data-value="fa-th"  class="fa fa-th"> </li>\
 <li type="fa" data-value="fa-th-list"  class="fa fa-th-list"> </li>\
 <li type="fa" data-value="fa-check"  class="fa fa-check"> </li>\
+<li type="fa" data-value="fa-remove"  class="fa fa-remove"> </li>\
+<li type="fa" data-value="fa-close"  class="fa fa-close"> </li>\
 <li type="fa" data-value="fa-times"  class="fa fa-times"> </li>\
 <li type="fa" data-value="fa-search-plus"  class="fa fa-search-plus"> </li>\
 <li type="fa" data-value="fa-search-minus"  class="fa fa-search-minus"> </li>\
@@ -346,6 +438,8 @@ var faicons=jQuery('<li type="fa" data-value="fa-glass"  class="fa fa-glass"> </
 <li type="fa" data-value="fa-outdent"  class="fa fa-outdent"> </li>\
 <li type="fa" data-value="fa-indent"  class="fa fa-indent"> </li>\
 <li type="fa" data-value="fa-video-camera"  class="fa fa-video-camera"> </li>\
+<li type="fa" data-value="fa-photo"  class="fa fa-photo"> </li>\
+<li type="fa" data-value="fa-image"  class="fa fa-image"> </li>\
 <li type="fa" data-value="fa-picture-o"  class="fa fa-picture-o"> </li>\
 <li type="fa" data-value="fa-pencil"  class="fa fa-pencil"> </li>\
 <li type="fa" data-value="fa-map-marker"  class="fa fa-map-marker"> </li>\
@@ -411,6 +505,7 @@ var faicons=jQuery('<li type="fa" data-value="fa-glass"  class="fa fa-glass"> </
 <li type="fa" data-value="fa-arrows-v"  class="fa fa-arrows-v"> </li>\
 <li type="fa" data-value="fa-arrows-h"  class="fa fa-arrows-h"> </li>\
 <li type="fa" data-value="fa-bar-chart-o"  class="fa fa-bar-chart-o"> </li>\
+<li type="fa" data-value="fa-bar-chart"  class="fa fa-bar-chart"> </li>\
 <li type="fa" data-value="fa-twitter-square"  class="fa fa-twitter-square"> </li>\
 <li type="fa" data-value="fa-facebook-square"  class="fa fa-facebook-square"> </li>\
 <li type="fa" data-value="fa-camera-retro"  class="fa fa-camera-retro"> </li>\
@@ -473,6 +568,8 @@ var faicons=jQuery('<li type="fa" data-value="fa-glass"  class="fa fa-glass"> </
 <li type="fa" data-value="fa-save"  class="fa fa-save"> </li>\
 <li type="fa" data-value="fa-floppy-o"  class="fa fa-floppy-o"> </li>\
 <li type="fa" data-value="fa-square"  class="fa fa-square"> </li>\
+<li type="fa" data-value="fa-navicon"  class="fa fa-navicon"> </li>\
+<li type="fa" data-value="fa-reorder"  class="fa fa-reorder"> </li>\
 <li type="fa" data-value="fa-bars"  class="fa fa-bars"> </li>\
 <li type="fa" data-value="fa-list-ul"  class="fa fa-list-ul"> </li>\
 <li type="fa" data-value="fa-list-ol"  class="fa fa-list-ol"> </li>\
@@ -494,9 +591,9 @@ var faicons=jQuery('<li type="fa" data-value="fa-glass"  class="fa fa-glass"> </
 <li type="fa" data-value="fa-unsorted"  class="fa fa-unsorted"> </li>\
 <li type="fa" data-value="fa-sort"  class="fa fa-sort"> </li>\
 <li type="fa" data-value="fa-sort-down"  class="fa fa-sort-down"> </li>\
-<li type="fa" data-value="fa-sort-asc"  class="fa fa-sort-asc"> </li>\
-<li type="fa" data-value="fa-sort-up"  class="fa fa-sort-up"> </li>\
 <li type="fa" data-value="fa-sort-desc"  class="fa fa-sort-desc"> </li>\
+<li type="fa" data-value="fa-sort-up"  class="fa fa-sort-up"> </li>\
+<li type="fa" data-value="fa-sort-asc"  class="fa fa-sort-asc"> </li>\
 <li type="fa" data-value="fa-envelope"  class="fa fa-envelope"> </li>\
 <li type="fa" data-value="fa-linkedin"  class="fa fa-linkedin"> </li>\
 <li type="fa" data-value="fa-rotate-left"  class="fa fa-rotate-left"> </li>\
@@ -564,8 +661,8 @@ var faicons=jQuery('<li type="fa" data-value="fa-glass"  class="fa fa-glass"> </
 <li type="fa" data-value="fa-flag-checkered"  class="fa fa-flag-checkered"> </li>\
 <li type="fa" data-value="fa-terminal"  class="fa fa-terminal"> </li>\
 <li type="fa" data-value="fa-code"  class="fa fa-code"> </li>\
-<li type="fa" data-value="fa-reply-all"  class="fa fa-reply-all"> </li>\
 <li type="fa" data-value="fa-mail-reply-all"  class="fa fa-mail-reply-all"> </li>\
+<li type="fa" data-value="fa-reply-all"  class="fa fa-reply-all"> </li>\
 <li type="fa" data-value="fa-star-half-empty"  class="fa fa-star-half-empty"> </li>\
 <li type="fa" data-value="fa-star-half-full"  class="fa fa-star-half-full"> </li>\
 <li type="fa" data-value="fa-star-half-o"  class="fa fa-star-half-o"> </li>\
@@ -690,7 +787,140 @@ var faicons=jQuery('<li type="fa" data-value="fa-glass"  class="fa fa-glass"> </
 <li type="fa" data-value="fa-vimeo-square"  class="fa fa-vimeo-square"> </li>\
 <li type="fa" data-value="fa-turkish-lira"  class="fa fa-turkish-lira"> </li>\
 <li type="fa" data-value="fa-try"  class="fa fa-try"> </li>\
-<li type="fa" data-value="fa-plus-square-o"  class="fa fa-plus-square-o"> </li>');
+<li type="fa" data-value="fa-plus-square-o"  class="fa fa-plus-square-o"> </li>\
+<li type="fa" data-value="fa-space-shuttle"  class="fa fa-space-shuttle"> </li>\
+<li type="fa" data-value="fa-slack"  class="fa fa-slack"> </li>\
+<li type="fa" data-value="fa-envelope-square"  class="fa fa-envelope-square"> </li>\
+<li type="fa" data-value="fa-wordpress"  class="fa fa-wordpress"> </li>\
+<li type="fa" data-value="fa-openid"  class="fa fa-openid"> </li>\
+<li type="fa" data-value="fa-institution"  class="fa fa-institution"> </li>\
+<li type="fa" data-value="fa-bank"  class="fa fa-bank"> </li>\
+<li type="fa" data-value="fa-university"  class="fa fa-university"> </li>\
+<li type="fa" data-value="fa-mortar-board"  class="fa fa-mortar-board"> </li>\
+<li type="fa" data-value="fa-graduation-cap"  class="fa fa-graduation-cap"> </li>\
+<li type="fa" data-value="fa-yahoo"  class="fa fa-yahoo"> </li>\
+<li type="fa" data-value="fa-google"  class="fa fa-google"> </li>\
+<li type="fa" data-value="fa-reddit"  class="fa fa-reddit"> </li>\
+<li type="fa" data-value="fa-reddit-square"  class="fa fa-reddit-square"> </li>\
+<li type="fa" data-value="fa-stumbleupon-circle"  class="fa fa-stumbleupon-circle"> </li>\
+<li type="fa" data-value="fa-stumbleupon"  class="fa fa-stumbleupon"> </li>\
+<li type="fa" data-value="fa-delicious"  class="fa fa-delicious"> </li>\
+<li type="fa" data-value="fa-digg"  class="fa fa-digg"> </li>\
+<li type="fa" data-value="fa-pied-piper"  class="fa fa-pied-piper"> </li>\
+<li type="fa" data-value="fa-pied-piper-alt"  class="fa fa-pied-piper-alt"> </li>\
+<li type="fa" data-value="fa-drupal"  class="fa fa-drupal"> </li>\
+<li type="fa" data-value="fa-joomla"  class="fa fa-joomla"> </li>\
+<li type="fa" data-value="fa-language"  class="fa fa-language"> </li>\
+<li type="fa" data-value="fa-fax"  class="fa fa-fax"> </li>\
+<li type="fa" data-value="fa-building"  class="fa fa-building"> </li>\
+<li type="fa" data-value="fa-child"  class="fa fa-child"> </li>\
+<li type="fa" data-value="fa-paw"  class="fa fa-paw"> </li>\
+<li type="fa" data-value="fa-spoon"  class="fa fa-spoon"> </li>\
+<li type="fa" data-value="fa-cube"  class="fa fa-cube"> </li>\
+<li type="fa" data-value="fa-cubes"  class="fa fa-cubes"> </li>\
+<li type="fa" data-value="fa-behance"  class="fa fa-behance"> </li>\
+<li type="fa" data-value="fa-behance-square"  class="fa fa-behance-square"> </li>\
+<li type="fa" data-value="fa-steam"  class="fa fa-steam"> </li>\
+<li type="fa" data-value="fa-steam-square"  class="fa fa-steam-square"> </li>\
+<li type="fa" data-value="fa-recycle"  class="fa fa-recycle"> </li>\
+<li type="fa" data-value="fa-automobile"  class="fa fa-automobile"> </li>\
+<li type="fa" data-value="fa-car"  class="fa fa-car"> </li>\
+<li type="fa" data-value="fa-cab"  class="fa fa-cab"> </li>\
+<li type="fa" data-value="fa-taxi"  class="fa fa-taxi"> </li>\
+<li type="fa" data-value="fa-tree"  class="fa fa-tree"> </li>\
+<li type="fa" data-value="fa-spotify"  class="fa fa-spotify"> </li>\
+<li type="fa" data-value="fa-deviantart"  class="fa fa-deviantart"> </li>\
+<li type="fa" data-value="fa-soundcloud"  class="fa fa-soundcloud"> </li>\
+<li type="fa" data-value="fa-database"  class="fa fa-database"> </li>\
+<li type="fa" data-value="fa-file-pdf-o"  class="fa fa-file-pdf-o"> </li>\
+<li type="fa" data-value="fa-file-word-o"  class="fa fa-file-word-o"> </li>\
+<li type="fa" data-value="fa-file-excel-o"  class="fa fa-file-excel-o"> </li>\
+<li type="fa" data-value="fa-file-powerpoint-o"  class="fa fa-file-powerpoint-o"> </li>\
+<li type="fa" data-value="fa-file-photo-o"  class="fa fa-file-photo-o"> </li>\
+<li type="fa" data-value="fa-file-picture-o"  class="fa fa-file-picture-o"> </li>\
+<li type="fa" data-value="fa-file-image-o"  class="fa fa-file-image-o"> </li>\
+<li type="fa" data-value="fa-file-zip-o"  class="fa fa-file-zip-o"> </li>\
+<li type="fa" data-value="fa-file-archive-o"  class="fa fa-file-archive-o"> </li>\
+<li type="fa" data-value="fa-file-sound-o"  class="fa fa-file-sound-o"> </li>\
+<li type="fa" data-value="fa-file-audio-o"  class="fa fa-file-audio-o"> </li>\
+<li type="fa" data-value="fa-file-movie-o"  class="fa fa-file-movie-o"> </li>\
+<li type="fa" data-value="fa-file-video-o"  class="fa fa-file-video-o"> </li>\
+<li type="fa" data-value="fa-file-code-o"  class="fa fa-file-code-o"> </li>\
+<li type="fa" data-value="fa-vine"  class="fa fa-vine"> </li>\
+<li type="fa" data-value="fa-codepen"  class="fa fa-codepen"> </li>\
+<li type="fa" data-value="fa-jsfiddle"  class="fa fa-jsfiddle"> </li>\
+<li type="fa" data-value="fa-life-bouy"  class="fa fa-life-bouy"> </li>\
+<li type="fa" data-value="fa-life-buoy"  class="fa fa-life-buoy"> </li>\
+<li type="fa" data-value="fa-life-saver"  class="fa fa-life-saver"> </li>\
+<li type="fa" data-value="fa-support"  class="fa fa-support"> </li>\
+<li type="fa" data-value="fa-life-ring"  class="fa fa-life-ring"> </li>\
+<li type="fa" data-value="fa-circle-o-notch"  class="fa fa-circle-o-notch"> </li>\
+<li type="fa" data-value="fa-ra"  class="fa fa-ra"> </li>\
+<li type="fa" data-value="fa-rebel"  class="fa fa-rebel"> </li>\
+<li type="fa" data-value="fa-ge"  class="fa fa-ge"> </li>\
+<li type="fa" data-value="fa-empire"  class="fa fa-empire"> </li>\
+<li type="fa" data-value="fa-git-square"  class="fa fa-git-square"> </li>\
+<li type="fa" data-value="fa-git"  class="fa fa-git"> </li>\
+<li type="fa" data-value="fa-hacker-news"  class="fa fa-hacker-news"> </li>\
+<li type="fa" data-value="fa-tencent-weibo"  class="fa fa-tencent-weibo"> </li>\
+<li type="fa" data-value="fa-qq"  class="fa fa-qq"> </li>\
+<li type="fa" data-value="fa-wechat"  class="fa fa-wechat"> </li>\
+<li type="fa" data-value="fa-weixin"  class="fa fa-weixin"> </li>\
+<li type="fa" data-value="fa-send"  class="fa fa-send"> </li>\
+<li type="fa" data-value="fa-paper-plane"  class="fa fa-paper-plane"> </li>\
+<li type="fa" data-value="fa-send-o"  class="fa fa-send-o"> </li>\
+<li type="fa" data-value="fa-paper-plane-o"  class="fa fa-paper-plane-o"> </li>\
+<li type="fa" data-value="fa-history"  class="fa fa-history"> </li>\
+<li type="fa" data-value="fa-circle-thin"  class="fa fa-circle-thin"> </li>\
+<li type="fa" data-value="fa-header"  class="fa fa-header"> </li>\
+<li type="fa" data-value="fa-paragraph"  class="fa fa-paragraph"> </li>\
+<li type="fa" data-value="fa-sliders"  class="fa fa-sliders"> </li>\
+<li type="fa" data-value="fa-share-alt"  class="fa fa-share-alt"> </li>\
+<li type="fa" data-value="fa-share-alt-square"  class="fa fa-share-alt-square"> </li>\
+<li type="fa" data-value="fa-bomb"  class="fa fa-bomb"> </li>\
+<li type="fa" data-value="fa-soccer-ball-o"  class="fa fa-soccer-ball-o"> </li>\
+<li type="fa" data-value="fa-futbol-o"  class="fa fa-futbol-o"> </li>\
+<li type="fa" data-value="fa-tty"  class="fa fa-tty"> </li>\
+<li type="fa" data-value="fa-binoculars"  class="fa fa-binoculars"> </li>\
+<li type="fa" data-value="fa-plug"  class="fa fa-plug"> </li>\
+<li type="fa" data-value="fa-slideshare"  class="fa fa-slideshare"> </li>\
+<li type="fa" data-value="fa-twitch"  class="fa fa-twitch"> </li>\
+<li type="fa" data-value="fa-yelp"  class="fa fa-yelp"> </li>\
+<li type="fa" data-value="fa-newspaper-o"  class="fa fa-newspaper-o"> </li>\
+<li type="fa" data-value="fa-wifi"  class="fa fa-wifi"> </li>\
+<li type="fa" data-value="fa-calculator"  class="fa fa-calculator"> </li>\
+<li type="fa" data-value="fa-paypal"  class="fa fa-paypal"> </li>\
+<li type="fa" data-value="fa-google-wallet"  class="fa fa-google-wallet"> </li>\
+<li type="fa" data-value="fa-cc-visa"  class="fa fa-cc-visa"> </li>\
+<li type="fa" data-value="fa-cc-mastercard"  class="fa fa-cc-mastercard"> </li>\
+<li type="fa" data-value="fa-cc-discover"  class="fa fa-cc-discover"> </li>\
+<li type="fa" data-value="fa-cc-amex"  class="fa fa-cc-amex"> </li>\
+<li type="fa" data-value="fa-cc-paypal"  class="fa fa-cc-paypal"> </li>\
+<li type="fa" data-value="fa-cc-stripe"  class="fa fa-cc-stripe"> </li>\
+<li type="fa" data-value="fa-bell-slash"  class="fa fa-bell-slash"> </li>\
+<li type="fa" data-value="fa-bell-slash-o"  class="fa fa-bell-slash-o"> </li>\
+<li type="fa" data-value="fa-trash"  class="fa fa-trash"> </li>\
+<li type="fa" data-value="fa-copyright"  class="fa fa-copyright"> </li>\
+<li type="fa" data-value="fa-at"  class="fa fa-at"> </li>\
+<li type="fa" data-value="fa-eyedropper"  class="fa fa-eyedropper"> </li>\
+<li type="fa" data-value="fa-paint-brush"  class="fa fa-paint-brush"> </li>\
+<li type="fa" data-value="fa-birthday-cake"  class="fa fa-birthday-cake"> </li>\
+<li type="fa" data-value="fa-area-chart"  class="fa fa-area-chart"> </li>\
+<li type="fa" data-value="fa-pie-chart"  class="fa fa-pie-chart"> </li>\
+<li type="fa" data-value="fa-line-chart"  class="fa fa-line-chart"> </li>\
+<li type="fa" data-value="fa-lastfm"  class="fa fa-lastfm"> </li>\
+<li type="fa" data-value="fa-lastfm-square"  class="fa fa-lastfm-square"> </li>\
+<li type="fa" data-value="fa-toggle-off"  class="fa fa-toggle-off"> </li>\
+<li type="fa" data-value="fa-toggle-on"  class="fa fa-toggle-on"> </li>\
+<li type="fa" data-value="fa-bicycle"  class="fa fa-bicycle"> </li>\
+<li type="fa" data-value="fa-bus"  class="fa fa-bus"> </li>\
+<li type="fa" data-value="fa-ioxhost"  class="fa fa-ioxhost"> </li>\
+<li type="fa" data-value="fa-angellist"  class="fa fa-angellist"> </li>\
+<li type="fa" data-value="fa-cc"  class="fa fa-cc"> </li>\
+<li type="fa" data-value="fa-shekel"  class="fa fa-shekel"> </li>\
+<li type="fa" data-value="fa-sheqel"  class="fa fa-sheqel"> </li>\
+<li type="fa" data-value="fa-ils"  class="fa fa-ils"> </li>\
+<li type="fa" data-value="fa-meanpath"  class="fa fa-meanpath"> </li>');
 var ebsicons='';
 var ebsfaicons='';
 jQuery(iconsval).each(function(ind,val){
@@ -711,5 +941,23 @@ function font_awesome_include($class){
         icons+='';
     }
     return icons;
+}
+
+/*
+Add Color picker
+ */
+
+function ebs_color_picker($ele){
+    jQuery($ele).wpColorPicker({
+        clear: function(){
+            jQuery(this).parents('.wp-picker-container').find('.wp-color-result').addClass('ebs-picked-cleared');
+        },
+        change: function(){
+            jQuery(this).parents('.wp-picker-container').find('.wp-color-result').removeClass('ebs-picked-cleared');
+        }
+    }).each(function(){
+            if(jQuery(this).wpColorPicker('color') == '')
+                jQuery(this).parents('.wp-picker-container').find('.wp-color-result').addClass('ebs-picked-cleared');
+        });
 }
 var $ebs_prefix=ebs.ebs_prefix;
