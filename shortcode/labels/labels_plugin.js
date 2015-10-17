@@ -10,30 +10,31 @@ var labels={
 function ebs_return_html_labels(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th><label for="oscitas-label-type">Label Type:</label></th>\
-				<td><select name="type" id="oscitas-label-type">\
-					<option value="label-default">Default</option>\
-					<option value="label-primary">Primary</option>\
-					<option value="label-success">Success</option>\
-					<option value="label-info">Information</option>\
-					<option value="label-warning">Warning</option>\
-					<option value="label-danger">Danger</option>\
-				</select><br />\
+				<th><label for="oscitas-label-type">'+ebsjstrans.label+' '+ebsjstrans.type+':</label></th>\
+				<td>\
+					<select name="type" id="oscitas-label-type">\
+						<option value="label-default">'+ebsjstrans.simple+'</option>\
+						<option value="label-primary">'+ebsjstrans.primary+'</option>\
+						<option value="label-success">'+ebsjstrans.success+'</option>\
+						<option value="label-info">'+ebsjstrans.information+'</option>\
+						<option value="label-warning">'+ebsjstrans.warning+'</option>\
+						<option value="label-danger">'+ebsjstrans.danger+'</option>\
+					</select><br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-label-content">Label Content:</label></th>\
+				<th><label for="oscitas-label-content">'+ebsjstrans.label+' '+ebsjstrans.content+':</label></th>\
 				<td><input type="text" name="label" id="oscitas-label-content" value="Label"/><br />\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-label-class">Custom Class:</label></th>\
+				<th><label for="oscitas-label-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-label-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-label-submit" class="button-primary" value="Insert Label" name="submit" />\
+			<input type="button" id="oscitas-label-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.label+'" name="submit" />\
 		</p>\
 		</div>');
     return form;

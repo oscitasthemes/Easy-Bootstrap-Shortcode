@@ -11,29 +11,29 @@ function ebs_return_html_icon(pluginObj){
 
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
                         <tr>\
-                        <th><label for="oscitas-heading-icon">Select Icon:</label></th>\
+                        <th><label for="oscitas-heading-icon">'+ebsjstrans.select+' '+ebsjstrans.icon+':</label></th>\
 				<td><div id="click_icon_list_icon" class="oscitas-icon-div"><span id="osc_show_icon_icon"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val_icon" value="glyphicon-adjust">\
                     <div id="osc_show_iconlist_icon" class="oscitas-icon" style="display:none;width:100%">'+font_awesome_include('oscitas-heading-icon_icon')+'</div>\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-icon-iconcolor">Icon Color:</label></th>\
+				<th><label for="oscitas-icon-iconcolor">'+ebsjstrans.icon+' '+ebsjstrans.color+':</label></th>\
 				<td><input type="text" name="label" id="oscitas-icon-iconcolor" class="color" value="" /><br />\
 				</td>\
 			</tr>\
 			 <tr>\
-				<th><label for="oscitas-icon-fontsize">Icon Font Size:</label></th>\
+				<th><label for="oscitas-icon-fontsize">'+ebsjstrans.icon+' '+ebsjstrans.font+' '+ebsjstrans.size+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-icon-fontsize" value=""/>px\
 				</td>\
 			</tr>\
                          <tr>\
-				<th><label for="oscitas-icon-class">Custom Class:</label></th>\
+				<th><label for="oscitas-icon-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-icon-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-icon-submit" class="button-primary" value="Insert icon" name="submit" />\
+			<input type="button" id="oscitas-icon-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.icon+'" name="submit" />\
 		</p>\
 		</div>');
 

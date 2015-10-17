@@ -13,8 +13,7 @@ function osc_theme_tabs($params, $content = null) {
                     ), $params));
     $_oscitas_tabs[$id] = array();
     do_shortcode($content);
-    $scontent = '<ul class="nav nav-tabs'.EBS_CONTAINER_CLASS.'" id="oscitas-tabs-' . $id . '">' . implode('', $_oscitas_tabs[$id]['tabs']) . '</ul><div
-    class="tab-content'.EBS_CONTAINER_CLASS.'">' . implode('', $_oscitas_tabs[$id]['panes']) . '</div>';
+    $scontent = '<ul class="nav nav-tabs'.EBS_CONTAINER_CLASS.'" id="oscitas-tabs-' . $id . '">' . implode('', $_oscitas_tabs[$id]['tabs']) . '</ul><div class="tab-content'.EBS_CONTAINER_CLASS.'">' . implode('', $_oscitas_tabs[$id]['panes']) . '</div>';
     if (trim($scontent) != "") {
         $output = '<div class="' . $class . '">' . $scontent;
         $output .= '</div>';

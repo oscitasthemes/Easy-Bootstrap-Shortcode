@@ -10,52 +10,53 @@ var tooltip={
 function ebs_return_html_tooltip(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th><label for="oscitas-tooltip-style">Tooltip Style:</label></th>\
-				<td><select name="type" id="oscitas-tooltip-style">\
-					<option value="top">Top</option>\
-					<option value="bottom">Bottom</option>\
-					<option value="left">Left</option>\
-					<option value="right">Right</option>\
-                                        <option value="auto">Auto</option>\
-                                    </select><br />\
+				<th><label for="oscitas-tooltip-style">'+ebsjstrans.tooltip+' '+ebsjstrans.style+':</label></th>\
+				<td>\
+                    <select name="type" id="oscitas-tooltip-style">\
+                        <option value="top">'+ebsjstrans.top+'</option>\
+                        <option value="bottom">'+ebsjstrans.bottom+'</option>\
+                        <option value="left">'+ebsjstrans.left+'</option>\
+                        <option value="right">'+ebsjstrans.right+'</option>\
+                        <option value="auto">'+ebsjstrans.auto+'</option>\
+                    </select><br />\
 				</td>\
 			</tr>\
 <tr>\
-				<th><label for="oscitas-tooltip-text">Tooltip Text:</label></th>\
+				<th><label for="oscitas-tooltip-text">'+ebsjstrans.tooltip+' '+ebsjstrans.text+':</label></th>\
 				<td><input type="text" name="tooltip-text" id="oscitas-tooltip-text" value="Tooltip"/><br />\
 				</td>\
 			</tr>\
 <tr>\
-				<th><label for="oscitas-tooltip-type">Type:</label></th>\
+				<th><label for="oscitas-tooltip-type">'+ebsjstrans.type+'Type:</label></th>\
 				<td><select name="type" id="oscitas-tooltip-type">\
-                                         <option value="link">Link</option>\
-                                        <option value="button">Button</option>\
+                                         <option value="link">'+ebsjstrans.link+'</option>\
+                                        <option value="button">'+ebsjstrans.button+'</option>\
 					</select><br />\
 				</td>\
 			</tr >\
   <tr class="oscitas-tooltip-link-tr">\
-				<th><label for="oscitas-tooltip-link">Link:</label></th>\
+				<th><label for="oscitas-tooltip-link">'+ebsjstrans.link+':</label></th>\
 				<td><input type="text" name="tooltip-link" id="oscitas-tooltip-link" value="#"/><br />\
 				</td>\
 			</tr>\
   <tr class="oscitas-tooltip-link-tr">\
-				<th><label for="oscitas-tooltip-link">Open New Window:</label></th>\
+				<th><label for="oscitas-tooltip-link">'+ebsjstrans.newtarget+':</label></th>\
 				<td><input type="checkbox" id="oscitas-tooltip-link-target" value="_blank"/><br />\
 				</td>\
 			</tr>\
 <tr>\
-				<th><label for="oscitas-tooltip-link-text">Value:</label></th>\
-				<td><input type="text" name="link-text" id="oscitas-tooltip-link-text" value="Hover Me"/><br />\
+				<th><label for="oscitas-tooltip-link-text">'+ebsjstrans.value+':</label></th>\
+				<td><input type="text" name="link-text" id="oscitas-tooltip-link-text" value="'+ebsjstrans.hover+' '+ebsjstrans.me+'"/><br />\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-tooltip-class">Custom Class:</label></th>\
+				<th><label for="oscitas-tooltip-class">'+ebsjstrans.customclasse+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-tooltip-class" value=""/><br />\
 				</td>\
 			</tr>\
 </table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-tooltip-submit" class="button-primary" value="Insert Tooltip" name="submit" />\
+			<input type="button" id="oscitas-tooltip-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.tooltip+'" name="submit" />\
 		</p>\
 		</div>');
 

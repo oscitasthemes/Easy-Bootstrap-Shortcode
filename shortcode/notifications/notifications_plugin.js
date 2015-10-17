@@ -10,28 +10,28 @@ var notifications={
 function ebs_return_html_notifications(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th><label for="oscitas-type">Style :</label></th>\
+				<th><label for="oscitas-type">'+ebsjstrans.style+' :</label></th>\
 				<td><select name="type" id="oscitas-type">\
-					<option value="alert-warning">Warning</option>\
-					<option value="alert-success">Success</option>\
-					<option value="alert-info">Information</option>\
-					<option value="alert-danger">Danger</option>\
+						<option value="alert-success">'+ebsjstrans.success+'</option>\
+						<option value="alert-info">'+ebsjstrans.information+'</option>\
+						<option value="alert-warning">'+ebsjstrans.warning+'</option>\
+						<option value="alert-danger">'+ebsjstrans.danger+'</option>\
 				</select><br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-line">Close link</label></th>\
+				<th><label for="oscitas-line">'+ebsjstrans.close+' '+ebsjstrans.link+'</label></th>\
 				<td><input type="checkbox" id="oscitas-close"/><br />\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-note-class">Custom Class:</label></th>\
+				<th><label for="oscitas-note-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-note-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-submit" class="button-primary" value="Insert Notification" name="submit" />\
+			<input type="button" id="oscitas-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.notification+'" name="submit" />\
 		</p>\
 		</div>');
     return form;
@@ -64,8 +64,7 @@ function create_oscitas_notifications(pluginObj){
         }
 
         var selected_content = tinyMCE.activeEditor.selection.getContent();
-        if(!selected_content)
-            var selected_content = 'Your notification';
+        if(!selected_content) var selected_content = ebsjstrans.your+' '+ebsjstrans.notification; //'Your notification';
         shortcode += ' close="'+(table.find('#oscitas-close').prop('checked')? 'true': 'false')+ '" ';
 
         shortcode += cusclass+']'+selected_content+'[/'+$ebs_prefix+'notification]';

@@ -10,43 +10,50 @@ var dropdown={
 function ebs_return_html_dropdown(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th class="main_dp_th"><label for="oscitas-dropdown-heading" >Dropdown Button Features</label></th>\
-				<td><table class="tb_multiple_column_upper">\
-                                <thead>\
-                                    <tr><th>Text</th><th>Size</th><th>Style</th><th>Split</th><th>Dropup</th></tr>\
-                                </thead>\
-                                <tbody>\
-                                <tr>\
-                                    <td><input type="text" name="dropdown-heading" id="oscitas-dropdown-heading" value="Dropdown"/></td>\
-                                    <td><select name="type" id="oscitas-dropdown-size">\
-                                        <option value="">Default</option>\
-					<option value="btn-lg">Large</option>\
-					<option value="btn-sm">Small</option>\
-					<option value="btn-xs">Ex-small</option>\
-                                        </select><br /></td>\
-                                    <td><select name="type" id="oscitas-dropdown-style">\
-					<option value="btn-default">Simple</option>\
-					<option value="btn-primary">Primary</option>\
-					<option value="btn-success">Success</option>\
-					<option value="btn-info">Information</option>\
-					<option value="btn-warning">Warning</option>\
-					<option value="btn-danger">Danger</option>\
-					<option value="btn-link">Link</option>\
-                                        </select><br /></td>\
-                                    <td><input type="checkbox" name="dropdown-split" id="oscitas-dropdown-split" value="split"/></td>\
-                                    <td><select name="type" id="oscitas-dropdown-dropup">\
-                                        <option value="dropdown">Drop Down</option>\
-					<option value="dropup">Drop Up</option>\
-                                        </select></td>\
-                                </tr>\
-                                </tbody>\
-                                </table></td>\
+				<th class="main_dp_th"><label for="oscitas-dropdown-heading" >'+ebsjstrans.dropdown+' '+ebsjstrans.features+'</label></th>\
+				<td>\
+				    <table class="tb_multiple_column_upper">\
+                        <thead>\
+                            <tr><th>'+ebsjstrans.text+'</th><th>'+ebsjstrans.size+'</th><th>'+ebsjstrans.style+'</th><th>'+ebsjstrans.split+'</th><th>'+ebsjstrans.dropup+'</th></tr>\
+                        </thead>\
+                        <tbody>\
+                            <tr>\
+                                <td><input type="text" name="dropdown-heading" id="oscitas-dropdown-heading" value="Dropdown"/></td>\
+                                <td>\
+                                    <select name="type" id="oscitas-dropdown-size">\
+                                        <option value="">'+ebsjstrans.default+'</option>\
+                                        <option value="btn-lg">'+ebsjstrans.large+'</option>\
+                                        <option value="btn-sm">'+ebsjstrans.small+'</option>\
+                                        <option value="btn-xs">'+ebsjstrans.exsmall+'</option>\
+                                    </select><br />\
+                                </td>\
+                                <td>\
+                                    <select name="type" id="oscitas-dropdown-style">\
+                                        <option value="btn-default">'+ebsjstrans.simple+'</option>\
+                                        <option value="btn-primary">'+ebsjstrans.primary+'</option>\
+                                        <option value="btn-success">'+ebsjstrans.success+'</option>\
+                                        <option value="btn-info">'+ebsjstrans.information+'</option>\
+                                        <option value="btn-warning">'+ebsjstrans.warning+'</option>\
+                                        <option value="btn-danger">'+ebsjstrans.danger+'</option>\
+                                        <option value="btn-link">'+ebsjstrans.link+'</option>\
+                                    </select><br />\
+                                </td>\
+                                <td><input type="checkbox" name="dropdown-split" id="oscitas-dropdown-split" value="split"/></td>\
+                                <td>\
+                                    <select name="type" id="oscitas-dropdown-dropup">\
+                                        <option value="dropdown">'+ebsjstrans.dropdown+'</option>\
+                                        <option value="dropup">'+ebsjstrans.dropup+'</option>\
+                                    </select></td>\
+                            </tr>\
+                        </tbody>\
+                    </table>\
+                </td>\
 			</tr>\
 			<tr>\
 				<th class="main_dp_th"><label for="oscitas-line">Dropdown Items</label></th>\
 				<td><table class="tb_multiple_column">\
                                 <thead>\
-                                    <tr><th>Type</th><th>Link</th><th>Title</th><th>Disabled</th><th>Option</th></tr>\
+                                    <tr><th>Type</th><th>'+ebsjstrans.link+'</th><th>'+ebsjstrans.title+'</th><th>Disabled</th><th>Option</th></tr>\
                                 </thead>\
                                 <tbody id="oscitas-append-dropdownitem">\
                                 <tr class="osc_dropdown_list_item">\

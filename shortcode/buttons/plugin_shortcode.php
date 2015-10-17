@@ -8,6 +8,7 @@ function osc_theme_button($params, $content = null) {
     extract(shortcode_atts(array(
                 'title' => 'osCitas',
                 'link' => '',
+                'linkrel' => '',
                 'type' => 'link',
                 'style' => '',
                 'align' => '',
@@ -37,7 +38,7 @@ function osc_theme_button($params, $content = null) {
     }
     $target = ' target="'.($target != 'false' ? '_blank':'_self').'"';
     if ($type == 'link') {
-        $out = '<a class="btn ' . $style . ' ' . $class . ' '.EBS_CONTAINER_CLASS.'" href="' . $link . '" ' . ($target) . '>' . $value . '</a>';
+        $out = '<a class="btn ' . $style . ' ' . $class . ' '.EBS_CONTAINER_CLASS.'" href="' . $link . '"  rel="' . $linkrel . '" ' . ($target) . '>' . $value . '</a>';
     } elseif ($type == 'button') {
         $out = '<button class="btn ' . $style . ' ' . $class . ' '.EBS_CONTAINER_CLASS.'" >' . $value . '</button>';
     }

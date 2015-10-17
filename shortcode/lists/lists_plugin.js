@@ -10,29 +10,29 @@ var lists={
 function ebs_return_html_lists(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th><label for="oscitas-type">Lists style</label></th>\
+				<th><label for="oscitas-type">'+ebsjstrans.list+' '+ebsjstrans.style+'</label></th>\
 				<td><select name="type" id="oscitas-type">\
-                                        <option value="">None</option>\
-					<option value="glyphicon-arrow-right">Arrow</option>\
-					<option value="glyphicon-ok">Check</option>\
-					<option value="glyphicon-plus">Plus</option>\
-                    <option value="glyphicon-minus">Minus</option>\
+                    <option value="">None</option>\
+					<option value="glyphicon-arrow-right">'+ebsjstrans.arrow+'</option>\
+					<option value="glyphicon-ok">'+ebsjstrans.check+'</option>\
+					<option value="glyphicon-plus">'+ebsjstrans.plus+'</option>\
+                    <option value="glyphicon-minus">'+ebsjstrans.minus+'</option>\
 				</select><br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-line">No of List Item</label></th>\
-				<td><input type="text" name="line" id="oscitas-list-item" value="3"/><br /><small>Enter a numeric value</small>\
+				<th><label for="oscitas-line">'+ebsjstrans.noof+' '+ebsjstrans.list+' '+ebsjstrans.item+'</label></th>\
+				<td><input type="text" name="line" id="oscitas-list-item" value="3"/><br /><small>'+ebsjstrans.enternumval+'</small>\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-list-class">Custom Class:</label></th>\
+				<th><label for="oscitas-list-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-list-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-submit" class="button-primary" value="Insert List" name="submit" />\
+			<input type="button" id="oscitas-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.list+'" name="submit" />\
 		</p>\
 		</div>');
     return form;

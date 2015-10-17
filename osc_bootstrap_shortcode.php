@@ -4,15 +4,18 @@
   Plugin Name: Easy Bootstrap Shortcode
   Plugin URI: http://www.oscitasthemes.com
   Description: Add bootstrap 3.0.3 styles to your theme by wordpress editor shortcode buttons.
-  Version: 4.3.9
+  Version: 4.5.0
   Author: oscitas
   Author URI: http://www.oscitasthemes.com
   License: Under the GPL v2 or later
+  Text Domain: easy-bootstrap-shortcodes
+  Domain Path: /languages
  */
 
 /*
  * function used to check whether ebs activated this check included in EBS Pro
  */
+$_EBS_SESSION_STARTED = false;
 function osc_ebs_plugin_exists( $prevent ) {
     return 'ebs';
 }
@@ -28,7 +31,7 @@ if(isset($checkplugin) && $checkplugin=='ebsp'):
         else {
             echo '<div id="message" class="update-nag ebs_notification">';
         }
-        echo '<p><strong>' . $message . '</strong></p></div>';
+        echo '<p><strong>' . __($message, 'easy-bbotstrap-shoercodes') . '</strong></p></div>';
     }
 
     /*
@@ -36,7 +39,7 @@ if(isset($checkplugin) && $checkplugin=='ebsp'):
      */
     function ebs_showAdminMessages()
     {
-        ebs_showMessage("Easy Bootstrap Shortcode Pro activated, deactivate Easy Bootstrap Shortcode free version", false);
+        ebs_showMessage(__("Easy Bootstrap Shortcode Pro activated, deactivate Easy Bootstrap Shortcode free version", 'easy-bootstrap-shoercodes'), false);
     }
 else:
     /*
@@ -58,7 +61,7 @@ else:
     {
         $ebsprefix='ebsp';
         $plugin_name='easy-bootstrap-shortcode-pro/osc_bootstrap_shortcode.php ';
-        echo '</tr><tr class="plugin-update-tr"><td colspan="3" class="plugin-update"><div class="update-message">'  . __('Easy Bootstrap Shortcode Pro also available, <a href="http://oscitasthemes.com/products/easy-bootstrap-shortcodes-pro/">click here</a> to purchase one now',$ebsprefix) . '</div></td>';
+        echo '</tr><tr class="plugin-update-tr"><td colspan="3" class="plugin-update"><div class="update-message">'  . __('Easy Bootstrap Shortcode Pro also available, <a href="http://oscitasthemes.com/products/easy-bootstrap-shortcodes-pro/">click here</a> to purchase one now', 'easy-bootstrap-shoercodes') . '</div></td>';
     }
 
     add_action('admin_enqueue_scripts', 'osc_add_admin_ebs_scripts');
@@ -99,6 +102,7 @@ else:
                 update_option( 'EBS_SHORTCODE_PREFIX', '' );
             }
             update_option( 'EBS_INCLUDE_FA',1);
+            update_option( 'EBS_SESSION_CLOSE',0);
             if(get_option('EBS_CUSTOM_CSS')==''){
                 update_option( 'EBS_CUSTOM_CSS','');
             }
@@ -119,6 +123,7 @@ else:
             delete_option( 'EBS_BOOTSTRAP_RESPOND_CDN_PATH' );
             delete_option('EBS_EDITOR_OPT');
             delete_option('EBS_INCLUDE_FA');
+            delete_option('EBS_SESSION_CLOSE');
         }
     }
 
@@ -128,7 +133,7 @@ else:
     function osc_ebs_settings_link( $links ) {
         $isSet=apply_filters('ebs_custom_option',false);
         if (!$isSet) {
-            $settings_link = '<a href="admin.php?page=ebs/ebs-settings.php">Settings</a>';
+            $settings_link = '<a href="admin.php?page=ebs/ebs-settings.php">'.__('Settings', 'easy-bootstrap-shoercodes').'</a>';
             array_push( $links, $settings_link );
         }
         return $links;
@@ -142,9 +147,9 @@ else:
     function osc_ebs_add_admin_menu() {
         $isSet=apply_filters('ebs_custom_option',false);
         if (!$isSet) {
-            add_menu_page('EBS Settings', ' EBS Settings', 'manage_options', 'ebs/ebs-settings.php', 'osc_ebs_setting_page', plugins_url('/images/icon.png', __FILE__));
+            add_menu_page(__('EBS Settings', 'easy-bootstrap-shoercodes'), __('EBS Settings', 'easy-bootstrap-shoercodes'), 'manage_options', 'ebs/ebs-settings.php', 'osc_ebs_setting_page', plugins_url('/images/icon.png', __FILE__));
 
-            $sub_page= add_submenu_page( 'ebs/ebs-settings.php','EBS-Pro Demo', 'EBS-Pro Demo', 'manage_options', 'ebs-pro-demo', 'osc_ebs_pro_demo_page' );
+            $sub_page= add_submenu_page( 'ebs/ebs-settings.php',__('osCitas Offers', 'easy-bootstrap-shoercodes'), __('osCitas Offers', 'easy-bootstrap-shoercodes'), 'manage_options', 'ebs-pro-demo', 'osc_ebs_pro_demo_page' );
             add_action('admin_print_styles-' . $sub_page, 'ebsProDemoPage_register_admin_styles');
         }
     }
@@ -173,7 +178,11 @@ else:
             update_option( 'EBS_EDITOR_OPT', isset($_POST['ebsp_editor_opt'])?$_POST['ebsp_editor_opt']:'icon' );
             update_option( 'EBS_CUSTOM_CSS', isset($_POST['ebs_custom_css'])?$_POST['ebs_custom_css']:'' );
             update_option( 'EBS_INCLUDE_FA', isset($_POST['fa_icon'])?$_POST['fa_icon']:'' );
+            update_option( 'EBS_SESSION_CLOSE', isset($_POST['use_ebs_session_close'])
+                ?$_POST['use_ebs_session_close']:'0' );
+            ebs_session_start();
             $_SESSION['ebs_dynamic_css'] =$_POST['ebs_custom_css'];
+            ebs_session_end();
             update_option( 'EBS_SHORTCODE_PREFIX', isset($_POST['shortcode_prefix'])?$_POST['shortcode_prefix']:'' );
 
             $fa_icon=isset($_POST['fa_icon'])?$_POST['fa_icon']:'' ;
@@ -195,6 +204,7 @@ else:
             $ebs_custom_css=get_option('EBS_CUSTOM_CSS','');
             $shortcode_prefix=get_option('EBS_SHORTCODE_PREFIX','');
             $fa_icon=get_option('EBS_INCLUDE_FA',1);
+            $use_ebs_session_close=get_option('EBS_SESSION_CLOSE',0);
         }
         include 'ebs_settings.php';
     }
@@ -224,6 +234,7 @@ else:
     function osc_add_admin_ebs_scripts() {
         global $pagenow;
         $fa_icon=get_option('EBS_INCLUDE_FA',1);
+        $use_ebs_session_close=get_option('EBS_SESSION_CLOSE',0);
         $screen = get_current_screen();
         if ($screen->id == 'toplevel_page_ebs/ebs-settings') {
             wp_enqueue_style('ebs-setting', plugins_url('/styles/ebs-setting.min.css', __FILE__));
@@ -256,6 +267,7 @@ else:
  */
     function osc_editor_enable_mce($plugin_array){
         $fa_icon=get_option('EBS_INCLUDE_FA',1);
+        $use_ebs_session_close=get_option('EBS_SESSION_CLOSE',0);
         wp_enqueue_script('jquery');
         wp_enqueue_style('thickbox');
         wp_enqueue_script('media-upload');
@@ -285,7 +297,9 @@ else:
      * Add dynamic css to ebs frontend
      */
     function osc_add_dynamic_css(){
+        ebs_session_start();
         $_SESSION['ebs_dynamic_css'] = get_option('EBS_CUSTOM_CSS','');
+        ebs_session_end();
         wp_enqueue_style('ebs_dynamic_css', plugins_url('/styles/ebs_dynamic_css.php', __FILE__));
 
     }
@@ -303,6 +317,7 @@ else:
             $respondcdn = get_option( 'EBS_BOOTSTRAP_RESPOND_CDN_PATH', EBS_RESPOND_CDN );
             $css = get_option( 'EBS_BOOTSTRAP_CSS_LOCATION', 1 );
             $fa_icon=get_option('EBS_INCLUDE_FA',1);
+            $use_ebs_session_close=get_option('EBS_SESSION_CLOSE',0);
 //			http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js
 
             if ($js == 1) {
@@ -371,8 +386,18 @@ else:
 
     add_action('init','ebs_session_start');
     function ebs_session_start() {
+        global $_EBS_SESSION_STARTED;
         if(!session_id()){
             @session_start();
+            $_EBS_SESSION_STARTED = true;
+        }
+    }
+
+    function ebs_session_end() {
+        global $_EBS_SESSION_STARTED;
+        if ($_EBS_SESSION_STARTED && get_option('EBS_SESSION_CLOSE',0)) {
+            @session_write_close();
+            $_EBS_SESSION_STARTED = false;
         }
     }
 

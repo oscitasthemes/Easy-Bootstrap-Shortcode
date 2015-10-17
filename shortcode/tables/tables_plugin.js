@@ -10,54 +10,54 @@ var tables={
 function ebs_return_html_tables(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th><label for="oscitas-table-width">Table Width</label></th>\
+				<th><label for="oscitas-table-width">'+ebsjstrans.table+' '+ebsjstrans.width+':</label></th>\
 				<td><input type="text" name="icontag" id="oscitas-table-width" value="100%" /><br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-table-columns">Columns</label></th>\
+				<th><label for="oscitas-table-columns">'+ebsjstrans.columns+':</label></th>\
 				<td><input type="text" name="link" id="oscitas-table-columns" value="4" /><br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-table-rows">Rows</label></th>\
+				<th><label for="oscitas-table-rows">'+ebsjstrans.rows+':</label></th>\
 				<td><input type="text" name="title" id="oscitas-table-rows" value="4" /><br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-table-rows">Table style</label></th>\
+				<th><label for="oscitas-table-rows">'+ebsjstrans.table+' '+ebsjstrans.style+':</label></th>\
 				<td>\
 				    <select name="tablestyle" id="oscitas-table-style">\
-                        <option value="">Simple</option>\
-                        <option value="table-striped">Striped</option>\
-                        <option value="table-bordered">Bordered</option>\
-                        <option value="table-striped table-bordered">Striped + Bordered</option>\
+                        <option value="">'+ebsjstrans.simple+'</option>\
+                        <option value="table-striped">'+ebsjstrans.striped+'</option>\
+                        <option value="table-bordered">'+ebsjstrans.bordered+'</option>\
+                        <option value="table-striped table-bordered">'+ebsjstrans.striped+' + '+ebsjstrans.bordered+'</option>\
 				    </select>\
                     <br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-table-rows">Show hover effect</label></th>\
+				<th><label for="oscitas-table-rows">'+ebsjstrans.show+' '+ebsjstrans.hover+' '+ebsjstrans.effect+':</label></th>\
 				<td>\
 				    <input type="checkbox" id="oscitas-table-hover" value="table-hover">\
                     <br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-table-rows">Responsive</label></th>\
+				<th><label for="oscitas-table-rows">'+ebsjstrans.responsive+':</label></th>\
 				<td>\
 				    <input type="checkbox" id="oscitas-table-scroll" value="table-responsive">\
                     <br />\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-table-class">Custom Class:</label></th>\
+				<th><label for="oscitas-table-class">'+ebsjstrans.custonclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-table-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-submit" class="button-primary" value="Insert Table" name="submit" />\
+			<input type="button" id="oscitas-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.table+'" name="submit" />\
 		</p>\
 		</div>');
     return form;
@@ -93,7 +93,7 @@ function create_oscitas_tables(pluginObj){
         shortcode += ']<br/>['+$ebs_prefix+'table_head]<br/>';
         for (var i=1;i<=columns;i++)
         {
-            shortcode += '['+$ebs_prefix+'th_column]Heading-'+i+'[/'+$ebs_prefix+'th_column]<br/>';
+            shortcode += '['+$ebs_prefix+'th_column]'+ebsjstrans.heading+'-'+i+'[/'+$ebs_prefix+'th_column]<br/>';
         }
         shortcode += '[/'+$ebs_prefix+'table_head]<br/>['+$ebs_prefix+'table_body]<br/>';
         
@@ -102,7 +102,7 @@ function create_oscitas_tables(pluginObj){
             shortcode += '['+$ebs_prefix+'table_row]<br/>';
             for (var i=1;i<=columns;i++)
             {
-                shortcode += '['+$ebs_prefix+'row_column]value-'+i+'[/'+$ebs_prefix+'row_column]<br/>';
+                shortcode += '['+$ebs_prefix+'row_column]'+ebsjstrans.value+'-'+i+'[/'+$ebs_prefix+'row_column]<br/>';
             }
             
             shortcode += '[/'+$ebs_prefix+'table_row]<br/>';

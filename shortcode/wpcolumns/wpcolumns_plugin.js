@@ -10,24 +10,24 @@ var wpcolumns={
 function ebs_return_html_wpcolumns(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th><label for="oscitas-no-of-wpcolumns">Number of columns</label></th>\
+				<th><label for="oscitas-no-of-wpcolumns">'+ebsjstrans.noof+' '+ebsjstrans.columns+':</label></th>\
 				<td><select name="type" id="oscitas-no-of-wpcolumns">\
-					<option value="1" selected="selected">One column</option>\
-					<option value="2">Two columns</option>\
-					<option value="3">Three columns</option>\
-                    <option value="4">Four columns</option>\
+					<option value="1" selected="selected">'+ebsjstrans.one+' '+ebsjstrans.column+'</option>\
+					<option value="2">'+ebsjstrans.two+' '+ebsjstrans.column+'</option>\
+					<option value="3">'+ebsjstrans.three+' '+ebsjstrans.column+'</option>\
+                    <option value="4">'+ebsjstrans.four+' '+ebsjstrans.column+'</option>\
 				</select><br />\
 				</td>\
 			</tr>\
                         	<tr id="wptwo" style="display:none;">\
-				<th><label for="oscitas-two-columns">2 column division</label></th>\
+				<th><label for="oscitas-two-columns">2 '+ebsjstrans.column+' '+ebsjstrans.division+'</label></th>\
 				<td><select name="type" id="oscitas-two-columns" class="osc-change-col">\
 					<option value="6$6">1/2-1/2</option>\
 					<option value="4$8">1/3-2/3</option>\
                                         <option value="8$3">2/3-1/3</option>\
                                         <option value="3$9">1/4-3/4</option>\
                                         <option value="9$3">3/4-1/4</option>\
-				</select> For Large Screen<br />\
+				</select> '+ebsjstrans.for+' '+ebsjstrans.large+' '+ebsjstrans.screen+'<br />\
 				</td>\
 			</tr>\
 			<tr id="wpthree" style="display:none;">\
@@ -37,20 +37,20 @@ function ebs_return_html_wpcolumns(pluginObj){
 					<option value="3$6$3">1/4-2/4-1/4</option>\
 					<option value="3$3$6">1/4-1/4-2/4</option>\
                                         <option value="6$3$3">2/4-1/4-1/4</option>\
-				</select> For Large Screen<br />\
+				</select> '+ebsjstrans.for+' '+ebsjstrans.large+' '+ebsjstrans.screen+'<br />\
 			</tr>\
                         <tr id="">\
-                        <th><label for="append_column_table">Column Specification</label></th>\
+                        <th><label for="append_column_table">'+ebsjstrans.column+' '+ebsjstrans.specification+'</label></th>\
                         <td id="append_column_table"></td>\
                         </tr>\
                         <tr>\
-				<th><label for="oscitas-column-class">Custom Class:</label></th>\
+				<th><label for="oscitas-column-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-column-class" value=""/>\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-submit-wp_column" class="button-primary" value="Insert Columns" name="submit" />\
+			<input type="button" id="oscitas-submit-wp_column" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.columns+'" name="submit" />\
 		</p>\
 		</div>');
 
@@ -67,18 +67,18 @@ function create_oscitas_wpcolumns(pluginObj){
 
         var ele='',e=0,sm,smoff,md,mdoff,lg,lgoff,xs,xsoff,sel,val=0,selcol,hidecol;
         var col= form.find('#oscitas-no-of-wpcolumns').val();
-        ele = '<i>You can select different column style for different screens such as medium, small(e.g < 992px), x-small(e.g < 768px)</i><br/>';
+        ele = '<i>'+ebsjstrans.youcanselect+'</i><br/>';
 
         var option={
-            'lg':'Large Screen',
-            'md': 'Medium Screen',
-            'sm': 'Small Screen',
-            'xs':'X-small Screen'
+            'lg': ebsjstrans.large+' '+ebsjstrans.screen,
+            'md': ebsjstrans.medium +' '+ebsjstrans.screen,
+            'sm': ebsjstrans.small+' '+ebsjstrans.screen,
+            'xs': ebsjstrans.xsmall+' '+ebsjstrans.screen
         }
-        ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Screen</th><th style="min-width:50px;max-width:50px">Hide Row</th>';
+        ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>'+ebsjstrans.screen+'</th><th style="min-width:50px;max-width:50px">'+ebsjstrans.hide+' '+ebsjstrans.row+'</th>';
 
         for(i=1;i<=col;i++){
-            ele+='<th><div class="head_division head_division_check">Clear Left</div><div class="head_division">Column</div><div class="head_division">Offset</div><div class="head_division head_division_check right">Hide</div></th>';
+            ele+='<th><div class="head_division head_division_check">'+ebsjstrans.clear+' '+ebsjstrans.left+'</div><div class="head_division">'+ebsjstrans.column+'</div><div class="head_division">'+ebsjstrans.offset+'</div><div class="head_division head_division_check right">'+ebsjstrans.hide+'</div></th>';
 
         }
         ele+= '</tr></thead><tbody class="column_tbody">';
@@ -200,7 +200,7 @@ function create_oscitas_wpcolumns(pluginObj){
                     }
                     else{
                         jQuery('#'+index+i).val(previous);
-                        alert('Can\'t Change, exceeds the limit');
+                        alert(ebsjstrans.cantchange);
                     }
                 });
 
@@ -215,7 +215,7 @@ function create_oscitas_wpcolumns(pluginObj){
                     }
                     else{
                         jQuery('#'+index+'off'+i).val(previous);
-                        alert('Can\'t Change, exceeds the limit');
+                        alert(ebsjstrans.cantchange);
                     }
                 })
         })
@@ -337,7 +337,7 @@ function create_oscitas_wpcolumns(pluginObj){
                 lgclear='';
             }
 
-            shortcode += '<br/>['+$ebs_prefix+'column lg="'+a_lg[i]+'"'+md+sm+xs+mdoff+smoff+xsoff+lgoff+mdhide+smhide+xshide+lghide+mdclear+smclear+xsclear+lgclear+' ]<br/>text<br/>[/'+$ebs_prefix+'column]';
+            shortcode += '<br/>['+$ebs_prefix+'column lg="'+a_lg[i]+'"'+md+sm+xs+mdoff+smoff+xsoff+lgoff+mdhide+smhide+xshide+lghide+mdclear+smclear+xsclear+lgclear+' ]<br/>ebsjstrans.text<br/>[/'+$ebs_prefix+'column]';
         }
 
         shortcode += '<br/>[/'+$ebs_prefix+'row]';

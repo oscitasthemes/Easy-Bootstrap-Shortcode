@@ -5,7 +5,7 @@
                 title : 'Tabs Shortcode',
                 image : url+'/icon.png',
                 onclick : function() {
-                    ed.selection.setContent('['+$ebs_prefix+'tabs class="yourcustomclass"]<br/>['+$ebs_prefix+'tab title="Tab number 1" active="active"]Tab 1 content goes here.[/'+$ebs_prefix+'tab]<br/>['+$ebs_prefix+'tab title="Tab number 2"]Tab 2 content goes here.[/'+$ebs_prefix+'tab]<br/>['+$ebs_prefix+'tab title="Tab number 3"]Tab 3 content goes here.[/'+$ebs_prefix+'tab]<br/>['+$ebs_prefix+'tab title="Tab number 4"]Tab 4 content goes here.[/'+$ebs_prefix+'tab]<br/>[/'+$ebs_prefix+'tabs]');
+                    ed.selection.setContent('['+$ebs_prefix+'tabs class="yourcustomclass"]<br/>['+$ebs_prefix+'tab title="'+ebsjstrans.tabnum+' 1" active="active"]'+ebsjstrans.tab+' 1 '+ebsjstrans.content+' '+ebsjstrans.goes+' '+ebsjstrans.here+'.[/'+$ebs_prefix+'tab]<br/>['+$ebs_prefix+'tab title="'+ebsjstrans.tabnum+' 2"]'+ebsjstrans.tab+' 2 '+ebsjstrans.content+' '+ebsjstrans.goes+' '+ebsjstrans.here+'.[/'+$ebs_prefix+'tab]<br/>['+$ebs_prefix+'tab title="'+ebsjstrans.tabnum+' 3"]'+ebsjstrans.tab+' 3 '+ebsjstrans.content+' '+ebsjstrans.goes+' '+ebsjstrans.here+'.[/'+$ebs_prefix+'tab]<br/>['+$ebs_prefix+'tab title="'+ebsjstrans.tabnum+' 4"]'+ebsjstrans.tab+' 4 '+ebsjstrans.content+' '+ebsjstrans.goes+' '+ebsjstrans.here+'.[/'+$ebs_prefix+'tab]<br/>[/'+$ebs_prefix+'tabs]');
                 }
             });
         },

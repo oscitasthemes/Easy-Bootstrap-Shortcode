@@ -5,7 +5,7 @@
                 title : 'Toggle/Accordion Shortcode',
                 image : url+'/icon.png',
                 onclick : function() {
-                    ed.selection.setContent('['+$ebs_prefix+'toggles class="yourcustomclass"]<br/>['+$ebs_prefix+'toggle title="Accordion number 1" class="in"]Toggle 1 content goes here.[/'+$ebs_prefix+'toggle]<br/>['+$ebs_prefix+'toggle title="Accordion number 2"]Toggle 2 content goes here.[/'+$ebs_prefix+'toggle]<br/>['+$ebs_prefix+'toggle title="Accordion number 3"]Toggle 3 content goes here.[/'+$ebs_prefix+'toggle]<br/>['+$ebs_prefix+'toggle title="Accordion number 4"]Toggle 4 content goes here.[/'+$ebs_prefix+'toggle]<br/>[/'+$ebs_prefix+'toggles]');
+                    ed.selection.setContent('['+$ebs_prefix+'toggles class="yourcustomclass"]<br/>['+$ebs_prefix+'toggle title="'+ebsjstrans.accordionnumber+' 1" class="in"]'+ebsjstrans.toggle+' 1 '+ebsjstrans.content+' '+ebsjstrans.goes+' '+ebsjstrans.here+'.[/'+$ebs_prefix+'toggle]<br/>['+$ebs_prefix+'toggle title="'+ebsjstrans.accordionnumber+' 2"]'+ebsjstrans.toggle+' 2 '+ebsjstrans.content+' '+ebsjstrans.goes+' '+ebsjstrans.here+'.[/'+$ebs_prefix+'toggle]<br/>['+$ebs_prefix+'toggle title="'+ebsjstrans.accordionnumber+' 3"]'+ebsjstrans.toggle+' 3 '+ebsjstrans.content+' '+ebsjstrans.goes+' '+ebsjstrans.here+'.[/'+$ebs_prefix+'toggle]<br/>['+$ebs_prefix+'toggle title="'+ebsjstrans.accordionnumber+' 4"]'+ebsjstrans.toggle+' 4 '+ebsjstrans.content+' '+ebsjstrans.goes+' '+ebsjstrans.here+'.[/'+$ebs_prefix+'toggle]<br/>[/'+$ebs_prefix+'toggles]');
                 }
             });
         },

@@ -9,39 +9,39 @@ var thumbnail={
 
 function ebs_return_html_thumbnail(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
-				<th><label for="oscitas-label-content">Upload Image:</label></th>\
+				<th><label for="oscitas-label-content">'+ebsjstrans.upload+' '+ebsjstrans.image+':</label></th>\
 				<td id="osc_thumbnail_upload"><input id="oscitas-thumbnail-src" type="hidden" name="oscitas-thumbnail-src"  value="" />\
-                                <input id="_btn" class="upload_image_button" type="button" value="Upload Image" />\
+                                <input id="_btn" class="upload_image_button" type="button" value="'+ebsjstrans.upload+' '+ebsjstrans.image+'" />\
 				</td>\
 			</tr>\
             <tr>\
-				<th><label for="oscitas-thumbnail-link">Alternate Text :</label></th>\
+				<th><label for="oscitas-thumbnail-link">'+ebsjstrans.alternate+' '+ebsjstrans.text+':</label></th>\
 				<td><input type="text" name="oscitas-alt-txt" id="oscitas-alt-txt" value=""/><br />\
 				</td>\
 			</tr>\
             <tr>\
-				<th><label for="oscitas-thumbnail-link">Link:</label></th>\
+				<th><label for="oscitas-thumbnail-link">'+ebsjstrans.link+':</label></th>\
 				<td><input type="text" name="oscitas-thumbnail-link" id="oscitas-thumbnail-link" value=""/><br />\
 				</td>\
 			</tr>\
             <tr>\
-				<th><label for="oscitas-thumbnail-link">Target:</label></th>\
-				<td><select name="oscitas-thumbnail-link-target" id="oscitas-thumbnail-link-target"><option value="_self">Self</option><option value="_blank">New Window</option></select><br />\
+				<th><label for="oscitas-thumbnail-link">'+ebsjstrans.target+':</label></th>\
+				<td><select name="oscitas-thumbnail-link-target" id="oscitas-thumbnail-link-target"><option value="_self">'+ebsjstrans.self+'</option><option value="_blank">'+ebsjstrans.newtarget+'</option></select><br />\
 				</td>\
 			</tr>\
             <tr>\
-				<th><label for="oscitas-thumbnail-link">Show Border:</label></th>\
+				<th><label for="oscitas-thumbnail-link">'+ebsjstrans.show+' '+ebsjstrans.border+':</label></th>\
 				<td><input type="checkbox" name="oscitas-thumbnail-border" id="oscitas-thumbnail-border" value="1"/><br />\
 				</td>\
 			</tr>\
             <tr>\
-				<th><label for="oscitas-thumbnail-class">Custom Class:</label></th>\
+				<th><label for="oscitas-thumbnail-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-thumbnail-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-thumbnail-submit" class="button-primary" value="Insert Thumbnail" name="submit" />\
+			<input type="button" id="oscitas-thumbnail-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.thumnail+'" name="submit" />\
 		</p>\
 		</div>');
 

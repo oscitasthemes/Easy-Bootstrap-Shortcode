@@ -9,28 +9,28 @@ var image={
 
 function ebs_return_html_image(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
-				<tr><th><label for="oscitas-label-content">Upload Image:</label></th>\
+				<tr><th><label for="oscitas-label-content">'+ebsjstrans.upload+' '+ebsjstrans.image+':</label></th>\
 				<td id="osc_image_upload"><input id="oscitas-image-src" type="hidden" name="oscitas-thumbnail-src"  value="" />\
-                                <input id="_btn" class="upload_image_button" type="button" value="Upload Image" />\
+                                <input id="_btn" class="upload_image_button" type="button" value="'+ebsjstrans.upload+' '+ebsjstrans.image+'" />\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-image-shape">Image Shape:</label></th>\
+				<th><label for="oscitas-image-shape">'+ebsjstrans.image+' '+ebsjstrans.shape+':</label></th>\
 				<td><select name="oscitas-image-shape" id="oscitas-image-shape">\
-                                <option value="img-rounded">Rounded</option>\
-                                <option value="img-circle">Circle</option>\
-                                <option value="img-thumbnail">Thumbnail</option>\
+                                <option value="img-rounded">'+ebsjstrans.rounded+'</option>\
+                                <option value="img-circle">'+ebsjstrans.circle+'</option>\
+                                <option value="img-thumbnail">'+ebsjstrans.thumbnail+'</option>\
                                 </select>\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-image-class">Custom Class:</label></th>\
+				<th><label for="oscitas-image-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-image-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-image-submit" class="button-primary" value="Insert Image" name="submit" />\
+			<input type="button" id="oscitas-image-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.image+'" name="submit" />\
 		</p>\
 		</div>');
     return form;

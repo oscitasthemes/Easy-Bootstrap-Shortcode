@@ -45,70 +45,70 @@ function ebs_return_html_slider(pluginObj){
 
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table" style="margin-top: 0px;">\
     <tr>\
-				<th><label for="oscitas-slider-class">Slider Interval</label></th>\
+				<th><label for="oscitas-slider-class">'+ebsjstrans.slider+' '+ebsjstrans.interval+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-slider-interval" value=""/><br />\
 				</td>\
 			</tr>\
         <tr>\
-				<th><label for="oscitas-slider-class">Show Navigation Controls</label></th>\
+				<th><label for="oscitas-slider-class">'+ebsjstrans.show+' '+ebsjstrans.navigation+' '+ebsjstrans.controls+':</label></th>\
 				<td><input type="checkbox" name="line" id="oscitas-slider-controls" value="true"/><br />\
 				</td>\
 			</tr>\
         <tr>\
-				<th><label for="oscitas-slider-class">Show Navigation Bullets</label></th>\
+				<th><label for="oscitas-slider-class">'+ebsjstrans.show+' '+ebsjstrans.navigation+' '+ebsjstrans.bullets+'</label></th>\
 				<td><input type="checkbox" name="line" id="oscitas-slider-bullets" value="true"/><br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-slider-class">Pause On Hover</label></th>\
+				<th><label for="oscitas-slider-class">'+ebsjstrans.pause+' '+ebsjstrans.on+' '+ebsjstrans.hover+'</label></th>\
 				<td><input type="checkbox" name="line" id="oscitas-slider-pause" value="hover"/><br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-slider-class">Cyclic</label></th>\
+				<th><label for="oscitas-slider-class">'+ebsjstrans.cyclic+'</label></th>\
 				<td><input type="checkbox" name="line" id="oscitas-slider-wrap" value="true"/><br />\
 				</td>\
 			</tr>\
 			 <tr>\
-				<th><label for="oscitas-slider-class">Caption Color</label></th>\
+				<th><label for="oscitas-slider-class">'+ebsjstrans.caption+' '+ebsjstrans.color+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-slider-captioncolor" class="color" value=""/>\
 				</td>\
 			</tr>\
 				<tr>\
-				<th><label for="oscitas-slider-class">Navigation Color</label></th>\
+				<th><label for="oscitas-slider-class">'+ebsjstrans.navigation+' '+ebsjstrans.color+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-slider-navcolor" class="color" value=""/>\
 				</td>\
 			</tr>\
 				<tr>\
-				<th class="main_dp_th"><label for="oscitas-line">Add Slides</label></th>\
+				<th class="main_dp_th"><label for="oscitas-line">'+ebsjstrans.add+' '+ebsjstrans.slides+'</label></th>\
 				<td>\
 				<table class="tb_multiple_column">\
                                 <thead>\
-                                    <tr><th class="enhanced">Title</th><th class="enhanced">Image</th><th class="enhanced">Image Caption</th><th>Active</th><th>Option</th></tr>\
+                                    <tr><th class="enhanced">'+ebsjstrans.title+'</th><th class="enhanced">'+ebsjstrans.image+'</th><th class="enhanced">'+ebsjstrans.image+''+ebsjstrans.caption+'</th><th>'+ebsjstrans.active+'</th><th>'+ebsjstrans.option+'</th></tr>\
                                 </thead>\
                                 <tbody id="oscitas-append-slideritem">\
                                 <tr class="osc_dropdown_list_item">\
-                                    <td class="enhanced"><input type="text" name="oscitas-itemslider-title[]" class="oscitas-itemslider-title" value="Title"/></td>\
+                                    <td class="enhanced"><input type="text" name="oscitas-itemslider-title[]" class="oscitas-itemslider-title" value="'+ebsjstrans.title+'"/></td>\
                                     <td class="enhanced"><input class="oscitas-itemslider-image" type="hidden" name="oscitas-itemslider-image[]"  value="" />\
-                                <input id="_btn" class="upload_image_button" type="button" value="Upload Image" /><div class="image_preview"></div></td>\
+                                <input id="_btn" class="upload_image_button" type="button" value="'+ebsjstrans.upload+' '+ebsjstrans.image+'" /><div class="image_preview"></div></td>\
                                     <td class="enhanced"><textarea name="oscitas-itemslider-caption[]" class="oscitas-itemslider-caption"></textarea></td>\
                                    <td><input type="radio" name="oscitas-itemslider-active" class="oscitas-itemslider-active" value="active" checked="checked"/></td>\
                                   <td></td>\
                                 </tr>\
                                 </tbody>\
                                 <tfoot>\
-                                    <tr><td colspan="5"><a id="osc_add_new_dditem" href="javascript:;" style="text-decoration:none;"><i class="glyphicon glyphicon-plus-sign"></i> Add New Item</a></td></tr>\
+                                    <tr><td colspan="5"><a id="osc_add_new_dditem" href="javascript:;" style="text-decoration:none;"><i class="glyphicon glyphicon-plus-sign"></i> '+ebsjstrans.add+''+ebsjstrans.new+''+ebsjstrans.item+'</a></td></tr>\
                                 </tfoot>\
                                 </table></td>\
 			</tr>\
                     <tr>\
-                        <th><label for="oscitas-slider-class">Custom Class</label></th>\
+                        <th><label for="oscitas-slider-class">'+ebsjstrans.customclass+'</label></th>\
                         <td><input type="text" name="line" id="oscitas-slider-class" value=""/><br />\
                         </td>\
                     </tr>\
 		</table>\
 		<p class="submit" style="padding-right: 10px;text-align: right;">\
-			<input type="button" id="oscitas-slider-submit" class="button-primary" value="Insert slider" name="submit" />\
+			<input type="button" id="oscitas-slider-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.slider+'" name="submit" />\
 		</p>\
 		</div>');
     return form;
@@ -120,7 +120,7 @@ function create_oscitas_slider(pluginObj){
     var table = form.find('table');
 
     form.find('#osc_add_new_dditem').click(function(){
-        var item='<tr class="osc_dropdown_list_item"><td class="enhanced"><input type="text" name="scitas-itemslider-title[]" class="oscitas-itemslider-title" value="Title"/></td><td class="enhanced"><input class="oscitas-itemslider-image" type="hidden" name="oscitas-itemslider-image[]"  value="" /><input id="_btn" class="upload_image_button" type="button" value="Upload Image" /><div class="image_preview"></div></td><td class="enhanced"><textarea name="oscitas-itemslider-caption[]" class="oscitas-itemslider-caption"></textarea></td><td><input type="radio" name="oscitas-itemslider-active" class="oscitas-itemslider-active" value=""/></td><td><a class="osc_remove_dditem" href="javascript:;" style="text-decoration:none;"><i class="glyphicon  glyphicon-remove"></i></a></td></tr>';
+        var item='<tr class="osc_dropdown_list_item"><td class="enhanced"><input type="text" name="scitas-itemslider-title[]" class="oscitas-itemslider-title" value="'+ebsjstrans.title+'"/></td><td class="enhanced"><input class="oscitas-itemslider-image" type="hidden" name="oscitas-itemslider-image[]"  value="" /><input id="_btn" class="upload_image_button" type="button" value="'+ebsjstrans.upload+' '+ebsjstrans.image+'" /><div class="image_preview"></div></td><td class="enhanced"><textarea name="oscitas-itemslider-caption[]" class="oscitas-itemslider-caption"></textarea></td><td><input type="radio" name="oscitas-itemslider-active" class="oscitas-itemslider-active" value=""/></td><td><a class="osc_remove_dditem" href="javascript:;" style="text-decoration:none;"><i class="glyphicon  glyphicon-remove"></i></a></td></tr>';
         form.find('#oscitas-append-slideritem').append(item);
         __slider_show_image_upload_icon(form,jQuery('#oscitas-append-slideritem').find('tr:last').find('.upload_image_button'));
 

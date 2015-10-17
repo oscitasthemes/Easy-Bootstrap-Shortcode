@@ -12,12 +12,11 @@ function osc_ebsp_content_widget() {
 
 class Ebs_Custom_Widget extends WP_Widget {
 
-    function Ebs_Custom_Widget() {
+    function __construct() {
+        global $wp_version;
         $widget_ops = array('classname' => 'ebs_custom_widget', 'description' => __('EBS widget to show EBS/other shortcodes in sidebar.','ebs'));
-
         $control_ops = array('id_base' => 'ebsp-widget');
-
-        $this->WP_Widget('ebsp-widget', __('EBS Shortcode Compiler','ebs'), $widget_ops, $control_ops);
+        parent::__construct('ebsp-widget', __('EBS Shortcode Compiler', 'ebs'), $widget_ops, $control_ops);
     }
 
     function widget($args, $instance) {
@@ -64,12 +63,12 @@ class Ebs_Custom_Widget extends WP_Widget {
         ?>
 
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php echo __('Title', 'easy-bootstrap-shoercodes'); ?>:</label>
             <input class="osc_ebs_input" style=" width: 100%; display: block;" id="<?php echo $this->get_field_id('title'); ?>" type="text" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" />
         </p>
 
         <p>
-            <label for="<?php echo $this->get_field_id('ebs_content'); ?>">Shortcode:</label>
+            <label for="<?php echo $this->get_field_id('ebs_content'); ?>"><?php echo __('Shortcode', 'easy-bootstrap-shoercodes'); ?>:</label>
             <textarea class="osc_ebs_input" style=" height: 250px;
     width: 100%; display: block;" id="<?php echo $this->get_field_id('ebs_content'); ?>" name="<?php echo $this->get_field_name('ebs_content'); ?>" ><?php echo $instance['ebs_content']; ?></textarea>
         </p>

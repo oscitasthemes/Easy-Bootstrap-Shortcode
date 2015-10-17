@@ -11,25 +11,25 @@ var btngrp={
 function ebs_return_html_btngrp(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th class="main_dp_th"><label for="oscitas-btngrp-heading" >Button Group Features</label></th>\
+				<th class="main_dp_th"><label for="oscitas-btngrp-heading" >'+ebsjstrans.btngrpftrs+'</label></th>\
 				<td>\
                     <table class="tb_multiple_column_upper">\
                             <thead>\
-                                <tr><th>Size</th><th>Style</th></tr>\
+                                <tr><th>'+ebsjstrans.size+'</th><th>'+ebsjstrans.style+'</th></tr>\
                             </thead>\
                             <tbody>\
                                 <tr>\
                                     <td><select name="type" id="oscitas-btngrp-size">\
-                                            <option value="">Default</option>\
-                                            <option value="btn-lg">Large</option>\
-                                            <option value="btn-sm">Small</option>\
-                                            <option value="btn-xs">Ex-small</option>\
+                                            <option value="">'+ebsjstrans.default+'</option>\
+                                            <option value="btn-lg">'+ebsjstrans.large+'</option>\
+                                            <option value="btn-sm">'+ebsjstrans.Small+'</option>\
+                                            <option value="btn-xs">'+ebsjstrans.exsmall+'</option>\
                                         </select></td>\
                                     <td>\
                                    <select name="type" id="oscitas-btngrp-style">\
-                                            <option value="">Default</option>\
-                                            <option value="vertical">Vertical</option>\
-                                            <option value="justified">Justified</option>\
+                                            <option value="">'+ebsjstrans.default+'</option>\
+                                            <option value="vertical">'+ebsjstrans.vertical+'</option>\
+                                            <option value="justified">'+ebsjstrans.justified+'</option>\
                                         </select>\
                                     </td>\
                                 </tr>\
@@ -38,29 +38,29 @@ function ebs_return_html_btngrp(pluginObj){
                 </td>\
 			</tr>\
 			<tr>\
-				<th class="main_dp_th"><label for="oscitas-line">Button Group Items</label></th>\
+				<th class="main_dp_th"><label for="oscitas-line">'+ebsjstrans.btngrp_items+'</label></th>\
 				<td>\
 				    <table class="tb_multiple_column">\
                         <thead>\
-                            <tr><th>Style</th><th>Type</th><th>Link</th><th>Open in New Window</th><th>Title</th><th>Option</th></tr>\
+                            <tr><th>'+ebsjstrans.style+'</th><th>'+ebsjstrans.type+'</th><th>'+ebsjstrans.link+'</th><th>'+ebsjstrans.newwindow+'</th><th>'+ebsjstrans.title+'</th><th>'+ebsjstrans.option+'</th></tr>\
                         </thead>\
                         <tbody id="oscitas-append-btngrpitem">\
                             <tr class="osc_btngrp_list_item">\
                                 <td>\
                                     <select name="type" class="oscitas-btngrpitem-style">\
-                                        <option value="btn-default">Simple</option>\
-                                        <option value="btn-primary">Primary</option>\
-                                        <option value="btn-success">Success</option>\
-                                        <option value="btn-info">Information</option>\
-                                        <option value="btn-warning">Warning</option>\
-                                        <option value="btn-danger">Danger</option>\
-                                        <option value="btn-link">Link</option>\
+                                        <option value="btn-default">'+ebsjstrans.simple+'</option>\
+                                        <option value="btn-primary">'+ebsjstrans.primary+'</option>\
+                                        <option value="btn-success">'+ebsjstrans.success+'</option>\
+                                        <option value="btn-info">'+ebsjstrans.information+'</option>\
+                                        <option value="btn-warning">'+ebsjstrans.warning+'</option>\
+                                        <option value="btn-danger">'+ebsjstrans.danger+'</option>\
+                                        <option value="btn-link">'+ebsjstrans.link+'</option>\
                                     </select>\
 				                </td>\
                                 <td class="osc_btg_type_change">\
                                     <select name="type"  class="oscitas-btngrpitem-type">\
-                                        <option value="link">Link</option>\
-                                        <option value="button">Button</option>\
+                                        <option value="link">'+ebsjstrans.link+'</option>\
+                                        <option value="button">'+ebsjstrans.button+'</option>\
 				                    </select>\
                                 </td>\
 				                <td class="osc_btg_hide">\
@@ -70,7 +70,7 @@ function ebs_return_html_btngrp(pluginObj){
 				                    <input type="checkbox" class="oscitas-btngrpitem-target" value="true">\
 				                </td>\
                                 <td>\
-                                    <input type="text" name="title" class="oscitas-btngrpitem-title" value="Button"/>\
+                                    <input type="text" name="title" class="oscitas-btngrpitem-title" value="'+ebsjstrans.button+'"/>\
                                 </td>\
                                 <td></td>\
                             </tr>\
@@ -78,7 +78,7 @@ function ebs_return_html_btngrp(pluginObj){
                         <tfoot>\
                             <tr>\
                                 <td colspan="8">\
-                                    <a id="osc_add_new_dditem" href="javascript:;" style="text-decoration:none;"><i class="glyphicon glyphicon-plus-sign"></i> Add New Item</a>\
+                                    <a id="osc_add_new_dditem" href="javascript:;" style="text-decoration:none;"><i class="glyphicon glyphicon-plus-sign"></i> '+ebsjstrans.addnewitem+'</a>\
                                 </td>\
                             </tr>\
                         </tfoot>\
@@ -87,7 +87,7 @@ function ebs_return_html_btngrp(pluginObj){
 			</tr>\
             <tr>\
 				<th>\
-				    <label for="oscitas-btngrp-class">Custom Class</label>\
+				    <label for="oscitas-btngrp-class">'+ebsjstrans.customclass+'</label>\
                 </th>\
 				<td>\
 				    <input type="text" name="line" id="oscitas-btngrp-class" value=""/>\
@@ -95,7 +95,7 @@ function ebs_return_html_btngrp(pluginObj){
 			</tr>\
     </table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-btngrp-submit" class="button-primary" value="Insert Button Group" name="submit" />\
+			<input type="button" id="oscitas-btngrp-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.buttongrp+' '+ebsjstrans.grp+'" name="submit" />\
 		</p>\
 		</div>');
     return form;
@@ -108,19 +108,19 @@ function create_oscitas_btngrp(pluginObj){
     form.find('#osc_add_new_dditem').click(function(){
         var item='<tr class="osc_btngrp_list_item">' +
             '<td><select name="type" class="oscitas-btngrpitem-style">'+
-            '<option value="btn-default">Simple</option>'+
-            '<option value="btn-primary">Primary</option>'+
-            '<option value="btn-success">Success</option>'+
-            '<option value="btn-info">Information</option>'+
-            '<option value="btn-warning">Warning</option>'+
-            '<option value="btn-danger">Danger</option>'+
-            '<option value="btn-link">Link</option>'+
+            '<option value="btn-default">'+ebsjstrans.simple+'</option>'+
+            '<option value="btn-primary">'+ebsjstrans.primary+'</option>'+
+            '<option value="btn-success">'+ebsjstrans.success+'</option>'+
+            '<option value="btn-info">'+ebsjstrans.information+'</option>'+
+            '<option value="btn-warning"'+ebsjstrans.warning+'></option>'+
+            '<option value="btn-danger">'+ebsjstrans.danger+'</option>'+
+            '<option value="btn-link">'+ebsjstrans.link+'</option>'+
             '</select>'+
             '</td>'+
             '<td class="osc_btg_type_change">'+
             '<select name="type" class="oscitas-btngrpitem-type">'+
-            '<option value="link">Link</option>'+
-            '<option value="button">Button</option>'+
+            '<option value="link">'+ebsjstrans.link+'</option>'+
+            '<option value="button">'+ebsjstrans.button+'</option>'+
             '</select>'+
             '</td>'+
             '<td class="osc_btg_hide">'+
@@ -130,7 +130,7 @@ function create_oscitas_btngrp(pluginObj){
             '<input type="checkbox" class="oscitas-btngrpitem-target" value="true">'+
             '</td>'+
             '<td>'+
-            '<input type="text" name="title" class="oscitas-btngrpitem-title" value="Button"/>'+
+            '<input type="text" name="title" class="oscitas-btngrpitem-title" value="'+ebsjstrans.button+'"/>'+
             '</td>'+
             '<td><a class="osc_remove_btgitem" href="javascript:;" style="text-decoration:none;"><i class="glyphicon  glyphicon-remove"></i></a></td>'+
             '</tr>';

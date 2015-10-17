@@ -10,27 +10,27 @@ var well={
 function ebs_return_html_well(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th><label for="oscitas-well-type">Well Type:</label></th>\
+				<th><label for="oscitas-well-type">'+ebsjstrans.well+' '+ebsjstrans.type+':</label></th>\
 				<td><select name="type" id="oscitas-well-type">\
-					<option value="">Default</option>\
-					<option value="well-lg">Large</option>\
-					<option value="well-sm">Small</option>\
+					<option value="">'+ebsjstrans.default+'</option>\
+					<option value="well-lg">'+ebsjstrans.large+'</option>\
+					<option value="well-sm">'+ebsjstrans.small+'</option>\
 				</select><br />\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-well-content">Well Content:</label></th>\
-				<td><textarea name="well" id="oscitas-well-content">Your Content</textarea><br />\
+				<th><label for="oscitas-well-content">'+ebsjstrans.well+' '+ebsjstrans.content+':</label></th>\
+				<td><textarea name="well" id="oscitas-well-content">'+ebsjstrans.your+' '+ebsjstrans.content+'</textarea><br />\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-well-class">Custom Class:</label></th>\
+				<th><label for="oscitas-well-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-well-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-well-submit" class="button-primary" value="Insert Well" name="submit" />\
+			<input type="button" id="oscitas-well-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.well+'" name="submit" />\
 		</p>\
 		</div>');
 

@@ -9,10 +9,11 @@ function osc_theme_os_table($params, $content = null) {
                 'width' => '100%',
                 'style' => '',
                 'responsive' => 'false',
-                'class' => ''
+                'class' => '',
+                //'style'=>''
                     ), $params));
     $content = str_replace("]<br />", ']', $content);
-    $out = '<table width="' . $width . '" class="table ' . $style . ' '.$class.EBS_CONTAINER_CLASS.'">' . do_shortcode($content) . '</table>';
+    $out = '<table width="' . $width . '" class="table '.$class.EBS_CONTAINER_CLASS.'" style="' . $style . '">' . do_shortcode($content) . '</table>';
     $out = strtolower($responsive) == 'true' ? '<div class="table-responsive'.EBS_CONTAINER_CLASS.'">' . $out . '</div>' : $out;
     return $out;
 }

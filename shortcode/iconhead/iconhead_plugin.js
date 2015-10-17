@@ -10,18 +10,18 @@ var iconhead={
 function ebs_return_html_iconhead(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
-				<th><label for="oscitas-heading-icon">Select Icon:</label></th>\
+				<th><label for="oscitas-heading-icon">'+ebsjstrans.select+' '+ebsjstrans.icon+':</label></th>\
 				<td><div id="click_icon_list" class="oscitas-icon-div"><span id="osc_show_icon"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val" value="">\
                     <div id="osc_show_iconlist" class="oscitas-icon" style="display:none;width:100%">'+font_awesome_include('oscitas-heading-icon')+'</div>\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-iconhead-iconcolor">Icon Color:</label></th>\
+				<th><label for="oscitas-iconhead-iconcolor">'+ebsjstrans.icon+' '+ebsjstrans.color+':</label></th>\
 				<td><input type="text" name="label" id="oscitas-iconhead-iconcolor" class="color" value="" /><br />\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-iconhead-headingtype">Heading Type:</label></th>\
+				<th><label for="oscitas-iconhead-headingtype">'+ebsjstrans.heading+' '+ebsjstrans.type+':</label></th>\
 				<td><select name="oscitas-iconhead-headingtype" id="oscitas-iconhead-headingtype">\
                                 <option value="h1">H1</option>\
                                 <option value="h2">H2</option>\
@@ -33,18 +33,18 @@ function ebs_return_html_iconhead(pluginObj){
 				</td>\
 			</tr>\
 	        <tr>\
-				<th><label for="oscitas-iconhead-heading">Heading:</label></th>\
-				<td><input type="text" name="oscitas-iconhead-heading" id="oscitas-iconhead-heading" value="Heading"/><br />\
+				<th><label for="oscitas-iconhead-heading">'+ebsjstrans.heading+':</label></th>\
+				<td><input type="text" name="oscitas-iconhead-heading" id="oscitas-iconhead-heading" value="'+ebsjstrans.heading+'"/><br />\
 				</td>\
 			</tr>\
                         <tr>\
-				<th><label for="oscitas-iconhead-class">Custom Class:</label></th>\
+				<th><label for="oscitas-iconhead-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-iconhead-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-iconhead-submit" class="button-primary" value="Insert Icon Heading" name="submit" />\
+			<input type="button" id="oscitas-iconhead-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.icon+' '+ebsjstrans.heading+'" name="submit" />\
 		</p>\
 		</div>');
 return form;

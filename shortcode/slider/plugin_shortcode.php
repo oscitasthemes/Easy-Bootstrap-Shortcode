@@ -12,12 +12,11 @@ function osc_theme_sliders($params, $content = null) {
     if (!count($_oscitas_slider)) {
         $_oscitas_slider = array('current_id'=>0);
     }
-    if(!session_id()){
-        @session_start();
-    }
+    ebs_session_start();
     if(!isset($_SESSION['ebs_slider_css'])){
         $_SESSION['ebs_slider_css']=array();
     }
+    ebs_session_end();
     extract(shortcode_atts(array(
         'id' => count($_oscitas_slider),
         'class' => '',
@@ -61,6 +60,7 @@ function osc_theme_sliders($params, $content = null) {
         }
 
         $output .= '</div>';
+        ebs_session_start();
         $_SESSION['ebs_slider_css'][$id]=$id;
         $_SESSION['ebs_slider_each_'.$id]="
 #oscitas-slider-{$id} a.carousel-control span{
@@ -88,7 +88,7 @@ function osc_theme_sliders($params, $content = null) {
     width:100%;
 }
         ";
-
+        ebs_session_end();
     }
     $_oscitas_slider['current_id'] -= 1;
     return $output;

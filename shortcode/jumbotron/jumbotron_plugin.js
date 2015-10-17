@@ -10,17 +10,17 @@ var jumbotron={
 function ebs_return_html_jumbotron(pluginObj){
     var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			   <tr>\
-        <th><label for="oscitas-jumbotron-bgcolor">Background Color</label></th>\
+        <th><label for="oscitas-jumbotron-bgcolor">'+ebsjstrans.bgcolor+'</label></th>\
         <td><input type="text" class="color" name="bgcolor" id="oscitas-jumbotron-bgcolor" value="">\
         </tr>\
         <tr>\
-            <th><label for="oscitas-jumbotron-class">Custom Class</label></th>\
+            <th><label for="oscitas-jumbotron-class">'+ebsjstrans.customclass+'</label></th>\
             <td><input type="text" name="class" id="oscitas-jumbotron-class" value=""/>\
            </td>\
         </tr>\
 		</table>\
 		<p class="submit">\
-			<input type="button" id="oscitas-jumbotron-submit" class="button-primary" value="Insert Jumbotron" name="submit" />\
+			<input type="button" id="oscitas-jumbotron-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.jumbotron+'" name="submit" />\
 		</p>\
 		</div>');
     return form;

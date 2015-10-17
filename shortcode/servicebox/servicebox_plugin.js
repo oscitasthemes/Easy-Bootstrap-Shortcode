@@ -42,90 +42,92 @@ function ebs_return_html_servicebox(pluginObj){
         <span id="icon_bg_preview" class="iconcircle glyphicon glyphicon-cog"></span>\
     <div id="osc-servicebox-scroll"><table id="oscitas-table" class="form-table">\
                         <tr class="show_boxtype_icon">\
-                        <th><label for="oscitas-heading-icon">Select Icon:</label></th>\
+                        <th><label for="oscitas-heading-icon">'+ebsjstrans.select+' '+ebsjstrans.icon+':</label></th>\
 				<td><div id="click_icon_list_servicebox" class="oscitas-icon-div"><span id="osc_show_icon_servicebox"></span><span class="show-drop"></span></div><input type="hidden" id="oscitas-servicebox-icon" value=""><input type="hidden" id="oscitas-servicebox-icontype" value="">\
                     <div id="osc_show_iconlist_servicebox" class="oscitas-icon" style="display:none;">'+font_awesome_include('oscitas-heading-icon_servicebox')+'</div>\
 				</td>\
 			</tr>\
             <tr>\
-				<th><label>Icon Size:</label></th>\
+				<th><label>'+ebsjstrans.icon+' '+ebsjstrans.size+':</label></th>\
 				<td><input type="text" name="label" class="slider_input" id="oscitas-servicebox-icon_size" value="40"/>\
 				<div class="slider_render" id="slider_rander_icon"></div>\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label>Icon Background Size:</label></th>\
+				<th><label>'+ebsjstrans.icon+' '+ebsjstrans.bg+' '+ebsjstrans.size+':</label></th>\
 				<td><input type="text" name="label" class="slider_input" id="oscitas-servicebox-iconbg_size" value="100"/>\
 				<div class="slider_render" id="slider_rander_icon_bg"></div>\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label>Border Radius:</label></th>\
+				<th><label>'+ebsjstrans.border+' '+ebsjstrans.radius+':</label></th>\
 				<td><input type="text" name="label" class="slider_input" id="oscitas-servicebox-iconbg_radius" value="50"/>\
 				<div class="slider_render" id="slider_rander_icon_bg_radius"></div>\
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label>Margin Top:</label></th>\
+				<th><label>'+ebsjstrans.margin+' '+ebsjstrans.top+':</label></th>\
 				<td><input type="text" name="label" id="oscitas-servicebox-margin_top" value="30"/> <small>px</small>\
 				</td>\
 			</tr><tr>\
-				<th><label>Margin Bottom:</label></th>\
+				<th><label>'+ebsjstrans.margin+' '+ebsjstrans.bottom+':</label></th>\
 				<td><input type="text" name="label" id="oscitas-servicebox-margin_bottom" value="30"/> <small>px</small>\
 				</td>\
 			</tr>\
             <tr class="show_boxtype_icon">\
-				<th><label for="oscitas-servicebox-iconcolor">Icon Color:</label></th>\
+				<th><label for="oscitas-servicebox-iconcolor">'+ebsjstrans.icon+' '+ebsjstrans.color+':</label></th>\
 				<td><input type="text" name="label" id="oscitas-servicebox-iconcolor" data-type="icon"  data-attr="color" class="color" value="#777777" data-default-color="#777777"/><br />\
 				</td>\
 			</tr>\
                 <tr class="show_boxtype_icon">\
-                    <th><label for="oscitas-servicebox-iconbgcolor">Icon Background Color:</label></th>\
+                    <th><label for="oscitas-servicebox-iconbgcolor">'+ebsjstrans.icon+' '+ebsjstrans.bgcolor+':</label></th>\
                     <td><input type="text" name="label" id="oscitas-servicebox-iconbgcolor" data-type="icon_bg"  data-attr="background" class="color" value="#FFFFFF" data-default-color="#FFFFFF"/><br />\
                     </td>\
                 </tr>\
             <tr>\
-				<th><label >Read More:</label></th>\
-				<td><input type="checkbox" name="oscitas-servicebox-readmore" id="oscitas-servicebox-readmore" class="show_sub has_sub" value="true" data="readmore"/><label for="oscitas-servicebox-readmore">Include Read More Link</label>\
+				<th><label >'+ebsjstrans.read+' '+ebsjstrans.more+':</label></th>\
+				<td><input type="checkbox" name="oscitas-servicebox-readmore" id="oscitas-servicebox-readmore" class="show_sub has_sub" value="true" data="readmore"/><label for="oscitas-servicebox-readmore">'+ebsjstrans.include+' '+ebsjstrans.read+' '+ebsjstrans.more+' '+ebsjstrans.link+'</label>\
 				</td>\
 			</tr>\
 			<tr class="oscitas-servicebox-readmore" style="display:none">\
-				<th><label for="oscitas-servicebox-readmore_link">Link:</label></th>\
+				<th><label for="oscitas-servicebox-readmore_link">'+ebsjstrans.link+':</label></th>\
 				<td><input type="text" name="label" id="oscitas-servicebox-readmore_link" value="#"/><br />\
 				</td>\
 			</tr>\
                 <tr class="oscitas-servicebox-readmore" style="display:none">\
-				<th><label for="oscitas-servicebox-readmore_text">Text:</label></th>\
-				<td><input type="text" name="label" id="oscitas-servicebox-readmore_text" value="Read More"/><br />\
+				<th><label for="oscitas-servicebox-readmore_text">'+ebsjstrans.text+':</label></th>\
+				<td><input type="text" name="label" id="oscitas-servicebox-readmore_text" value="'+ebsjstrans.read+' '+ebsjstrans.more+'"/><br />\
 				</td>\
 			</tr>\
                 <tr class="oscitas-servicebox-readmore" style="display:none">\
-				<th><label for="oscitas-servicebox-readmore_type">Button Type:</label></th>\
+				<th><label for="oscitas-servicebox-readmore_type">'+ebsjstrans.button+' '+ebsjstrans.type+':</label></th>\
 				<td><select name="label" id="oscitas-servicebox-readmore_type">\
-                    <option value="">Default</option>\
-                    <option value="btn-lg">Large</option>\
-					<option value="btn-sm">Small</option>\
-					<option value="btn-xs">Ex-small</option>\
+                    <option value="">'+ebsjstrans.default+'</option>\
+                    <option value="btn-lg">'+ebsjstrans.large+'</option>\
+					<option value="btn-sm">'+ebsjstrans.small+'</option>\
+					<option value="btn-xs">'+ebsjstrans.exsmall+'</option>\
 				    </select>\
 				</td>\
 			</tr>\
 			<tr class="oscitas-servicebox-readmore" style="display:none">\
-				<th><label>Read More Style:</label></th>\
-				<td><input type="radio" name="oscitas-servicebox-readmorestyle" id="oscitas-servicebox-readmorestyle-default" class="show_sub" value="default" checked="checked" data="readmorestyle"/><label for="oscitas-servicebox-readmorestyle-default">Default</label><input type="radio" class="show_sub has_sub" name="oscitas-servicebox-readmorestyle" id="oscitas-servicebox-readmorestyle-custom" value="custom" data="readmorestyle"/><label for="oscitas-servicebox-readmorestyle-custom">Custom</label><br />\
+				<th><label>'+ebsjstrans.read+' '+ebsjstrans.more+' '+ebsjstrans.style+':</label></th>\
+				<td>\
+				    <input type="radio" name="oscitas-servicebox-readmorestyle" id="oscitas-servicebox-readmorestyle-default" class="show_sub" value="default" checked="checked" data="readmorestyle"/><label for="oscitas-servicebox-readmorestyle-default">'+ebsjstrans.default+'</label>\
+				    <input type="radio" class="show_sub has_sub" name="oscitas-servicebox-readmorestyle" id="oscitas-servicebox-readmorestyle-custom" value="custom" data="readmorestyle"/><label for="oscitas-servicebox-readmorestyle-custom">'+ebsjstrans.custom+'</label><br />\
 				</td>\
 			</tr>\
 			<tr class="oscitas-servicebox-readmorestyle" style="display:none">\
-				<th><label for="oscitas-servicebox-readmore_bgcolor">Link Background Color:</label></th>\
+				<th><label for="oscitas-servicebox-readmore_bgcolor">'+ebsjstrans.link+' '+ebsjstrans.bgcolor+':</label></th>\
 				<td><input type="text" name="label" id="oscitas-servicebox-readmore_bgcolor" class="color" value="#FFFFFF" data-default-color="#FFFFFF"/><br />\
 				</td>\
 			</tr>\
                 <tr class="oscitas-servicebox-readmorestyle" style="display:none">\
-				<th><label for="oscitas-servicebox-readmore_fgcolor">Link Foreground Color:</label></th>\
+				<th><label for="oscitas-servicebox-readmore_fgcolor">'+ebsjstrans.link+' '+ebsjstrans.foreground+' '+ebsjstrans.color+':</label></th>\
 				<td><input type="text" name="label" id="oscitas-servicebox-readmore_fgcolor" class="color" value="#777777" data-default-color="#777777"/><br />\
 				</td>\
 			</tr>\
             <tr >\
-				<th><label for="oscitas-servicebox-headingtype">Heading Type:</label></th>\
+				<th><label for="oscitas-servicebox-headingtype">'+ebsjstrans.heading+' '+ebsjstrans.type+':</label></th>\
 				<td><select name="oscitas-servicebox-headingtype" id="oscitas-servicebox-headingtype">\
                                 <option value="h1">H1</option>\
                                 <option value="h2">H2</option>\
@@ -137,18 +139,18 @@ function ebs_return_html_servicebox(pluginObj){
 				</td>\
 			</tr>\
 			<tr>\
-				<th><label for="oscitas-servicebox-heading">Heading:</label></th>\
+				<th><label for="oscitas-servicebox-heading">'+ebsjstrans.heading+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-servicebox-heading" value=""/><br />\
 				</td>\
 			</tr>\
             <tr>\
-				<th><label for="oscitas-servicebox-class">Custom Class:</label></th>\
+				<th><label for="oscitas-servicebox-class">'+ebsjstrans.customclass+':</label></th>\
 				<td><input type="text" name="line" id="oscitas-servicebox-class" value=""/><br />\
 				</td>\
 			</tr>\
 		</table></div>\
 		<p class="submit">\
-			<input type="button" id="oscitas-servicebox-submit" class="button-primary" value="Insert Service Box" name="submit" />\
+			<input type="button" id="oscitas-servicebox-submit" class="button-primary" value="'+ebsjstrans.insert+' '+ebsjstrans.servicebox+'" name="submit" />\
 		</p>\
 		</div>');
     return form;
@@ -261,8 +263,7 @@ function create_oscitas_servicebox(pluginObj){
             }
         });
         var selected_content = tinyMCE.activeEditor.selection.getContent();
-        if(!selected_content)
-            var selected_content = 'Your Content';
+        if(!selected_content) var selected_content = ebsjstrans.your+' '+ebsjstrans.content; //'Your Content';
         var shortcode = '['+$ebs_prefix+'servicebox '+shortcodeattr+']'+selected_content+'[/servicebox]';
 
         // inserts the shortcode into the active editor

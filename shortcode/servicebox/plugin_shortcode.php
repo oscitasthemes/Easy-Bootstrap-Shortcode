@@ -4,8 +4,9 @@
  * Servicebox
  * ********************************************************* */
 $_ebsp_servicebox=array();
-
+ebs_session_start();
 $_SESSION['ebs_servicebox_css']=array();
+ebs_session_end();
 function osc_theme_servicebox($params, $content = null) {
     global $_ebsp_servicebox;
     extract(shortcode_atts(array(
@@ -84,8 +85,10 @@ function osc_theme_servicebox($params, $content = null) {
         -o-border-radius: '.$iconbg_radius.'%;
     ;
 	}';
+    ebs_session_start();
     $_SESSION['ebs_servicebox_css'][]= 'ebs_servicebox_css_id_'.$id;
     $_SESSION['ebs_servicebox_css_id_'.$id]=$style;
+    ebs_session_end();
     wp_enqueue_style('ebs-dstyle',EBS_PLUGIN_URL.'styles/ebs-dstyle.php');
     return $out;
 }
